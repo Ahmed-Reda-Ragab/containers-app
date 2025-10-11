@@ -1,0 +1,23 @@
+remove 
+-Dumping Cost
+-Additional Trip Cost
+
+-checkbox for => include tax or not Tax Value ( position under Container Price )
+
+
+http://container-app.test/contracts/2/container-fills/create
+-Expected Discharge Date should cal form contract
+-address shoul be exist form contract
+
+in show contract show created by user
+
+
+
+-http://container-app.test/contracts/2
+الحاويات 
+-> date
+-> select => راجع او خارج
+-> discharge_deliver_id
+
+
+->عمل دفع شهري

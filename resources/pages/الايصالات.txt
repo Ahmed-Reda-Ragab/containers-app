@@ -1,0 +1,1062 @@
+<table cellspacing="0" border="0" style="">
+  <thead>
+    <tr>
+		
+      <th><b><font size="4" color="#000000">B1الجمعة</font></b></th>
+		
+      <th><b><font size="3" color="#FFFFFF">10/10/2025</font></b></th>
+		
+      <th><b><u><font size="4" color="#FFFFFF">B219/04/1447</font></u></b></th>
+		
+      <th><b><font color="#000000">عدد<br>الحاويات</font></b></th>
+		
+      <th><b><font size="5" color="#000000">60</font></b></th>
+		
+      <th><b><font size="4" color="#000000">المتوفر</font></b></th>
+		
+      <th><b><font size="4" color="#00B050">60</font></b></th>
+		
+      <th><b><font size="4" color="#000000">غير متوفر</font></b></th>
+		
+      <th><b><font size="4" color="#FF0000">0</font></b></th>
+		
+      <th><b><font size="4" color="#000000">صيانة</font></b></th>
+		
+      <th><b><font size="3" color="#000000">0</font></b></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><b><font color="#FFFFFF"><br></font></b></th>
+		
+      <th><b><font color="#FFFFFF"><br></font></b></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+		
+      <th><font color="#000000"><br></font></th>
+	
+    </tr>
+  </thead>
+	<colgroup width="85"></colgroup>
+	<colgroup width="121"></colgroup>
+	<colgroup width="128"></colgroup>
+	<colgroup width="65"></colgroup>
+	<colgroup width="114"></colgroup>
+	<colgroup width="125"></colgroup>
+	<colgroup width="81"></colgroup>
+	<colgroup width="121"></colgroup>
+	<colgroup width="123"></colgroup>
+	<colgroup width="109"></colgroup>
+	<colgroup width="102"></colgroup>
+	<colgroup width="103"></colgroup>
+	<colgroup width="120"></colgroup>
+	<colgroup width="103"></colgroup>
+	<colgroup width="135"></colgroup>
+	<colgroup width="154"></colgroup>
+	<colgroup width="121"></colgroup>
+	<colgroup width="99"></colgroup>
+	<colgroup width="85"></colgroup>
+	<colgroup width="72"></colgroup>
+	<colgroup width="93"></colgroup>
+	<colgroup width="127"></colgroup>
+	<colgroup width="145"></colgroup>
+	<colgroup width="100"></colgroup>
+	<colgroup width="114"></colgroup>
+	<colgroup width="197"></colgroup>
+	<colgroup span="3" width="59"></colgroup>
+	<colgroup width="23"></colgroup>
+	<colgroup span="3" width="59"></colgroup>
+	<colgroup width="36"></colgroup>
+	<colgroup width="217"></colgroup>
+	<colgroup span="3" width="93"></colgroup>
+	<colgroup span="3" width="92"></colgroup>
+	
+  <tbody>
+	
+    <tr>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="bottom" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font color="#FFFFFF"><br></font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">تفريغ اليوم</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdval="45941" sdnum="1033;0;MM/D"><b><font color="#FFFFFF">10/11</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdval="45942" sdnum="1033;0;MM/D"><b><font color="#FFFFFF">10/12</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdval="45943" sdnum="1033;0;MM/D"><b><font color="#FFFFFF">10/13</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdval="45944" sdnum="1033;0;MM/D"><b><font color="#FFFFFF">10/14</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdval="45945" sdnum="1033;0;MM/D"><b><font color="#FFFFFF">10/15</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdval="45946" sdnum="1033;0;MM/D"><b><font color="#FFFFFF">10/16</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdval="45947" sdnum="1033;0;MM/D"><b><font color="#FFFFFF">10/17</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdval="45948" sdnum="1033;0;MM/D"><b><font color="#FFFFFF">10/18</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdval="45949" sdnum="1033;0;MM/D"><b><font color="#FFFFFF">10/19</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdval="45950" sdnum="1033;0;MM/D"><b><font color="#FFFFFF">10/20</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdval="45951" sdnum="1033;0;MM/D"><b><font color="#FFFFFF">10/21</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdval="45952" sdnum="1033;0;MM/D"><b><font color="#FFFFFF">10/22</font></b></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;0;000000000"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;0"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;0"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+	
+    </tr>
+	
+    <tr>
+		
+      <td height="60" align="center" valign="bottom" sdnum="1033;1025;#٬##0"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><font color="#000000"><br></font></td>
+		
+      <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FF0000">اجمالي التفريغ</font></b></td>
+		
+      <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4">متأخر</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b>طلب<br> العميل</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45940" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1الجمعة</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45941" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1السبت</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45942" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1الأحد</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45943" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1الاثنين</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45944" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1الثلاثاء</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45945" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1الأربعاء</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45946" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1الخميس</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45947" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1الجمعة</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45948" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1السبت</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45949" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1الأحد</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45950" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1الاثنين</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45951" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1الثلاثاء</b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DCE6F2" sdval="45952" sdnum="1033;1025;[$-401][~hijri]B1DDDD"><b>B1الأربعاء</b></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;0"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;0;000"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;0;00"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;0;000"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;0"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;0;000"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;0;00"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+	
+    </tr>
+	
+    <tr>
+		
+      <td height="56" align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#FF0000" sdval="0" sdnum="1033;1025;0"><b><font size="5" color="#10243E">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#92D050" sdval="0" sdnum="1033;1025;0"><b><font size="5" color="#FF0000">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#92D050" sdval="0" sdnum="1033;1025;0"><b><font size="5" color="#00B050">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#92D050" sdval="0" sdnum="1033;1025;0"><b><font size="5" color="#7030A0">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DDD9C3" sdval="0" sdnum="1033;1025;0"><b><font size="4" color="#000000">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DDD9C3" sdval="0" sdnum="1033;1025;0"><b><font size="4" color="#000000">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DDD9C3" sdval="0" sdnum="1033;1025;0"><b><font size="4" color="#000000">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DDD9C3" sdval="0" sdnum="1033;1025;0"><b><font size="4" color="#000000">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DDD9C3" sdval="0" sdnum="1033;1025;0"><b><font size="4" color="#000000">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DDD9C3" sdval="0" sdnum="1033;1025;0"><b><font size="4" color="#000000">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DDD9C3" sdval="0" sdnum="1033;1025;0"><b><font size="4" color="#000000">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DDD9C3" sdval="0" sdnum="1033;1025;0"><b><font size="4" color="#000000">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DDD9C3" sdval="0" sdnum="1033;1025;0"><b><font size="4" color="#000000">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DDD9C3" sdval="0" sdnum="1033;1025;0"><b><font size="4" color="#000000">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DDD9C3" sdval="0" sdnum="1033;1025;0"><b><font size="4" color="#000000">0</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#DDD9C3" sdval="0" sdnum="1033;1025;0"><b><font size="4" color="#000000">0</font></b></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+		
+      <td align="left" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><font color="#000000"><br></font></td>
+	
+    </tr>
+	
+    <tr>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="78" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">طلب العميل </font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">ايصال</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">رقم<br>العقد</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font color="#FFFFFF">وقت <br>تسليم</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">رقم<br>الحاوية</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">تاريخ<br> التوصيل</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">الايام<br>المطلوبة</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">تاريخ التفريغ<br>حسابياً</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">تاريخ التفريغ </font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">عدد<br>الايام</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">ايام<br>التأخير</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">خارج/راجع</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">المبلغ</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">تحصيل</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;0;M/D/YYYY"><b><font size="4" color="#FFFFFF">تاريخ التحويل</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">ملاحظة</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">مبلغ<br> لم يسدد</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">سائق<br>توصيل</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">شاحنة<br>توصيل</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">سائق<br>تفريغ</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">شاحنه التفريغ</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">رقم الجوال</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">اسم العميل</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">المدينة</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">الحي</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">معلم واضح</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">E3</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">E2</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">E1</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">E</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">N3</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">N2</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">N1</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">N</font></b></td>
+		
+      <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="4" color="#FFFFFF">تفاصيل</font></b></td>
+		
+      <td align="center" valign="top" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font color="#FFFFFF">ناتج المعادلة<br>اكبر من 1<br>يجب تفريغ</font></b></td>
+		
+      <td align="center" valign="top" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font color="#FFFFFF">يجب تفريغ=1<br>لا يجب=0</font></b></td>
+		
+      <td align="center" valign="top" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font color="#FFFFFF">خارج=1<br>راجع=0</font></b></td>
+		
+      <td align="center" valign="top" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font color="#FFFFFF">فعال=1<br>غيرفعال=0</font></b></td>
+		
+      <td align="center" valign="top" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font color="#FFFFFF">تفريغ نهائي</font></b></td>
+		
+      <td align="center" valign="top" bgcolor="#376092" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font color="#FFFFFF">تصحيح <br>التفريغ</font></b></td>
+	
+    </tr>
+	
+    <tr>
+		
+      <td height="34" align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="middle" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000">DF12 0001</font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;[$-401]H:MM AM/PM;@"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#E46C0A"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#0B7F29"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#376092"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#FF0000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdval="50" sdnum="1033;0;000"><b><font size="3" color="#000000">050</font></b></td>
+		
+      <td align="center" valign="middle" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="4" color="#632523">E</font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdval="26" sdnum="1033;0;00"><b><font size="3" color="#000000">26</font></b></td>
+		
+      <td align="center" valign="middle" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="4" color="#632523">N</font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdval="0" sdnum="1033;1025;General"><font color="#000000">0</font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+	
+    </tr>
+	
+    <tr>
+		
+      <td height="34" align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="middle" sdnum="1033;1025;0"><b><font size="3" color="#000000">DF12 0002</font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;[$-401]H:MM AM/PM;@"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><b><font size="3" color="#E46C0A"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#0B7F29"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#376092"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#FF0000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdval="50" sdnum="1033;0;000"><b><font size="3" color="#000000">050</font></b></td>
+		
+      <td align="center" valign="middle" sdnum="1033;1025;0"><b><font size="4" color="#632523">E</font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdval="26" sdnum="1033;0;00"><b><font size="3" color="#000000">26</font></b></td>
+		
+      <td align="center" valign="middle" sdnum="1033;1025;0"><b><font size="4" color="#632523">N</font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdval="0" sdnum="1033;1025;General"><font color="#000000">0</font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+	
+    </tr>
+	
+    <tr>
+		
+      <td height="30" align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="middle" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000">DF12 0003</font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;[$-401]H:MM AM/PM;@"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#E46C0A"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#0B7F29"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#376092"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#FF0000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdval="50" sdnum="1033;0;000"><b><font size="3" color="#000000">050</font></b></td>
+		
+      <td align="center" valign="middle" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="4" color="#632523">E</font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdval="26" sdnum="1033;0;00"><b><font size="3" color="#000000">26</font></b></td>
+		
+      <td align="center" valign="middle" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="4" color="#632523">N</font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdval="0" sdnum="1033;1025;General"><font color="#000000">0</font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+	
+    </tr>
+	
+    <tr>
+		
+      <td height="30" align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="middle" sdnum="1033;1025;0"><b><font size="3" color="#000000">DF12 0004</font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;[$-401]H:MM AM/PM;@"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><b><font size="3" color="#E46C0A"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#0B7F29"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#376092"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#FF0000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdval="50" sdnum="1033;0;000"><b><font size="3" color="#000000">050</font></b></td>
+		
+      <td align="center" valign="middle" sdnum="1033;1025;0"><b><font size="4" color="#632523">E</font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdval="26" sdnum="1033;0;00"><b><font size="3" color="#000000">26</font></b></td>
+		
+      <td align="center" valign="middle" sdnum="1033;1025;0"><b><font size="4" color="#632523">N</font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdval="0" sdnum="1033;1025;General"><font color="#000000">0</font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+	
+    </tr>
+	
+    <tr>
+		
+      <td height="30" align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="middle" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000">DF12 0005</font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;[$-401]H:MM AM/PM;@"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#E46C0A"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#0B7F29"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#376092"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#FF0000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdval="50" sdnum="1033;0;000"><b><font size="3" color="#000000">050</font></b></td>
+		
+      <td align="center" valign="middle" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="4" color="#632523">E</font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdval="26" sdnum="1033;0;00"><b><font size="3" color="#000000">26</font></b></td>
+		
+      <td align="center" valign="middle" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="4" color="#632523">N</font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdval="0" sdnum="1033;1025;General"><font color="#000000">0</font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+	
+    </tr>
+	
+    <tr>
+		
+      <td height="30" align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="middle" sdnum="1033;1025;0"><b><font size="3" color="#000000">DF12 0006</font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;[$-401]H:MM AM/PM;@"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><b><font size="3" color="#E46C0A"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#0B7F29"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#376092"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;#٬##0"><b><font size="3" color="#FF0000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdval="50" sdnum="1033;0;000"><b><font size="3" color="#000000">050</font></b></td>
+		
+      <td align="center" valign="middle" sdnum="1033;1025;0"><b><font size="4" color="#632523">E</font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdval="26" sdnum="1033;0;00"><b><font size="3" color="#000000">26</font></b></td>
+		
+      <td align="center" valign="middle" sdnum="1033;1025;0"><b><font size="4" color="#632523">N</font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdval="0" sdnum="1033;1025;General"><font color="#000000">0</font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+	
+    </tr>
+	
+    <tr>
+		
+      <td height="30" align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="middle" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000">DF12 0007</font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;[$-401]H:MM AM/PM;@"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#E46C0A"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#0B7F29"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#376092"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;[$-401][~hijri]B2DDDD"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;M/D/YYYY"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;#٬##0"><b><font size="3" color="#FF0000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#17375E"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdval="50" sdnum="1033;0;000"><b><font size="3" color="#000000">050</font></b></td>
+		
+      <td align="center" valign="middle" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="4" color="#632523">E</font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;000"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;0;00"><b><font size="3" color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdval="26" sdnum="1033;0;00"><b><font size="3" color="#000000">26</font></b></td>
+		
+      <td align="center" valign="middle" bgcolor="#C6D9F1" sdnum="1033;1025;0"><b><font size="4" color="#632523">N</font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdval="0" sdnum="1033;1025;General"><font color="#000000">0</font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><font color="#000000"><br></font></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+		
+      <td align="center" valign="bottom" bgcolor="#C6D9F1" sdnum="1033;1025;General"><b><font color="#000000"><br></font></b></td>
+	
+    </tr>
+
+  </tbody>
+</table>

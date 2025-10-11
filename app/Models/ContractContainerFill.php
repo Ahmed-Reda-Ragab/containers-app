@@ -1,0 +1,67 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class ContractContainerFill extends Model
+{
+    protected $fillable = [
+        'contract_id',
+        'no',
+        'deliver_id',
+        'deliver_at',
+        'container_id',
+        'expected_discharge_date',
+        'discharge_date',
+        'discharge_id',
+        'price',
+        'client_id',
+        'city',
+        'address',
+        'notes',
+    ];
+
+    protected $casts = [
+        'deliver_at' => 'date',
+        'expected_discharge_date' => 'date',
+        'discharge_date' => 'date',
+        'price' => 'decimal:2',
+    ];
+
+    public function contract(): BelongsTo
+    {
+        return $this->belongsTo(Contract::class);
+    }
+
+    public function container(): BelongsTo
+    {
+        return $this->belongsTo(Container::class);
+    }
+
+    public function deliver(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'deliver_id');
+    }
+
+    public function discharge(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'discharge_id');
+    }
+
+    public function client(): BelongsTo
+    {
+        return $this->belongsTo(Customer::class, 'client_id');
+    }
+
+    public function getIsDischargedAttribute(): bool
+    {
+        return !is_null($this->discharge_date);
+    }
+
+    public function getIsOverdueAttribute(): bool
+    {
+        return $this->expected_discharge_date < now() && !$this->is_discharged;
+    }
+}
