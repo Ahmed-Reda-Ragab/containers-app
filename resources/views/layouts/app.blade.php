@@ -41,6 +41,9 @@
                                 <a class="nav-link" href="{{ route('containers.index') }}">{{ __('Containers') }}</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('customers.index') }}">{{ __('Customers') }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contracts.index') }}">{{ __('Contracts') }}</a>
                             </li>
                             <li class="nav-item">
@@ -49,10 +52,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contract-container-fills.index') }}">{{ __('Container Fills') }}</a>
                             </li>
-                            <li class="nav-item">
+                            
+                            <li class="nav-item d-none">
                                 <a class="nav-link" href="{{ route('bookings.index') }}">{{ __('Daily Bookings') }}</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item d-none">
                                 <a class="nav-link" href="{{ route('receipts.index') }}">{{ __('Receipts') }}</a>
                             </li>
                             <li class="nav-item dropdown">
