@@ -39,13 +39,9 @@
                                         @foreach($customers as $customer)
                                             <option value="{{ $customer->id }}" 
                                                     data-name="{{ $customer->name }}"
-                                                    data-contact-person="{{ $customer->contact_person }}"
-                                                    data-telephone="{{ $customer->telephone }}"
-                                                    data-ext="{{ $customer->ext }}"
-                                                    data-fax="{{ $customer->fax }}"
-                                                    data-mobile="{{ $customer->mobile }}"
-                                                    data-city="{{ $customer->city }}"
-                                                    data-address="{{ $customer->address }}">
+                                                    data-contact-person="{{ $customer->contact_person['name']??'' }}"
+                                                    data-telephone="{{ $customer->contact_person['phone']??'' }}"
+                                                    data-city="{{ $customer->city??'' }}">
                                                 {{ $customer->name }}
                                             </option>
                                         @endforeach
@@ -67,25 +63,11 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="customer_telephone" class="form-label">{{ __('Telephone') }}</label>
-                                            <input type="text" class="form-control" id="customer_telephone" name="customer[telephone]">
+                                            <input type="text" class="form-control" id="customer_telephone" name="customer[contact_person][phone]">
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="customer_ext" class="form-label">{{ __('Ext') }}</label>
-                                            <input type="text" class="form-control" id="customer_ext" name="customer[ext]">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="customer_fax" class="form-label">{{ __('Fax') }}</label>
-                                            <input type="text" class="form-control" id="customer_fax" name="customer[fax]">
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="row">
                                     <div class="col-md-6">
@@ -185,7 +167,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="tax_value" class="form-label">{{ __('Tax Value (%)') }} *</label>
-                                            <input type="number" class="form-control" id="tax_value" name="tax_value" step="0.01" min="0" max="100" value="14" required>
+                                            <input type="number" class="form-control" id="tax_value" name="tax_value" readonly step="0.01" min="0" max="100" value="15" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">

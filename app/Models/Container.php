@@ -11,8 +11,7 @@ class Container extends Model
 {
     protected $fillable = [
         'code',
-        'type_id',
-        'size',
+        'size_id',
         'status',
         'description',
     ];
@@ -21,10 +20,11 @@ class Container extends Model
         'status' => ContainerStatus::class,
     ];
 
-    public function type(): BelongsTo
+    public function size(): BelongsTo
     {
-        return $this->belongsTo(Type::class);
+        return $this->belongsTo(Type::class, 'size_id');
     }
+    
 
     public function contractContainers(): HasMany
     {

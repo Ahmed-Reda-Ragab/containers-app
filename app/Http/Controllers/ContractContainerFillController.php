@@ -50,13 +50,15 @@ class ContractContainerFillController extends Controller
             'container_id' => 'required|exists:containers,id',
             'expected_discharge_date' => 'required|date',
             'price' => 'nullable|numeric|min:0',
-            'client_id' => 'required|exists:customers,id',
+            // 'client_id' => 'required|exists:customers,id',
             'city' => 'required|string|max:100',
             'address' => 'required|string|max:500',
             'notes' => 'nullable|string|max:1000',
         ]);
 
         try {
+            $contract = Contract::findOrFail($validated['contract_id']);
+            $validated['client_id'] = $contract->customer_id;
             $fill = ContractContainerFill::create($validated);
 
             // Update container status to 'in_use' (delivered to client)

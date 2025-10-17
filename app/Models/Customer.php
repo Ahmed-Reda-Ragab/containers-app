@@ -14,16 +14,26 @@ class Customer extends Model
         'address',
         'company_name',
         'notes',
-        'contact_person',
-        'telephone',
         'ext',
-        'fax',
-        'mobile',
+        // 'fax',
+        // 'mobile',
         'city',
+        'type',
+        'tax_number',
+        'commercial_number',
+        'contact_person',
     ];
+
+    protected $casts = [
+        'type' => 'string',
+        'contact_person' => 'array',
+    ];
+    
 
     public function contracts(): HasMany
     {
         return $this->hasMany(Contract::class);
     }
+
+
 }

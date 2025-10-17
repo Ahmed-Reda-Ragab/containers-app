@@ -40,13 +40,9 @@
                                         @foreach($customers as $customer)
                                             <option value="{{ $customer->id }}" 
                                                     data-name="{{ $customer->name }}"
-                                                    data-contact-person="{{ $customer->contact_person }}"
-                                                    data-telephone="{{ $customer->telephone }}"
-                                                    data-ext="{{ $customer->ext }}"
-                                                    data-fax="{{ $customer->fax }}"
-                                                    data-mobile="{{ $customer->mobile }}"
-                                                    data-city="{{ $customer->city }}"
-                                                    data-address="{{ $customer->address }}"
+                                                    data-contact-person="{{ $customer->contact_person['name']??'' }}"
+                                                    data-telephone="{{ $customer->contact_person['phone']??'' }}"
+                                                    data-city="{{ $customer->city??'' }}"
                                                     {{ $contract->customer_id == $customer->id ? 'selected' : '' }}>
                                                 {{ $customer->name }}
                                             </option>
@@ -54,45 +50,23 @@
                                     </select>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="customer_name" class="form-label">{{ __('Customer Name') }} *</label>
-                                    <input type="text" class="form-control" id="customer_name" name="customer[name]" 
-                                           value="{{ $contract->customer['name'] ?? '' }}" required>
-                                </div>
-
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="customer_contact_person" class="form-label">{{ __('Contact Person') }}</label>
                                             <input type="text" class="form-control" id="customer_contact_person" name="customer[contact_person]"
-                                                   value="{{ $contract->customer['contact_person'] ?? '' }}">
+                                                   value="{{ $contract->customer['contact_person']['name'] ?? '' }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="customer_telephone" class="form-label">{{ __('Telephone') }}</label>
                                             <input type="text" class="form-control" id="customer_telephone" name="customer[telephone]"
-                                                   value="{{ $contract->customer['telephone'] ?? '' }}">
+                                                   value="{{ $contract->customer['contact_person']['phone'] ?? '' }}">
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="customer_ext" class="form-label">{{ __('Ext') }}</label>
-                                            <input type="text" class="form-control" id="customer_ext" name="customer[ext]"
-                                                   value="{{ $contract->customer['ext'] ?? '' }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="customer_fax" class="form-label">{{ __('Fax') }}</label>
-                                            <input type="text" class="form-control" id="customer_fax" name="customer[fax]"
-                                                   value="{{ $contract->customer['fax'] ?? '' }}">
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="row">
                                     <div class="col-md-6">
@@ -166,7 +140,7 @@
                                                    step="0.01" min="0" value="{{ $contract->monthly_dumping_cont }}" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <!-- <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="dumping_cost" class="form-label">{{ __('Dumping Cost') }} *</label>
                                             <div class="input-group">
@@ -175,11 +149,9 @@
                                                 <span class="input-group-text">{{ __('SAR') }}</span>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
+                                    </div> -->
+                                
+                                    <!-- <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="additional_trip_cost" class="form-label">{{ __('Additional Trip Cost') }} *</label>
                                             <div class="input-group">
@@ -188,7 +160,8 @@
                                                 <span class="input-group-text">{{ __('SAR') }}</span>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
+                                    
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="contract_period" class="form-label">{{ __('Contract Period (Days)') }} *</label>

@@ -24,6 +24,12 @@ Route::get('/locale/{locale}', function ($locale) {
 
 Route::middleware('auth')->group(function () {
     Route::resource('containers', ContainerController::class);
+    Route::get('containers/create/bulk', [ContainerController::class, 'createBulk'])->name('containers.create-bulk');
+    Route::post('containers/bulk', [ContainerController::class, 'storeBulk'])->name('containers.store-bulk');
+    
+    // Customers routes
+    Route::resource('customers', App\Http\Controllers\CustomerController::class);
+    Route::get('customers/data', [App\Http\Controllers\CustomerController::class, 'getData'])->name('customers.data');
     
     // Contracts routes
     Route::resource('contracts', ContractController::class);

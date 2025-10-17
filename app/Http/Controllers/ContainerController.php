@@ -24,7 +24,9 @@ class ContainerController extends Controller
     public function index(): View
     {
         $containers = $this->containerService->getAll();
-        return view('containers.index', compact('containers'));
+        $sizes = Type::all();
+        $statistics = $this->containerService->getStatistics();
+        return view('containers.index', compact('containers', 'sizes', 'statistics'));
     }
 
     /**
@@ -33,8 +35,18 @@ class ContainerController extends Controller
     public function create(): View
     {
         $statuses = $this->containerService->getStatuses();
-        $types = Type::all();
-        return view('containers.create', compact('statuses', 'types'));
+        $sizes = Type::all();
+        return view('containers.create', compact('statuses', 'sizes'));
+    }
+
+    /**
+     * Show the form for creating multiple containers.
+     */
+    public function createBulk(): View
+    {
+        $statuses = $this->containerService->getStatuses();
+        $sizes = Type::all();
+        return view('containers.create-bulk', compact('statuses', 'sizes'));
     }
 
     /**
@@ -44,7 +56,7 @@ class ContainerController extends Controller
     {
         $validated = $request->validate([
             'code' => 'required|string|max:255|unique:containers,code',
-            'type_id' => 'required|exists:types,id',
+            'size_id' => 'required|exists:types,id',
             'status' => 'required|string',
             'description' => 'nullable|string',
         ]);
@@ -52,7 +64,26 @@ class ContainerController extends Controller
         $this->containerService->create($validated);
 
         return redirect()->route('containers.index')
-            ->with('success', 'Container created successfully.');
+            ->with('success', __('containers.created_successfully'));
+    }
+
+    /**
+     * Store multiple containers in storage.
+     */
+    public function storeBulk(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'code_prefix' => 'required|string|max:50',
+            'count' => 'required|integer|min:1|max:100',
+            'size_id' => 'required|exists:types,id',
+            'status' => 'required|string',
+            'description' => 'nullable|string',
+        ]);
+
+        $createdCount = $this->containerService->createBulk($validated);
+
+        return redirect()->route('containers.index')
+            ->with('success', __('containers.created_bulk_successfully', ['count' => $createdCount]));
     }
 
     /**
@@ -69,8 +100,8 @@ class ContainerController extends Controller
     public function edit(Container $container): View
     {
         $statuses = $this->containerService->getStatuses();
-        $types = Type::all();
-        return view('containers.edit', compact('container', 'statuses', 'types'));
+        $sizes = Type::all();
+        return view('containers.edit', compact('container', 'statuses', 'sizes'));
     }
 
     /**
@@ -80,7 +111,7 @@ class ContainerController extends Controller
     {
         $validated = $request->validate([
             'code' => 'required|string|max:255|unique:containers,code,' . $container->id,
-            'type_id' => 'required|exists:types,id',
+            'size_id' => 'required|exists:types,id',
             'status' => 'required|string',
             'description' => 'nullable|string',
         ]);
@@ -88,7 +119,7 @@ class ContainerController extends Controller
         $this->containerService->update($container, $validated);
 
         return redirect()->route('containers.index')
-            ->with('success', 'Container updated successfully.');
+            ->with('success', __('containers.updated_successfully'));
     }
 
     /**
@@ -99,6 +130,6 @@ class ContainerController extends Controller
         $this->containerService->delete($container);
 
         return redirect()->route('containers.index')
-            ->with('success', 'Container deleted successfully.');
+            ->with('success', __('containers.deleted_successfully'));
     }
 }

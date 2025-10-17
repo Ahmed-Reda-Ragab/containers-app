@@ -42,6 +42,43 @@ class ContainerService
     }
 
     /**
+     * Create multiple containers with bulk operation
+     */
+    public function createBulk(array $data): int
+    {
+        $containers = [];
+        $prefix = $data['code_prefix'];
+        $count = $data['count'];
+        $sizeId = $data['size_id'];
+        $status = $data['status'];
+        $description = $data['description'] ?? null;
+
+        for ($i = 1; $i <= $count; $i++) {
+            $code = $prefix . str_pad($i, 3, '-', STR_PAD_LEFT);
+            
+            // Check if code already exists
+            if (Container::where('code', $code)->exists()) {
+                continue;
+            }
+
+            $containers[] = [
+                'code' => $code,
+                'size_id' => $sizeId,
+                'status' => $status,
+                'description' => $description,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+
+        if (!empty($containers)) {
+            Container::insert($containers);
+        }
+
+        return count($containers);
+    }
+
+    /**
      * Update a container
      */
     public function update(Container $container, array $data): bool
@@ -65,6 +102,23 @@ class ContainerService
         return collect(ContainerStatus::cases())
             ->mapWithKeys(fn($status) => [$status->value => $status->label()])
             ->toArray();
+    }
+
+    /**
+     * Get container statistics
+     */
+    public function getStatistics(): array
+    {
+        $total = Container::count();
+        $byStatus = Container::selectRaw('status, COUNT(*) as count')
+            ->groupBy('status')
+            ->pluck('count', 'status')
+            ->toArray();
+
+        return [
+            'total' => $total,
+            'by_status' => $byStatus
+        ];
     }
 
 }

@@ -100,7 +100,7 @@
                                             <input type="date" class="form-control" id="expected_discharge_date" name="expected_discharge_date" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <!-- <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="price" class="form-label">{{ __('Price') }}</label>
                                             <div class="input-group">
@@ -109,10 +109,10 @@
                                             </div>
                                             <small class="form-text text-muted">{{ __('Leave empty to use contract price') }}</small>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="client_id" class="form-label">{{ __('Client') }} *</label>
                                     <select class="form-select" id="client_id" name="client_id" required>
                                         <option value="">{{ __('Choose a client...') }}</option>
@@ -120,7 +120,7 @@
                                             <option value="{{ $customer->id }}">{{ $customer->name }}</option>
                                         @endforeach
                                     </select>
-                                </div>
+                                </div> -->
 
                                 <div class="row">
                                     <div class="col-md-6">
