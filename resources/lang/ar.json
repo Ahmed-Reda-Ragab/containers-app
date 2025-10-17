@@ -306,5 +306,9 @@
     "Leave empty to use contract price": "اترك فارغاً لاستخدام سعر العقد",
     "Dumping Cost": "تكلفة التفريغ",
     "Additional Trip Cost": "الرفع الإضافي",
-    "Total Payed": "المبلغ المدفوع"
+    "Total Payed": "المبلغ المدفوع",
+    "Customers": "العملاء",
+    "Add Customer": "إضافة عميل",
+    "Edit Customer": "تعديل العميل",
+    "Update Customer": "تحديث العميل"
 }
