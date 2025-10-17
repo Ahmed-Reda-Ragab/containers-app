@@ -50,10 +50,10 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 d-none">
                                         <div class="mb-3">
                                             <label for="no" class="form-label">{{ __('Container Number') }} *</label>
-                                            <input type="number" class="form-control" id="no" name="no" min="1" required>
+                                            <input type="number" class="form-control" id="no" name="no" min="1" >
                                         </div>
                                     </div>
                                     <div class="col-md-6">

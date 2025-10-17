@@ -17,7 +17,7 @@ class Contract extends Model
         'monthly_dumping_cont',
         'monthly_total_dumping_cost',
         // 'dumping_cost',
-        // 'additional_trip_cost',
+        'additional_trip_cost',
         'contract_period',
         'tax_value',
         'total_price',
@@ -58,6 +58,11 @@ class Contract extends Model
     {
         return $this->belongsTo(Type::class);
     }
+    public function size(): BelongsTo
+    {
+        return $this->belongsTo(Type::class);
+    }
+    
 
     public function user(): BelongsTo
     {
@@ -89,4 +94,28 @@ class Contract extends Model
             default => 'secondary'
         };
     }
+    public function calculateMonthlyContainerPrice()
+    {
+        return $this->container_price * $this->no_containers * $this->monthly_dumping_cont;
+    }
+    public function priceForNextContainer()
+    {
+        $count = $this->contractContainerFills()->count();
+        $totalCount = $this->monthly_dumping_cont * $this->no_containers;
+        return $totalCount > $count ? $this->container_price : $this->additional_trip_cost;
+    }
+    public function calculateContractCost()
+    {
+        $count = $this->contractContainerFills()->count();
+        return $totalCount * $this->container_price + $this->calculateMonthlyDumpingTotalPrice() + $this->calculateAdditionalTripTotalPrice();
+    }
+    public function calculateMonthlyDumpingTotalPrice()
+    {
+        return $this->monthly_dumping_cont * $this->no_containers;
+    }
+    public function calculateAdditionalTripTotalPrice()
+    {
+        return $this->additional_trip_cost * $this->no_containers;
+    }
+    
 }

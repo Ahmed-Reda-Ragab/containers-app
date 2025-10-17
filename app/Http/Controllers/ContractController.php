@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Container;
+use App\Enums\ContainerStatus;
 
 class ContractController extends Controller
 {
@@ -18,7 +19,7 @@ class ContractController extends Controller
      */
     public function index()
     {
-        $contracts = Contract::with(['customer', 'type', 'user', 'payments'])
+        $contracts = Contract::with(['customer', 'size', 'user', 'payments'])
             ->orderBy('created_at', 'desc')
             ->paginate(15);
 
@@ -57,7 +58,7 @@ class ContractController extends Controller
             'container_price' => 'required|numeric|min:0',
             'no_containers' => 'required|integer|min:1',
             'monthly_dumping_cont' => 'required|numeric|min:0',
-            'dumping_cost' => 'required|numeric|min:0',
+            // 'dumping_cost' => 'required|numeric|min:0',
             'additional_trip_cost' => 'required|numeric|min:0',
             'contract_period' => 'required|integer|min:1',
             'tax_value' => 'required|numeric|min:0|max:100',
@@ -74,7 +75,7 @@ class ContractController extends Controller
         // dd($validated);
 
         // Calculate totals
-        $monthlyTotalDumpingCost = $validated['dumping_cost'] * $validated['no_containers'];
+        $monthlyTotalDumpingCost = $validated['container_price'] * $validated['no_containers'];
         $subtotal = $monthlyTotalDumpingCost + $validated['additional_trip_cost'];
         $taxAmount = $subtotal * ($validated['tax_value'] / 100);
         $totalPrice = $subtotal + $taxAmount;
@@ -104,7 +105,7 @@ class ContractController extends Controller
     public function show(Contract $contract)
     {
         $users = User::all();
-        $availableContainers = Container::where('status', 'available')->with('type')->get();
+        $availableContainers = Container::where(['status'=>ContainerStatus::AVAILABLE->value , 'size_id'=>$contract->type_id])->with('size')->get();
         $contract->load(['customer', 'type', 'user', 'payments.user', 'contractContainerFills.container', 'contractContainerFills.deliver', 'contractContainerFills.discharge', 'contractContainerFills.client']);
 
         return view('contracts.show', compact('contract', 'users', 'availableContainers'));
@@ -158,8 +159,8 @@ class ContractController extends Controller
         ]);
 
         // Calculate totals
-        $monthlyTotalDumpingCost = $validated['dumping_cost'] * $validated['no_containers'];
-        $subtotal = $monthlyTotalDumpingCost + $validated['additional_trip_cost'];
+        $monthlyTotalDumpingCost = $validated['dumping_cost'] * $validated['no_containers'] * $validated['monthly_dumping_cont'];
+        $subtotal = $monthlyTotalDumpingCost;// + $validated['additional_trip_cost'];
         $taxAmount = $subtotal * ($validated['tax_value'] / 100);
         $totalPrice = $subtotal + $taxAmount;
 
@@ -227,7 +228,7 @@ class ContractController extends Controller
      */
     public function print(Contract $contract)
     {
-        $contract->load(['customer', 'type', 'user']);
+        $contract->load(['customer', 'size', 'user']);
         return view('contracts.print', compact('contract'));
     }
 }

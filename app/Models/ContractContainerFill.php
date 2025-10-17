@@ -9,7 +9,7 @@ class ContractContainerFill extends Model
 {
     protected $fillable = [
         'contract_id',
-        'no',
+        // 'no',
         'deliver_id',
         'deliver_at',
         'container_id',
@@ -64,4 +64,9 @@ class ContractContainerFill extends Model
     {
         return $this->expected_discharge_date < now() && !$this->is_discharged;
     }
+    public function getIsDischargedDateAttribute(): bool
+    {
+        return $this->discharge_date;
+    }
+
 }

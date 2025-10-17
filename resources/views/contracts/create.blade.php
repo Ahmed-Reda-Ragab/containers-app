@@ -63,7 +63,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="customer_telephone" class="form-label">{{ __('Telephone') }}</label>
-                                            <input type="text" class="form-control" id="customer_telephone" name="customer[contact_person][phone]">
+                                            <input type="text" class="form-control" id="customer_telephone" name="customer[contact_phone]">
                                         </div>
                                     </div>
                                 </div>
@@ -134,11 +134,11 @@
                                             <input type="number" class="form-control" id="monthly_dumping_cont" name="monthly_dumping_cont" step="0.01" min="0" required>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 d-none">
                                         <div class="mb-3">
                                             <label for="dumping_cost" class="form-label">{{ __('Dumping Cost') }} *</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control" id="dumping_cost" name="dumping_cost" step="0.01" min="0" required>
+                                                <input type="number" class="form-control" id="dumping_cost" name="dumping_cost" step="0.01" min="0" >
                                                 <span class="input-group-text">{{ __('SAR') }}</span>
                                             </div>
                                         </div>

@@ -24,12 +24,14 @@
                         <table class="table table-striped table-hover" id="fillsTable">
                             <thead>
                                 <tr>
-                                    <th>{{ __('Container #') }}</th>
+                                    <th>#</th>
                                     <th>{{ __('Contract') }}</th>
                                     <th>{{ __('Container') }}</th>
                                     <th>{{ __('Delivered By') }}</th>
                                     <th>{{ __('Delivery Date') }}</th>
                                     <th>{{ __('Expected Discharge') }}</th>
+                                    <th>{{ __('Discharge Date') }}</th>
+                                    <th>{{ __('Discharged By') }}</th>
                                     <th>{{ __('Status') }}</th>
                                     <th>{{ __('Actions') }}</th>
                                 </tr>
@@ -47,6 +49,8 @@
                                         <td>{{ $fill->deliver->name ?? 'N/A' }}</td>
                                         <td>{{ $fill->deliver_at->format('Y-m-d') }}</td>
                                         <td>{{ $fill->expected_discharge_date->format('Y-m-d') }}</td>
+                                        <td>{{ $fill->discharge_date?->format('Y-m-d') ?? 'N/A' }}</td>
+                                        <td>{{ $fill->discharge?->name ?? 'N/A' }}</td>
                                         <td>
                                             @if($fill->is_discharged)
                                                 <span class="badge bg-success">{{ __('Discharged') }}</span>
@@ -63,6 +67,20 @@
                                                    title="{{ __('View') }}">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
+                                                @if(!$fill->is_discharged)
+                                                 
+                                                    <button 
+                                                        type="button" 
+                                                        class="btn btn-success btn-sm"
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#dischargeModal"
+                                                        data-url="{{ route('contract-container-fills.discharge', $fill) }}"
+                                                        >
+                                                        <i class="fas fa-dolly"></i> {{ __('Discharge') }}
+                                                    </button>
+                                                @endif
+
+                                                {{-- 
                                                 <a href="{{ route('contract-container-fills.edit', $fill) }}" 
                                                    class="btn btn-sm btn-outline-secondary" 
                                                    title="{{ __('Edit') }}">
@@ -80,6 +98,7 @@
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </form>
+                                                --}}
                                             </div>
                                         </td>
                                     </tr>
@@ -110,6 +129,7 @@
         </div>
     </div>
 </div>
+@include('components.discharge-modal')
 
 @push('scripts')
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>

@@ -296,35 +296,21 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group btn-group-sm">
-                                                            <a href="{{ route('contract-container-fills.show', $fill) }}" class="btn btn-outline-primary btn-sm">
-                                                                <i class="fas fa-eye"></i>
-                                                            </a>
-                                                            <a href="{{ route('contract-container-fills.edit', $fill) }}" class="btn btn-outline-secondary btn-sm">
-                                                                <i class="fas fa-edit"></i>
-                                                            </a>
-                                                            @if(!$fill->is_discharged)
-                                                                @if($fill->container->status === 'in_use')
-                                                                    <form action="{{ route('contract-container-fills.mark-filled', $fill) }}" method="POST" class="d-inline">
-                                                                        @csrf
-                                                                        <button type="submit" class="btn btn-outline-warning btn-sm" 
-                                                                                title="{{ __('Mark as Filled') }}"
-                                                                                onclick="return confirm('{{ __('Mark container as filled and ready for pickup?') }}')">
-                                                                            <i class="fas fa-exclamation-triangle"></i>
-                                                                        </button>
-                                                                    </form>
-                                                                @elseif($fill->container->status === 'filled')
-                                                                    <button type="button" class="btn btn-outline-success btn-sm" 
-                                                                            data-bs-toggle="modal" data-bs-target="#dischargeModal{{ $fill->id }}"
-                                                                            title="{{ __('Discharge Container') }}">
-                                                                        <i class="fas fa-check"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-info btn-sm" 
-                                                                            data-bs-toggle="modal" data-bs-target="#replaceModal{{ $fill->id }}"
-                                                                            title="{{ __('Replace Container') }}">
-                                                                        <i class="fas fa-exchange-alt"></i>
-                                                                    </button>
-                                                                @endif
-                                                            @endif
+                                                        @if(!$fill->is_discharged)
+                                                 
+                                                        <button 
+                                                            type="button" 
+                                                            class="btn btn-success btn-sm"
+                                                            data-bs-toggle="modal" 
+                                                            data-bs-target="#dischargeModal"
+                                                            data-url="{{ route('contract-container-fills.discharge', $fill) }}"
+                                                            >
+                                                            <i class="fas fa-dolly"></i> {{ __('Discharge') }}
+                                                            </button>
+
+                                                                                                        @endif
+
+
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -386,42 +372,6 @@
 </div>
 
 <!-- Discharge Modal for each container fill -->
-@foreach($contract->contractContainerFills as $fill)
-    @if(!$fill->is_discharged)
-        <div class="modal fade" id="dischargeModal{{ $fill->id }}" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form action="{{ route('contract-container-fills.discharge', $fill) }}" method="POST">
-                        @csrf
-                        <div class="modal-header">
-                            <h5 class="modal-title">{{ __('Discharge Container') }} #{{ $fill->no }}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="discharge_date{{ $fill->id }}" class="form-label">{{ __('Discharge Date') }} *</label>
-                                <input type="date" class="form-control" id="discharge_date{{ $fill->id }}" name="discharge_date" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="discharge_id{{ $fill->id }}" class="form-label">{{ __('Discharged By') }} *</label>
-                                <select class="form-select" id="discharge_id{{ $fill->id }}" name="discharge_id" required>
-                                    <option value="">{{ __('Choose user...') }}</option>
-                                    @foreach($users as $user)
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Cancel') }}</button>
-                            <button type="submit" class="btn btn-success">{{ __('Discharge Container') }}</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    @endif
-@endforeach
 
 <!-- Replace Container Modals -->
 @if(isset($contract->contractContainerFills) && $contract->contractContainerFills->count() > 0)
@@ -474,6 +424,7 @@
         @endif
     @endforeach
 @endif
+@include('components.discharge-modal')
 
 @push('scripts')
 <script>

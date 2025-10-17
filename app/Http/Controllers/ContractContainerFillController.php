@@ -9,6 +9,8 @@ use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Enums\ContainerStatus;
+use App\Enums\ContractStatus;
 
 class ContractContainerFillController extends Controller
 {
@@ -42,12 +44,13 @@ class ContractContainerFillController extends Controller
      */
     public function store(Request $request)
     {
+        $contract = Contract::findOrFail($request->contract_id);
         $validated = $request->validate([
             'contract_id' => 'required|exists:contracts,id',
-            'no' => 'required|integer|min:1',
+            'container_id' => 'required|exists:containers,id,size_id,' . $contract->type_id.',status,'.ContainerStatus::AVAILABLE->value,
+            // 'no' => 'required|integer|min:1',
             'deliver_id' => 'required|exists:users,id',
             'deliver_at' => 'required|date',
-            'container_id' => 'required|exists:containers,id',
             'expected_discharge_date' => 'required|date',
             'price' => 'nullable|numeric|min:0',
             // 'client_id' => 'required|exists:customers,id',
@@ -57,8 +60,8 @@ class ContractContainerFillController extends Controller
         ]);
 
         try {
-            $contract = Contract::findOrFail($validated['contract_id']);
             $validated['client_id'] = $contract->customer_id;
+            $validated['price'] = $contract->priceForNextContainer();
             $fill = ContractContainerFill::create($validated);
 
             // Update container status to 'in_use' (delivered to client)
@@ -68,6 +71,7 @@ class ContractContainerFillController extends Controller
             return redirect()->route('contracts.show', $fill->contract)
                 ->with('success', __('Container delivered successfully.'));
         } catch (\Exception $e) {
+            dd($e);
             return back()->withInput()
                 ->with('error', __('Failed to record container delivery. Please try again.'));
         }
@@ -153,10 +157,10 @@ class ContractContainerFillController extends Controller
      */
     public function createForContract(Contract $contract)
     {
-        $containers = Container::where('status', 'available')->get();
-        $customers = Customer::all();
+        $containers = Container::where(['status'=>ContainerStatus::AVAILABLE->value , 'size_id'=>$contract->type_id])->get();
+        $customers = [];//Customer::all();
         $users = User::all();
-        $contracts = Contract::all();
+        $contracts = [$contract];//Contract::all();
         return view('contract-container-fills.create', compact('contract', 'containers', 'customers', 'users' , 'contracts'));
     }
 
@@ -182,6 +186,7 @@ class ContractContainerFillController extends Controller
      */
     public function discharge(Request $request, ContractContainerFill $contractContainerFill)
     {
+        abort_if($contractContainerFill->is_discharged, 403, __('Container is already discharged.'));
         $validated = $request->validate([
             'discharge_date' => 'required|date',
             'discharge_id' => 'required|exists:users,id',
@@ -192,7 +197,7 @@ class ContractContainerFillController extends Controller
 
             // Update container status back to 'available' (emptied and ready for reuse)
             $container = $contractContainerFill->container;
-            $container->update(['status' => 'available']);
+            $container->update(['status' => ContainerStatus::AVAILABLE->value]);
 
             return redirect()->route('contracts.show', $contractContainerFill->contract)
                 ->with('success', __('Container discharged and emptied successfully.'));
