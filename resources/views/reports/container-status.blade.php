@@ -93,7 +93,7 @@
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td><strong>{{ $container->code }}</strong></td>
-                                    <td>{{ $container->type->name ?? '-' }}</td>
+                                    <td>{{ $container->size->name ?? '-' }}</td>
                                     <td>{{ $container->size ?? '-' }}</td>
                                     <td>
                                         <span class="badge bg-{{ $container->status->color() }}">

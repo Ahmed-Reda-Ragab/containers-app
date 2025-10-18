@@ -67,8 +67,8 @@
                                                     <option value="{{ $container->id }}" 
                                                             {{ $contractContainerFill->container_id == $container->id ? 'selected' : '' }}
                                                             data-code="{{ $container->code }}"
-                                                            data-type="{{ $container->type->name ?? 'N/A' }}">
-                                                        {{ $container->code }} - {{ $container->type->name ?? 'N/A' }}
+                                                            data-type="{{ $container->size->name ?? 'N/A' }}">
+                                                        {{ $container->code }} - {{ $container->size->name ?? 'N/A' }}
                                                     </option>
                                                 @endforeach
                                             </select>

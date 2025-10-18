@@ -393,7 +393,7 @@
                                         <option value="">{{ __('Choose a container...') }}</option>
                                         @foreach($availableContainers as $container)
                                             <option value="{{ $container->id }}">
-                                                {{ $container->code }} - {{ $container->type->name }} ({{ $container->size }})
+                                                {{ $container->code }} - {{ $container->size->name }} ({{ $container->size }})
                                             </option>
                                         @endforeach
                                     </select>

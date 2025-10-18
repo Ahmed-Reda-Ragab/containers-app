@@ -41,7 +41,7 @@
                                     <option value="">Select Container</option>
                                     @foreach($containers as $container)
                                         <option value="{{ $container->id }}" {{ (old('container_id', $contractContainerFill->container_id) == $container->id) ? 'selected' : '' }}>
-                                            {{ $container->code }} ({{ $container->type->name ?? 'N/A' }})
+                                            {{ $container->code }} ({{ $container->size->name ?? 'N/A' }})
                                         </option>
                                     @endforeach
                                 </select>

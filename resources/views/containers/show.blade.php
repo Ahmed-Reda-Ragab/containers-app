@@ -36,7 +36,7 @@
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-bold">{{ __('Container Type') }}</label>
                             <p class="form-control-plaintext">
-                                <span class="badge bg-info fs-6">{{ $container->type->name??'' }}</span>
+                                <span class="badge bg-info fs-6">{{ $container->size->name??'' }}</span>
                             </p>
                         </div>
 
