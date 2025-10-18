@@ -14,11 +14,10 @@ class Contract extends Model
         'type_id',
         'container_price',
         'no_containers',
-        'monthly_dumping_cont',
+        'monthly_dumping_cont', // number of dumpings per month for one container
         'monthly_total_dumping_cost',
-        // 'dumping_cost',
         'additional_trip_cost',
-        'contract_period',
+        'contract_period', // number of months
         'tax_value',
         'total_price',
         'total_payed',
@@ -101,7 +100,7 @@ class Contract extends Model
     public function priceForNextContainer()
     {
         $count = $this->contractContainerFills()->count();
-        $totalCount = $this->monthly_dumping_cont * $this->no_containers;
+        $totalCount = $this->monthly_dumping_cont * $this->no_containers * $this->contract_period;
         return $totalCount > $count ? $this->container_price : $this->additional_trip_cost;
     }
     public function calculateContractCost()

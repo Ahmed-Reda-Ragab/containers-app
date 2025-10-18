@@ -33,7 +33,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="customer_id" class="form-label">{{ __('Select Customer') }}</label>
+                                    <label for="customer_id" class="form-label">{{ __('Select Customer') }} *</label>
                                     <select class="form-select" id="customer_id" name="customer_id">
                                         <option value="">{{ __('Choose a customer...') }}</option>
                                         @foreach($customers as $customer)
@@ -157,7 +157,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="contract_period" class="form-label">{{ __('Contract Period (Days)') }} *</label>
+                                            <label for="contract_period" class="form-label">{{ __('Contract Period (Months)') }} *</label>
                                             <input type="number" class="form-control" id="contract_period" name="contract_period" min="1" required>
                                         </div>
                                     </div>
