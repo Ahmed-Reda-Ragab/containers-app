@@ -40,8 +40,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('containers.index') }}">{{ __('Containers') }}</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('customers.index') }}"></a>
+                            <li class="nav-item d-none">
+                                <a class="nav-link" href="{{ route('customers.index') }}"> {{ __('Customers') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contracts.index') }}">{{ __('Contracts') }}</a>

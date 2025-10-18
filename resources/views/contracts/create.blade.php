@@ -41,7 +41,12 @@
                                                     data-name="{{ $customer->name }}"
                                                     data-contact-person="{{ $customer->contact_person['name']??'' }}"
                                                     data-telephone="{{ $customer->contact_person['phone']??'' }}"
-                                                    data-city="{{ $customer->city??'' }}">
+                                                    data-city="{{ $customer->city??'' }}"
+                                                    data-type="{{ $customer->type??'' }}"
+                                                    data-tax_number="{{ $customer->tax_number??'' }}"
+                                                    data-commercial_number="{{ $customer->commercial_number??'' }}"
+                                                    
+                                                    >
                                                 {{ $customer->name }}
                                             </option>
                                         @endforeach
@@ -52,6 +57,22 @@
                                     <label for="customer_name" class="form-label">{{ __('Customer Name') }} *</label>
                                     <input type="text" class="form-control" id="customer_name" name="customer[name]" required>
                                 </div>
+
+                                <div class="row is-company">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="customer_contact_tax_number" class="form-label">{{ __('Tax Number') }}</label>
+                                            <input type="text" class="form-control" id="customer_contact_tax_number" name="customer[tax_number]">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="customer_commercial_number" class="form-label">{{ __('Commercial Number') }}</label>
+                                            <input type="text" class="form-control" id="customer_commercial_number" name="customer[commercial_number]">
+                                        </div>
+                                    </div>
+                                </div>
+
 
                                 <div class="row">
                                     <div class="col-md-6">
@@ -304,7 +325,15 @@ $(document).ready(function() {
             $('#customer_fax').val(selectedOption.data('fax'));
             $('#customer_mobile').val(selectedOption.data('mobile'));
             $('#customer_city').val(selectedOption.data('city'));
+            // if (selectedOption.data('type') === 'company') {
+            //     $('.is-company').show();
+            // } else {
+            //     $('.is-company').hide();
+            // }
+            $('#customer_tax_number').val(selectedOption.data('tax_number'));
+            $('#customer_commercial_number').val(selectedOption.data('commercial_number'));
             $('#customer_address').val(selectedOption.data('address'));
+            $('#customer_type').val(selectedOption.data('type'));
         }
     });
 
