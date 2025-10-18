@@ -44,7 +44,7 @@ class ContractController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'customer_id' => 'nullable|exists:customers,id',
+            'customer_id' => 'required|exists:customers,id',
             'customer' => 'required|array',
             'customer.name' => 'required|string|max:255',
             'customer.contact_person' => 'nullable|string|max:255',

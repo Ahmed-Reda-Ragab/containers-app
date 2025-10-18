@@ -64,8 +64,8 @@
                                                 @foreach($containers as $container)
                                                     <option value="{{ $container->id }}" 
                                                             data-code="{{ $container->code }}"
-                                                            data-type="{{ $container->type->name ?? 'N/A' }}">
-                                                        {{ $container->code }} - {{ $container->type->name ?? 'N/A' }}
+                                                            data-type="{{ $container->size->name ?? 'N/A' }}">
+                                                        {{ $container->code }} - {{ $container->size->name ?? 'N/A' }}
                                                     </option>
                                                 @endforeach
                                             </select>

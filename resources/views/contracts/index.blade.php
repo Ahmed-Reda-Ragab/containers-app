@@ -78,6 +78,7 @@
                                                    title="{{ __('View') }}">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
+                                                {{-- 
                                                 <a href="{{ route('contracts.edit', $contract) }}" 
                                                    class="btn btn-sm btn-outline-secondary" 
                                                    title="{{ __('Edit') }}">
@@ -94,7 +95,7 @@
                                                             title="{{ __('Delete') }}">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
-                                                </form>
+                                                </form>--}}
                                             </div>
                                         </td>
                                     </tr>
