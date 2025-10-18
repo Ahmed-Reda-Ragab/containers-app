@@ -72,6 +72,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('receipts', App\Http\Controllers\ReceiptController::class);
     Route::post('receipts/{receipt}/collect', [App\Http\Controllers\ReceiptController::class, 'collect'])->name('receipts.collect');
     Route::get('receipts/{receipt}/print', [App\Http\Controllers\ReceiptController::class, 'print'])->name('receipts.print');
+    Route::get('contracts/{contract}/receipts/create-from-fills', [App\Http\Controllers\ReceiptController::class, 'createFromContractFills'])->name('receipts.create-from-fills');
+    Route::post('contracts/{contract}/receipts/create-from-fills', [App\Http\Controllers\ReceiptController::class, 'storeFromContractFills'])->name('receipts.store-from-fills');
 
     // Filled containers management routes
     Route::get('filled-containers', [FilledContainerController::class, 'index'])->name('filled-containers.index');

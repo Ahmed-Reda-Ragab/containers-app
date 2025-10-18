@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Receipt extends Model
 {
@@ -39,6 +40,11 @@ class Receipt extends Model
     public function collectedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'collected_by');
+    }
+
+    public function contractContainerFills(): HasMany
+    {
+        return $this->hasMany(ContractContainerFill::class);
     }
 
     public function getIsOverdueAttribute(): bool

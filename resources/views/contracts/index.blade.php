@@ -58,10 +58,10 @@
                                             {{ $contract->type->name ?? 'N/A' }}
                                         </td>
                                         <td>
-                                            <strong>{{ number_format($contract->total_price, 2) }} {{ __('SAR') }}</strong>
+                                            <strong>{{ number_format($contract->total, 2) }} {{ __('SAR') }}</strong>
                                         </td>
                                         <td>
-                                            {{ number_format($contract->total_payed, 2) }} {{ __('SAR') }}
+                                            {{ number_format($contract->total_paid, 2) }} {{ __('SAR') }}
                                         </td>
                                         <td>
                                             <span class="badge bg-{{ $contract->status_badge }}">

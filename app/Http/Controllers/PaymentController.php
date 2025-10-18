@@ -50,9 +50,9 @@ class PaymentController extends Controller
         try {
             $payment = Payment::create($validated);
 
-            // Update contract total_payed
+            // Update contract total_paid
             $contract = Contract::findOrFail($validated['contract_id']);
-            $contract->increment('total_payed', $validated['payed']);
+            $contract->increment('total_paid', $validated['payed']);
 
             DB::commit();
 
@@ -104,9 +104,9 @@ class PaymentController extends Controller
 
             $payment->update($validated);
 
-            // Update contract total_payed
+            // Update contract total_paid
             $contract = Contract::findOrFail($validated['contract_id']);
-            $contract->increment('total_payed', $difference);
+            $contract->increment('total_paid', $difference);
 
             DB::commit();
 
@@ -127,7 +127,7 @@ class PaymentController extends Controller
         DB::beginTransaction();
         try {
             $contract = $payment->contract;
-            $contract->decrement('total_payed', $payment->payed);
+            $contract->decrement('total_paid', $payment->payed);
             
             $payment->delete();
             

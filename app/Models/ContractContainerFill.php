@@ -9,6 +9,7 @@ class ContractContainerFill extends Model
 {
     protected $fillable = [
         'contract_id',
+        'receipt_id',
         // 'no',
         'deliver_id',
         'deliver_at',
@@ -53,6 +54,11 @@ class ContractContainerFill extends Model
     public function client(): BelongsTo
     {
         return $this->belongsTo(Customer::class, 'client_id');
+    }
+
+    public function receipt(): BelongsTo
+    {
+        return $this->belongsTo(Receipt::class);
     }
 
     public function getIsDischargedAttribute(): bool

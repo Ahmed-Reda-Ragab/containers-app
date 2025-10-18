@@ -7,6 +7,7 @@ use App\Models\Receipt;
 use App\Models\Contract;
 use App\Models\Customer;
 use App\Models\User;
+use App\Models\ContractContainerFill;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -184,6 +185,77 @@ class ReceiptController extends Controller
         $receipt->load(['contract', 'customer', 'issuedBy', 'collectedBy']);
 
         return view('receipts.print', compact('receipt'));
+    }
+
+    /**
+     * Show form to create receipt from contract container fills
+     */
+    public function createFromContractFills(Contract $contract)
+    {
+        $contract->load(['contractContainerFills' => function($query) {
+            $query->whereNull('receipt_id');
+        }]);
+        
+        return view('receipts.create-from-fills', compact('contract'));
+    }
+
+    /**
+     * Store receipt created from contract container fills
+     */
+    public function storeFromContractFills(Request $request, Contract $contract)
+    {
+        $validated = $request->validate([
+            'contract_container_fill_ids' => 'required|array|min:1',
+            'contract_container_fill_ids.*' => 'exists:contract_container_fills,id',
+            'due_date' => 'required|date|after:today',
+            'notes' => 'nullable|string|max:1000',
+        ]);
+
+        try {
+            // Get the selected container fills
+            $selectedFills = ContractContainerFill::whereIn('id', $validated['contract_container_fill_ids'])
+                ->where('contract_id', $contract->id)
+                ->whereNull('receipt_id')
+                ->get();
+
+            if ($selectedFills->isEmpty()) {
+                return back()->with('error', __('No valid container fills selected.'));
+            }
+
+            // Calculate total amount
+            $totalAmount = $selectedFills->sum('price');
+
+            // Create receipt
+            $receipt = Receipt::create([
+                'receipt_number' => $this->generateReceiptNumber(),
+                'contract_id' => $contract->id,
+                'customer_id' => $contract->customer_id,
+                'customer_name' => $contract->customer['name'] ?? 'N/A',
+                'customer_phone' => $contract->customer['mobile'] ?? $contract->customer['telephone'] ?? 'N/A',
+                'customer_address' => $contract->customer['address'] ?? 'N/A',
+                'city' => $contract->customer['city'] ?? 'N/A',
+                'amount' => $totalAmount,
+                'status' => 'issued',
+                'issue_date' => now()->toDateString(),
+                'due_date' => $validated['due_date'],
+                'issued_by' => Auth::id(),
+                'notes' => $validated['notes'],
+            ]);
+
+            // Update contract container fills with receipt_id
+            $selectedFills->each(function($fill) use ($receipt) {
+                $fill->update(['receipt_id' => $receipt->id]);
+            });
+
+            // Update contract totals
+            $contract->increment('total', $totalAmount);
+
+            return redirect()->route('receipts.show', $receipt)
+                ->with('success', __('Receipt created successfully from selected container fills.'));
+        } catch (\Exception $e) {
+            return back()->withInput()
+                ->with('error', __('Failed to create receipt. Please try again.'));
+        }
     }
 
     /**

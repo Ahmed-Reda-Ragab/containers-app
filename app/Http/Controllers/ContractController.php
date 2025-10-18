@@ -106,7 +106,7 @@ class ContractController extends Controller
     {
         $users = User::all();
         $availableContainers = Container::where(['status'=>ContainerStatus::AVAILABLE->value , 'size_id'=>$contract->type_id])->with('size')->get();
-        $contract->load(['customer', 'type', 'user', 'payments.user', 'contractContainerFills.container', 'contractContainerFills.deliver', 'contractContainerFills.discharge', 'contractContainerFills.client']);
+        $contract->load(['customer', 'type', 'user', 'payments.user', 'contractContainerFills.container', 'contractContainerFills.deliver', 'contractContainerFills.discharge', 'contractContainerFills.client', 'contractContainerFills.receipt']);
 
         return view('contracts.show', compact('contract', 'users', 'availableContainers'));
     }

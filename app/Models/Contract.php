@@ -21,6 +21,8 @@ class Contract extends Model
         'tax_value',
         'total_price',
         'total_payed',
+        'total',
+        'total_paid',
         'start_date',
         'end_date',
         'status',
@@ -46,6 +48,8 @@ class Contract extends Model
         'tax_value' => 'decimal:2',
         'total_price' => 'decimal:2',
         'total_payed' => 'decimal:2',
+        'total' => 'decimal:2',
+        'total_paid' => 'decimal:2',
     ];
 
     public function customer(): BelongsTo
@@ -78,9 +82,14 @@ class Contract extends Model
         return $this->hasMany(ContractContainerFill::class);
     }
 
+    public function receipts(): HasMany
+    {
+        return $this->hasMany(Receipt::class);
+    }
+
     public function getRemainingAmountAttribute(): float
     {
-        return $this->total_price - $this->total_payed;
+        return $this->total - $this->total_paid;
     }
 
     public function getStatusBadgeAttribute(): string
