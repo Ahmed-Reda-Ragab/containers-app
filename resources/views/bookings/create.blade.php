@@ -66,7 +66,7 @@
                                                 <option value="">{{ __('Choose a container...') }}</option>
                                                 @foreach($containers as $container)
                                                     <option value="{{ $container->id }}" {{ old('container_id') == $container->id ? 'selected' : '' }}>
-                                                        {{ $container->code }} - {{ $container->size->name ?? 'Unknown' }} ({{ $container->size ?? 'N/A' }})
+                                                        {{ $container->code }}  ( {{ __('Size') }} : {{ $container->size->name ?? 'N/A' }})
                                                     </option>
                                                 @endforeach
                                             </select>

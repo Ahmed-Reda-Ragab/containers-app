@@ -6,9 +6,9 @@
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>{{ __('Payments') }}</h2>
-                <a href="{{ route('payments.create') }}" class="btn btn-primary">
+                <!-- <a href="{{ route('payments.create') }}" class="btn btn-primary">
                     <i class="fas fa-plus"></i> {{ __('Record Payment') }}
-                </a>
+                </a> -->
             </div>
 
             @if(session('success'))

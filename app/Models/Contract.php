@@ -35,6 +35,8 @@ class Contract extends Model
         'valid_until',
     ];
 
+    
+
     protected $casts = [
         'customer' => 'array',
         'start_date' => 'date',
@@ -55,6 +57,26 @@ class Contract extends Model
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class);
+    }
+
+    protected static function booted(): void
+    {
+        static::creating(function (Contract $contract) {
+            // Ensure default customer type is Business if not set
+            $customer = is_array($contract->customer) ? $contract->customer : [];
+            if (!isset($customer['type']) || empty($customer['type'])) {
+                $customer['type'] = 'business';
+            }
+
+            // Generate contract number based on type prefix
+            $prefix = strtolower($customer['type'] ?? 'business') === 'individual' ? 'IND' : 'BUS';
+            // number format: PREFIX-YYYYMM-XXXX
+            $datePart = now()->format('Ym');
+            $sequence = str_pad((string) (Contract::whereYear('created_at', now()->year)->count() + 1), 4, '0', STR_PAD_LEFT);
+            $contract->number = sprintf('%s-%s-%s', $prefix, $datePart, $sequence);
+
+            $contract->customer = $customer;
+        });
     }
 
     public function type(): BelongsTo
@@ -106,20 +128,24 @@ class Contract extends Model
     {
         return $this->container_price * $this->no_containers * $this->monthly_dumping_cont;
     }
+    public function getVisiteEveryDayAttribute() {
+        return 30 / $this->monthly_dumping_cont??30; 
+    }
     public function priceForNextContainer()
     {
         $count = $this->contractContainerFills()->count();
         $totalCount = $this->monthly_dumping_cont * $this->no_containers * $this->contract_period;
         return $totalCount > $count ? $this->container_price : $this->additional_trip_cost;
     }
-    public function calculateContractCost()
-    {
-        $count = $this->contractContainerFills()->count();
-        return $totalCount * $this->container_price + $this->calculateMonthlyDumpingTotalPrice() + $this->calculateAdditionalTripTotalPrice();
-    }
+    
     public function calculateMonthlyDumpingTotalPrice()
     {
-        return $this->monthly_dumping_cont * $this->no_containers;
+        return $this->container_price * $this->no_containers * $this->monthly_dumping_cont;
+    }
+
+    public function getVatValueAttribute()
+    {
+        return $this->calculateMonthlyDumpingTotalPrice() * $this->tax_value / 100;
     }
     public function calculateAdditionalTripTotalPrice()
     {

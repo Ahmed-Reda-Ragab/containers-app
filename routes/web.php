@@ -9,6 +9,7 @@ use App\Http\Controllers\TypeController;
 use App\Http\Controllers\ContainerController;
 
 use App\Http\Controllers\FilledContainerController;
+use App\Http\Controllers\OfferController;
 
 Route::auth();
 Route::get('/', [HomeController::class, 'index']);
@@ -31,7 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('customers', App\Http\Controllers\CustomerController::class);
     Route::get('customers/data', [App\Http\Controllers\CustomerController::class, 'getData'])->name('customers.data');
     
-    // Contracts routes
+    // Contracts routes with type segmentation
+    Route::get('contracts/type/{type}', [ContractController::class, 'index'])->name('contracts.index.by-type');
+    Route::get('contracts/create/type/{type}', [ContractController::class, 'create'])->name('contracts.create.by-type');
     Route::resource('contracts', ContractController::class);
     Route::get('contracts/{contract}/customer-data', [ContractController::class, 'getCustomerData'])->name('contracts.customer-data');
     Route::post('contracts/convert-from-offer', [ContractController::class, 'convertFromOffer'])->name('contracts.convert-from-offer');
@@ -80,4 +83,9 @@ Route::middleware('auth')->group(function () {
     Route::post('filled-containers/{contractContainer}/mark-filled', [FilledContainerController::class, 'markAsFilled'])->name('filled-containers.mark-filled');
     Route::post('filled-containers/{contractContainer}/discharge', [FilledContainerController::class, 'discharge'])->name('filled-containers.discharge');
     Route::post('filled-containers/{contractContainer}/assign', [FilledContainerController::class, 'assignContainer'])->name('filled-containers.assign');
+
+    // Offers CRUD + helpers
+    Route::resource('offers', App\Http\Controllers\OfferCrudController::class);
+    Route::get('offers-search', [OfferController::class, 'search'])->name('offers.search');
+    Route::get('offers/{offer}/data', [OfferController::class, 'data'])->name('offers.data');
 });

@@ -67,7 +67,7 @@
                                             <label for="payed" class="form-label">{{ __('Amount') }} *</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control" id="payed" name="payed" 
-                                                       step="0.01" min="0.01" required>
+                                                       step="1" min="1" required>
                                                 <span class="input-group-text">{{ __('SAR') }}</span>
                                             </div>
                                         </div>
@@ -175,8 +175,8 @@ $(document).ready(function() {
     $('#contract_id').change(function() {
         const selectedOption = $(this).find('option:selected');
         if (selectedOption.val()) {
-            const remaining = parseFloat(selectedOption.data('remaining'));
-            $('#payed').attr('max', remaining);
+            // const remaining = parseFloat(selectedOption.data('remaining'));
+            // $('#payed').attr('max', remaining);
         }
     });
 

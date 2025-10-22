@@ -42,7 +42,9 @@
                                                     data-city="{{ $contractOption->customer['city'] ?? '' }}"
                                                     data-address="{{ $contractOption->customer['address'] ?? '' }}"
                                                     data-start-date="{{ $contractOption->start_date->format('Y-m-d') }}"
-                                                    data-period="{{ $contractOption->contract_period }}">
+                                                    data-period="{{ $contractOption->VisiteEveryDay }}"
+                                                    
+                                                    >
                                                 #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? 'N/A' }}
                                             </option>
                                         @endforeach
@@ -65,7 +67,7 @@
                                                     <option value="{{ $container->id }}" 
                                                             data-code="{{ $container->code }}"
                                                             data-type="{{ $container->size->name ?? 'N/A' }}">
-                                                        {{ $container->code }} - {{ $container->size->name ?? 'N/A' }}
+                                                        {{ $container->code }} ( {{ __('Size') }} : {{ $container->size->name ?? 'N/A' }})
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -176,7 +178,7 @@
                                     <div id="contract-start-date">-</div>
                                 </div>
                                 <div class="mb-3">
-                                    <strong>{{ __('Contract Period') }}:</strong>
+                                    <strong>{{ __('Visit Every') }}:</strong>
                                     <div id="contract-period">-</div>
                                 </div>
                             </div>
@@ -228,11 +230,26 @@ $(document).ready(function() {
     // Set default delivery date to today
     $('#deliver_at').val(new Date().toISOString().split('T')[0]);
 
+    // When delivery date changes, update expected discharge date
+    $('#deliver_at').on('change', function() {
+        const deliverDate = $(this).val();
+        const selectedOption = $('#contract_id').find('option:selected');
+        const period = selectedOption.data('period');
+
+        if (deliverDate && period) {
+            const start = new Date(deliverDate);
+            const expectedDate = new Date(start);
+            expectedDate.setDate(start.getDate() + parseInt(period));
+            $('#expected_discharge_date').val(expectedDate.toISOString().split('T')[0]);
+        }
+    });
+
     // Show contract info on page load if contract is pre-selected
     if ($('#contract_id').val()) {
         $('#contract_id').trigger('change');
     }
 });
+
 </script>
 @endpush
 

@@ -7,9 +7,7 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>{{ __('Receipts Management') }}</h2>
                 <div>
-                    <a href="{{ route('receipts.create') }}" class="btn btn-success">
-                        <i class="fas fa-plus"></i> {{ __('New Receipt') }}
-                    </a>
+                    
                     <a href="{{ route('reports.receipts-report') }}" class="btn btn-primary">
                         <i class="fas fa-chart-bar"></i> {{ __('Receipts Report') }}
                     </a>
@@ -169,7 +167,7 @@
                                                 <a href="{{ route('receipts.edit', $receipt) }}" class="btn btn-outline-secondary btn-sm">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                @if($receipt->status === 'issued')
+                                                <!-- @if($receipt->status === 'issued')
                                                     <form action="{{ route('receipts.collect', $receipt) }}" method="POST" class="d-inline">
                                                         @csrf
                                                         <button type="submit" class="btn btn-outline-success btn-sm" title="{{ __('Mark as Collected') }}"
@@ -177,7 +175,7 @@
                                                             <i class="fas fa-check"></i>
                                                         </button>
                                                     </form>
-                                                @endif
+                                                @endif -->
                                                 <a href="{{ route('receipts.print', $receipt) }}" class="btn btn-outline-info btn-sm" target="_blank" title="{{ __('Print Receipt') }}">
                                                     <i class="fas fa-print"></i>
                                                 </a>
@@ -198,9 +196,9 @@
                             <i class="fas fa-receipt fa-3x text-muted mb-3"></i>
                             <h5 class="text-muted">{{ __('No receipts found') }}</h5>
                             <p class="text-muted">{{ __('Try adjusting your filters or create a new receipt.') }}</p>
-                            <a href="{{ route('receipts.create') }}" class="btn btn-primary">
+                            <!-- <a href="{{ route('receipts.create') }}" class="btn btn-primary">
                                 <i class="fas fa-plus"></i> {{ __('Create New Receipt') }}
-                            </a>
+                            </a> -->
                         </div>
                     @endif
                 </div>

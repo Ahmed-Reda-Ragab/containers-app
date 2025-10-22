@@ -14,14 +14,15 @@ class Offer extends Model
         'type_id',
         'container_price',
         'no_containers',
-        'monthly_dumping_cont',
+        'monthly_dumping_cont', // number of dumpings per month for one container
         'monthly_total_dumping_cost',
-        // 'dumping_cost',
         'additional_trip_cost',
-        'contract_period',
-        'tax_value',        
+        'contract_period', // number of months
+        'tax_value',
         'total_price',
         'total_payed',
+        'total',
+        'total_paid',
         'start_date',
         'end_date',
         'status',
@@ -45,6 +46,8 @@ class Offer extends Model
         'tax_value' => 'decimal:2',
         'total_price' => 'decimal:2',
         'total_payed' => 'decimal:2',
+        'total' => 'decimal:2',
+        'total_paid' => 'decimal:2',
     ];
 
     public function customer(): BelongsTo

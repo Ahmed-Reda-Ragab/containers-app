@@ -47,6 +47,9 @@
                                 <a class="nav-link" href="{{ route('contracts.index') }}">{{ __('Contracts') }}</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('offers.index') }}">{{ __('Offers') }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('payments.index') }}">{{ __('Payments') }}</a>
                             </li>
                             <li class="nav-item">

@@ -78,6 +78,7 @@ class ReceiptController extends Controller
             'notes' => 'nullable|string|max:1000',
         ]);
 
+        dd($validated , $request->all());
         try {
             $validated['receipt_number'] = $this->generateReceiptNumber();
             $validated['issue_date'] = now()->toDateString();
@@ -241,7 +242,8 @@ class ReceiptController extends Controller
                 'issued_by' => Auth::id(),
                 'notes' => $validated['notes'],
             ]);
-
+            $contract->total = $contract->receipts()->sum('amount');
+            $contract->save();
             // Update contract container fills with receipt_id
             $selectedFills->each(function($fill) use ($receipt) {
                 $fill->update(['receipt_id' => $receipt->id]);

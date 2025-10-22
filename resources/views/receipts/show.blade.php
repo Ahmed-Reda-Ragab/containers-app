@@ -7,9 +7,9 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>{{ __('Receipt Details') }}</h2>
                 <div>
-                    <a href="{{ route('receipts.edit', $receipt) }}" class="btn btn-primary">
+                    <!-- <a href="{{ route('receipts.edit', $receipt) }}" class="btn btn-primary">
                         <i class="fas fa-edit"></i> {{ __('Edit') }}
-                    </a>
+                    </a> -->
                     <a href="{{ route('receipts.print', $receipt) }}" class="btn btn-info" target="_blank">
                         <i class="fas fa-print"></i> {{ __('Print') }}
                     </a>
@@ -86,14 +86,14 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <strong>{{ __('Collection Date') }}:</strong>
+                                        <!-- <strong>{{ __('Collection Date') }}:</strong>
                                         <div>
                                             @if($receipt->collection_date)
                                                 {{ $receipt->collection_date->format('d/m/Y') }}
                                             @else
                                                 -
                                             @endif
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +175,7 @@
                             <h6 class="mb-0">{{ __('Actions') }}</h6>
                         </div>
                         <div class="card-body">
-                            @if($receipt->status === 'issued')
+                            <!-- @if($receipt->status === 'issued')
                                 <form action="{{ route('receipts.collect', $receipt) }}" method="POST" class="mb-2">
                                     @csrf
                                     <button type="submit" class="btn btn-success btn-sm w-100"
@@ -183,7 +183,7 @@
                                         <i class="fas fa-check"></i> {{ __('Mark as Collected') }}
                                     </button>
                                 </form>
-                            @endif
+                            @endif -->
 
                             <a href="{{ route('receipts.print', $receipt) }}" class="btn btn-info btn-sm w-100 mb-2" target="_blank">
                                 <i class="fas fa-print"></i> {{ __('Print Receipt') }}

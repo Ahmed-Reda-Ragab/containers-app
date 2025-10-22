@@ -12,19 +12,47 @@
             </div>
 
             @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul class="mb-0">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
 
+            <!-- Offer Loader -->
+            <div class="col-12">
+                        <div class="card mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">{{ __('Load From Offer') }}</h5>
+                                <small class="text-muted">{{ __('Search by offer # or client name') }}</small>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-2 align-items-end">
+                                    <div class="col-md-8">
+                                        <label for="offer_select" class="form-label">{{ __('Select Offer') }}</label>
+                                        <select id="offer_select" class="form-select" style="width: 100%"></select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <form action="{{ route('contracts.convert-from-offer') }}" method="POST" id="convertOfferForm">
+                                            @csrf
+                                            <input type="hidden" name="offer_id" id="convert_offer_id">
+                                            <button type="submit" class="btn btn-outline-primary">
+                                                <i class="fas fa-exchange-alt"></i> {{ __('Convert Offer to Contract') }}
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
             <form action="{{ route('contracts.store') }}" method="POST" id="contractForm">
                 @csrf
-                
+
                 <div class="row">
+                    
                     <!-- Customer Information -->
                     <div class="col-md-6">
                         <div class="card mb-4">
@@ -37,18 +65,16 @@
                                     <select class="form-select" id="customer_id" name="customer_id">
                                         <option value="">{{ __('Choose a customer...') }}</option>
                                         @foreach($customers as $customer)
-                                            <option value="{{ $customer->id }}" 
-                                                    data-name="{{ $customer->name }}"
-                                                    data-contact-person="{{ $customer->contact_person['name']??'' }}"
-                                                    data-telephone="{{ $customer->contact_person['phone']??'' }}"
-                                                    data-city="{{ $customer->city??'' }}"
-                                                    data-type="{{ $customer->type??'' }}"
-                                                    data-tax_number="{{ $customer->tax_number??'' }}"
-                                                    data-commercial_number="{{ $customer->commercial_number??'' }}"
-                                                    
-                                                    >
-                                                {{ $customer->name }}
-                                            </option>
+                                        <option value="{{ $customer->id }}"
+                                            data-name="{{ $customer->name }}"
+                                            data-contact-person="{{ $customer->contact_person['name']??'' }}"
+                                            data-telephone="{{ $customer->contact_person['phone']??'' }}"
+                                            data-city="{{ $customer->city??'' }}"
+                                            data-type="{{ $customer->type??'' }}"
+                                            data-tax_number="{{ $customer->tax_number??'' }}"
+                                            data-commercial_number="{{ $customer->commercial_number??'' }}">
+                                            {{ $customer->name }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -125,7 +151,7 @@
                                     <select class="form-select" id="type_id" name="type_id" required>
                                         <option value="">{{ __('Choose container type...') }}</option>
                                         @foreach($types as $type)
-                                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                        <option value="{{ $type->id }}">{{ $type->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -159,7 +185,7 @@
                                         <div class="mb-3">
                                             <label for="dumping_cost" class="form-label">{{ __('Dumping Cost') }} *</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control" id="dumping_cost" name="dumping_cost" step="0.01" min="0" >
+                                                <input type="number" class="form-control" id="dumping_cost" name="dumping_cost" step="0.01" min="0">
                                                 <span class="input-group-text">{{ __('SAR') }}</span>
                                             </div>
                                         </div>
@@ -208,7 +234,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="start_date" class="form-label">{{ __('Start Date') }} *</label>
-                                            <input type="date" class="form-control" id="start_date" name="start_date" required>
+                                            <input type="date" class="form-control" id="start_date" name="start_date" value="{{ old('start_date', now()->format('Y-m-d') ) }}" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -313,66 +339,173 @@
 
 @push('scripts')
 <script>
-$(document).ready(function() {
-    // Auto-fill customer data when customer is selected
-    $('#customer_id').change(function() {
-        const selectedOption = $(this).find('option:selected');
-        if (selectedOption.val()) {
-            $('#customer_name').val(selectedOption.data('name'));
-            $('#customer_contact_person').val(selectedOption.data('contact-person'));
-            $('#customer_telephone').val(selectedOption.data('telephone'));
-            $('#customer_ext').val(selectedOption.data('ext'));
-            $('#customer_fax').val(selectedOption.data('fax'));
-            $('#customer_mobile').val(selectedOption.data('mobile'));
-            $('#customer_city').val(selectedOption.data('city'));
-            // if (selectedOption.data('type') === 'company') {
-            //     $('.is-company').show();
-            // } else {
-            //     $('.is-company').hide();
-            // }
-            $('#customer_tax_number').val(selectedOption.data('tax_number'));
-            $('#customer_commercial_number').val(selectedOption.data('commercial_number'));
-            $('#customer_address').val(selectedOption.data('address'));
-            $('#customer_type').val(selectedOption.data('type'));
+    $(document).ready(function() {
+        const queryOfferId = new URLSearchParams(window.location.search).get('offer_id');
+
+        // Auto-fill customer data when customer is selected
+        $('#customer_id').change(function() {
+            const selectedOption = $(this).find('option:selected');
+            if (selectedOption.val()) {
+                $('#customer_name').val(selectedOption.data('name'));
+                $('#customer_contact_person').val(selectedOption.data('contact-person'));
+                $('#customer_telephone').val(selectedOption.data('telephone'));
+                $('#customer_ext').val(selectedOption.data('ext'));
+                $('#customer_fax').val(selectedOption.data('fax'));
+                $('#customer_mobile').val(selectedOption.data('mobile'));
+                $('#customer_city').val(selectedOption.data('city'));
+                // if (selectedOption.data('type') === 'company') {
+                //     $('.is-company').show();
+                // } else {
+                //     $('.is-company').hide();
+                // }
+                $('#customer_tax_number').val(selectedOption.data('tax_number'));
+                $('#customer_commercial_number').val(selectedOption.data('commercial_number'));
+                $('#customer_address').val(selectedOption.data('address'));
+                $('#customer_type').val(selectedOption.data('type'));
+            }
+        });
+
+        // Calculate totals when values change
+        function calculateTotals() {
+            const container_price = parseFloat($('#container_price').val()) || 0;
+            const noContainers = parseInt($('#no_containers').val()) || 0;
+            const monthly_dumping_cont = parseFloat($('#monthly_dumping_cont').val()) || 0;
+            const additional_trip_cost = parseFloat($('#additional_trip_cost').val()) || 0;
+            const tax_value = parseFloat($('#tax_value').val()) || 0;
+
+            const monthly_total_dumping_cost = container_price * noContainers * monthly_dumping_cont;
+            const subtotal = monthly_total_dumping_cost ;
+            const tax_amount = subtotal * (tax_value / 100);
+            const total_price = subtotal + tax_amount;
+
+            $('#monthly_total_dumping_cost_display').text(monthly_total_dumping_cost.toFixed(2) + ' {{ __("SAR") }}');
+            $('#subtotal_display').text(subtotal.toFixed(2) + ' {{ __("SAR") }}');
+            $('#tax_amount_display').text(tax_amount.toFixed(2) + ' {{ __("SAR") }}');
+            $('#total_price_display').text(total_price.toFixed(2) + ' {{ __("SAR") }}');
         }
+
+        // Bind calculation to input changes
+        $('#dumping_cost, #no_containers, #additional_trip_cost, #tax_value').on('input', calculateTotals);
+
+        // Set default dates
+        const today = new Date().toISOString().split('T')[0];
+        $('#start_date').val(today);
+
+        
+
+        // Initial calculation
+        calculateTotals();
+
+        // Select2 for offers
+        function ensureSelect2Loaded(cb) {
+            if ($.fn.select2) {
+                cb();
+                return;
+            }
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css';
+            document.head.appendChild(link);
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js';
+            script.onload = cb;
+            document.body.appendChild(script);
+        }
+
+        function prefillFromOffer(offerId) {
+            if (!offerId) return;
+            $('#convert_offer_id').val(offerId);
+            $.getJSON('{{ route('offers.data', ['offer' => 'OFFER_ID']) }}'.replace('OFFER_ID', offerId),
+                function(data) {
+                    if (data.customer) {
+                        $('#customer_name').val(data.customer.name || '');
+                        $('#customer_contact_person').val(data.customer.contact_person || '');
+                        $('#customer_telephone').val(data.customer.telephone || data.customer.contact_phone || '');
+                        $('#customer_mobile').val(data.customer.mobile || '');
+                        $('#customer_city').val(data.customer.city || '');
+                        $('#customer_address').val(data.customer.address || '');
+                    }
+                    if (data.customer_id) {
+                        $('#customer_id').val(data.customer_id).trigger('change');
+                    }
+                    if (data.type_id) $('#type_id').val(data.type_id).trigger('change');
+                    if (data.container_price) $('#container_price').val(data.container_price);
+                    if (data.no_containers) $('#no_containers').val(data.no_containers);
+                    if (data.monthly_dumping_cont) $('#monthly_dumping_cont').val(data.monthly_dumping_cont);
+                    if (data.additional_trip_cost) $('#additional_trip_cost').val(data.additional_trip_cost);
+                    if (data.contract_period) $('#contract_period').val(data.contract_period);
+                    if (data.tax_value) $('#tax_value').val(data.tax_value);
+                    if (data.start_date) $('#start_date').val(data.start_date);
+                    if (data.end_date) $('#end_date').val(data.end_date);
+                    if (data.notes) $('#notes').val(data.notes);
+                    if (data.agreement_terms) $('#agreement_terms').val(data.agreement_terms);
+                    if (data.material_restrictions) $('#material_restrictions').val(data.material_restrictions);
+                    if (data.delivery_terms) $('#delivery_terms').val(data.delivery_terms);
+                    if (data.payment_policy) $('#payment_policy').val(data.payment_policy);
+                    calculateTotals();
+                });
+        }
+
+        ensureSelect2Loaded(function() {
+            $('#offer_select').select2({
+                placeholder: '{{ __('Search offers...') }}',
+                allowClear: true,
+                ajax: {
+                    url: '{{ route('offers.search') }}',
+                    dataType: 'json',
+                    delay: 250,
+                    data: function(params) {
+                        return {
+                            term: params.term || ''
+                        };
+                    },
+                    processResults: function(data) {
+                        return data;
+                    }
+                }
+            }).on('select2:select', function(e) {
+                const offerId = e.params.data.id;
+                prefillFromOffer(offerId);
+            });
+
+            if (queryOfferId) {
+                prefillFromOffer(queryOfferId);
+            }
+        });
+
+
+        function formatDate(date) {
+            const d = new Date(date);
+            const month = ('0' + (d.getMonth() + 1)).slice(-2);
+            const day = ('0' + d.getDate()).slice(-2);
+            return `${d.getFullYear()}-${month}-${day}`;
+        }
+
+        // Set end date to 1 year from start date
+        $('#contract_period , #start_date').on('input', function() {
+            console.log('change');
+            setEndDate();
+        });
+
+        function setEndDate() {
+            let startDateVal = $('#start_date').val();
+            let months = parseInt($('#contract_period').val());
+            if (!months || months < 1 || !startDateVal) return;
+
+
+            // if start date not set, use today's date
+            let startDate = startDateVal ? new Date(startDateVal) : new Date();
+            $('#start_date').val(formatDate(startDate));
+
+            // calculate end date by adding months
+            let endDate = new Date(startDate);
+            endDate.setMonth(endDate.getMonth() + months);
+
+            $('#end_date').val(formatDate(endDate));
+
+        }
+
     });
-
-    // Calculate totals when values change
-    function calculateTotals() {
-        const dumpingCost = parseFloat($('#dumping_cost').val()) || 0;
-        const noContainers = parseInt($('#no_containers').val()) || 0;
-        const additionalTripCost = parseFloat($('#additional_trip_cost').val()) || 0;
-        const taxValue = parseFloat($('#tax_value').val()) || 0;
-
-        const monthlyTotalDumpingCost = dumpingCost * noContainers;
-        const subtotal = monthlyTotalDumpingCost + additionalTripCost;
-        const taxAmount = subtotal * (taxValue / 100);
-        const totalPrice = subtotal + taxAmount;
-
-        $('#monthly_total_dumping_cost_display').text(monthlyTotalDumpingCost.toFixed(2) + ' {{ __("SAR") }}');
-        $('#subtotal_display').text(subtotal.toFixed(2) + ' {{ __("SAR") }}');
-        $('#tax_amount_display').text(taxAmount.toFixed(2) + ' {{ __("SAR") }}');
-        $('#total_price_display').text(totalPrice.toFixed(2) + ' {{ __("SAR") }}');
-    }
-
-    // Bind calculation to input changes
-    $('#dumping_cost, #no_containers, #additional_trip_cost, #tax_value').on('input', calculateTotals);
-
-    // Set default dates
-    const today = new Date().toISOString().split('T')[0];
-    $('#start_date').val(today);
-    
-    // Set end date to 1 year from start date
-    $('#start_date').change(function() {
-        const startDate = new Date($(this).val());
-        const endDate = new Date(startDate);
-        endDate.setFullYear(endDate.getFullYear() + 1);
-        $('#end_date').val(endDate.toISOString().split('T')[0]);
-    });
-
-    // Initial calculation
-    calculateTotals();
-});
 </script>
 @endpush
 
@@ -380,4 +513,3 @@ $(document).ready(function() {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 @endpush
 @endsection
-

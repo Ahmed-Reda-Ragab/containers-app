@@ -11,31 +11,36 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Container;
 use App\Enums\ContainerStatus;
+use App\Models\Offer;
+use App\Enums\OfferStatus;
 
 class ContractController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request, ?string $type = null)
     {
         $contracts = Contract::with(['customer', 'size', 'user', 'payments'])
+            ->when($type, function ($q) use ($type) {
+                $q->where('customer->type', strtolower($type) === 'individual' ? 'individual' : 'business');
+            })
             ->orderBy('created_at', 'desc')
             ->paginate(15);
 
-        return view('contracts.index', compact('contracts'));
+        return view('contracts.index', compact('contracts', 'type'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request, ?string $type = null)
     {
         $customers = Customer::all();
         $types = Type::all();
         $users = User::all();
 
-        return view('contracts.create', compact('customers', 'types', 'users'));
+        return view('contracts.create', compact('customers', 'types', 'users', 'type'));
     }
 
     /**
@@ -217,10 +222,18 @@ class ContractController extends Controller
      */
     public function convertFromOffer(Request $request)
     {
-        // This would handle converting an offer to a contract
-        // Implementation depends on your offer system
-        return redirect()->route('contracts.create')
-            ->with('info', __('Please create a new contract.'));
+        $request->validate([
+            'offer_id' => 'required|exists:offers,id',
+        ]);
+
+        $offer = Offer::findOrFail($request->integer('offer_id'));
+
+        // Redirect to contracts.create with offer id in query to prefill
+        // and update offer status to accepted
+        $offer->update(['status' => OfferStatus::ACCEPTED->value]);
+
+        return redirect()->route('contracts.create', ['offer_id' => $offer->id])
+            ->with('success', __('Offer converted. Prefilled contract form loaded.'));
     }
 
     /**

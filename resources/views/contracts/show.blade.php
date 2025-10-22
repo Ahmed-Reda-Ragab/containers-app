@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2>{{ __('Contract Details') }} #{{ $contract->id }}</h2>
+                <h2>{{ __('Contract Details') }} {{ $contract->number ?? ('#'.$contract->id) }}</h2>
 
                 <div class="btn-group" role="group">
                     <a href="{{ route('contracts.index') }}"
@@ -68,7 +68,10 @@
             <!-- Contract Information Card -->
             <div class="card mb-4">
                 <div class="card-header">
-                    <h5 class="mb-0">{{ __('Contract Information') }}</h5>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">{{ __('Contract Information') }}</h5>
+                        <small class="text-muted">{{ __('Created by') }}: {{ $contract->user->name ?? '—' }} • {{ $contract->created_at?->format('Y-m-d H:i') }}</small>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -153,7 +156,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="text-center">
-                                <div class="h4 text-primary">{{ number_format($contract->monthly_total_dumping_cost, 2) }} {{ __('SAR') }}</div>
+                                <div class="h4 text-primary">{{ number_format($contract->calculateMonthlyDumpingTotalPrice(), 2) }} {{ __('SAR') }}</div>
                                 <small class="text-muted">{{ __('Monthly Total Dumping Cost') }}</small>
                             </div>
                         </div>
@@ -171,8 +174,8 @@
                         </div>
                         <div class="col-md-3">
                             <div class="text-center">
-                                <div class="h4 text-success">{{ number_format($contract->total, 2) }} {{ __('SAR') }}</div>
-                                <small class="text-muted">{{ __('Total Amount') }}</small>
+                                <div class="h4 text-success">{{ number_format($contract->VatValue, 2) }} {{ __('SAR') }}</div>
+                                <small class="text-muted">{{ __('VAT Value') }}</small>
                             </div>
                         </div>
                     </div>
@@ -281,11 +284,14 @@
                             <div class="text-center py-4">
                                 <i class="fas fa-money-bill-wave fa-3x text-muted mb-3"></i>
                                 <p class="text-muted">{{ __('No payments recorded yet.') }}</p>
-                                <a href="{{ route('payments.create-for-contract', $contract) }}" class="btn btn-success">
-                                    {{ __('Record First Payment') }}
-                                </a>
                             </div>
                             @endif
+
+                            <div class="text-center py-4">
+                                <a href="{{ route('payments.create-for-contract', $contract) }}" class="btn btn-success">
+                                    {{ __('Add Payment') }}
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
