@@ -47,7 +47,6 @@
                             </div>
                         </div>
                     </div>
-                    
             <form action="{{ route('contracts.store') }}" method="POST" id="contractForm">
                 @csrf
 
@@ -84,20 +83,24 @@
                                     <input type="text" class="form-control" id="customer_name" name="customer[name]" required>
                                 </div>
 
-                                <div class="row is-company">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="customer_contact_tax_number" class="form-label">{{ __('Tax Number') }}</label>
-                                            <input type="text" class="form-control" id="customer_contact_tax_number" name="customer[tax_number]">
+                                @if ( isset($type) && $type == 'business')
+
+                                    <div class="row is-company ">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="customer_contact_tax_number" class="form-label">{{ __('Tax Number') }}</label>
+                                                <input type="text" class="form-control" id="customer_contact_tax_number" name="customer[tax_number]">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="customer_commercial_number" class="form-label">{{ __('Commercial Number') }}</label>
-                                            <input type="text" class="form-control" id="customer_commercial_number" name="customer[commercial_number]">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="customer_commercial_number" class="form-label">{{ __('Commercial Number') }}</label>
+                                                <input type="text" class="form-control" id="customer_commercial_number" name="customer[commercial_number]">
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </div>     
+                                @endif
+                               
 
 
                                 <div class="row">
@@ -169,16 +172,16 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="no_containers" class="form-label">{{ __('Number of Containers') }} *</label>
-                                            <input type="number" class="form-control" id="no_containers" name="no_containers" min="1" required>
+                                            <input type="number" class="form-control" id="no_containers" name="no_containers" value="1" min="1" required>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 {{ isset($type) && $type != 'business' ? 'd-none' : '' }}">
                                         <div class="mb-3">
                                             <label for="monthly_dumping_cont" class="form-label">{{ __('Monthly Dumping per Container') }} *</label>
-                                            <input type="number" class="form-control" id="monthly_dumping_cont" name="monthly_dumping_cont" step="0.01" min="0" required>
+                                            <input type="number" class="form-control" id="monthly_dumping_cont" name="monthly_dumping_cont" step="1" value="1" min="1" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 d-none">
@@ -193,11 +196,11 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 {{ isset($type) && $type != 'business' ? 'd-none' : '' }}">
                                         <div class="mb-3">
                                             <label for="additional_trip_cost" class="form-label">{{ __('Additional Trip Cost') }} *</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control" id="additional_trip_cost" name="additional_trip_cost" step="0.01" min="0" required>
+                                                <input type="number" class="form-control" id="additional_trip_cost" name="additional_trip_cost" step="0.01" min="0" value="0" required>
                                                 <span class="input-group-text">{{ __('SAR') }}</span>
                                             </div>
                                         </div>
@@ -205,7 +208,7 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="contract_period" class="form-label">{{ __('Contract Period (Months)') }} *</label>
-                                            <input type="number" class="form-control" id="contract_period" name="contract_period" min="1" required>
+                                            <input type="number" class="form-control" id="contract_period" name="contract_period" min="1" value="1" required>
                                         </div>
                                     </div>
                                 </div>

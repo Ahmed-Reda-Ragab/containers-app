@@ -80,11 +80,12 @@ class ContractController extends Controller
         // dd($validated);
 
         // Calculate totals
+        $validated['additional_trip_cost'] = $validated['additional_trip_cost'] == 0 ? $validated['container_price'] : $validated['monthly_dumping_cont'];
         $monthlyTotalDumpingCost = $validated['container_price'] * $validated['no_containers'];
         $subtotal = $monthlyTotalDumpingCost + $validated['additional_trip_cost'];
         $taxAmount = $subtotal * ($validated['tax_value'] / 100);
         $totalPrice = $subtotal + $taxAmount;
-
+        
         $validated['monthly_total_dumping_cost'] = $monthlyTotalDumpingCost;
         $validated['total_price'] = $totalPrice;
         $validated['user_id'] = Auth::id();

@@ -322,5 +322,10 @@
     "Visit Every" : "زيارة كل",
     "Not in Receipt" : "ليس في الفاتورة",
     "VAT Value" : "قيمة الضريبة",
-    "Add Payment" : "إضافة دفعة"
+    "Add Payment" : "إضافة دفعة",
+    "New Business Contract" : "عقد جديد للشركات",
+    "New Individual Contract" : "عقد جديد للأفراد",
+    "Business" : "الشركات",
+    "Individual" : "الأفراد",
+    "All" : "الكل"
 }
