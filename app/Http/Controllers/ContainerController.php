@@ -74,8 +74,8 @@ class ContainerController extends Controller
     {
         $validated = $request->validate([
             'code_prefix' => 'nullable|string|max:50',
-            'from_count' => 'required|integer|min:1|max:100',
-            'to_count' => 'required|integer|min:'.($request->from_count??1).'|max:99999',
+            'from_count' => 'required|integer|min:1|max:999999',
+            'to_count' => 'required|integer|min:'.($request->from_count??1).'|max:9999999',
             // 'count' => 'required|integer|min:1|max:100',
             'size_id' => 'required|exists:sizes,id',
             'status' => 'required|string',
