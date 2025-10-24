@@ -61,12 +61,7 @@
 <script>
 $(document).ready(function() {
     $('#contractsTable').DataTable({
-        responsive: true,
-        language: {
-            @if(app()->getLocale() === 'ar')
-                url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json'
-            @endif
-        }
+        responsive: true
     });
 });
 </script>
