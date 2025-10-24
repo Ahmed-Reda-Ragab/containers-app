@@ -35,7 +35,7 @@
                             <div class="col-md-4 mb-3">
                                 <label for="from_count" class="form-label">{{ __('From Count') }} <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control @error('count') is-invalid @enderror"
-                                       id="from_count" name="from_count" value="{{ old('from_count', 1) }}" min="1" max="100"
+                                       id="from_count" name="from_count" value="{{ old('from_count', 1) }}" min="1"
                                        placeholder="{{ __('From Count') }}" required>
                                 @error('from_count')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -45,7 +45,7 @@
                             <div class="col-md-4 mb-3">
                                 <label for="count" class="form-label">{{ __('To Count') }} <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control @error('count') is-invalid @enderror"
-                                       id="to_count" name="to_count" value="{{ old('to_count', 1) }}" min="1" max="100"
+                                       id="to_count" name="to_count" value="{{ old('to_count', 1) }}" min="1"
                                        placeholder="{{ __('To Count') }}" required>
                                 @error('to_count')
                                     <div class="invalid-feedback">{{ $message }}</div>
