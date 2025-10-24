@@ -33,11 +33,21 @@
                             </div>
 
                             <div class="col-md-4 mb-3">
-                                <label for="count" class="form-label">{{ __('containers.count') }} <span class="text-danger">*</span></label>
+                                <label for="from_count" class="form-label">{{ __('From Count') }} <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control @error('count') is-invalid @enderror"
-                                       id="count" name="count" value="{{ old('count', 1) }}" min="1" max="100"
-                                       placeholder="{{ __('containers.enter_count') }}" required>
-                                @error('count')
+                                       id="from_count" name="from_count" value="{{ old('from_count', 1) }}" min="1" max="100"
+                                       placeholder="{{ __('From Count') }}" required>
+                                @error('from_count')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <label for="count" class="form-label">{{ __('To Count') }} <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control @error('count') is-invalid @enderror"
+                                       id="to_count" name="to_count" value="{{ old('to_count', 1) }}" min="1" max="100"
+                                       placeholder="{{ __('To Count') }}" required>
+                                @error('to_count')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>

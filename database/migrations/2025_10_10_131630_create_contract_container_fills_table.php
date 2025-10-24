@@ -27,6 +27,8 @@ return new class extends Migration
             $table->string('address'); // auto-filled from contract
             $table->text('notes')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

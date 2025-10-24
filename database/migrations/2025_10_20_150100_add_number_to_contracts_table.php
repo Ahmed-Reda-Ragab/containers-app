@@ -8,11 +8,11 @@ return new class extends Migration
 {
     public function up(): void
     {
-        // Schema::table('contracts', function (Blueprint $table) {
-        //     $table->string('number')
-        //     // ->unique()
-        //     ->after('id');
-        // });
+        Schema::table('contracts', function (Blueprint $table) {
+            $table->string('number')
+            // ->unique()
+            ->after('id');
+        });
     }
 
     public function down(): void

@@ -48,12 +48,13 @@ class ContainerService
     {
         $containers = [];
         $prefix = $data['code_prefix'] ?? '';
-        $count = $data['count'];
+        $fromCount = $data['from_count'];
+        $toCount = $data['to_count'];
         $sizeId = $data['size_id'];
         $status = $data['status'];
         $description = $data['description'] ?? null;
 
-        for ($i = 1; $i <= $count; $i++) {
+        for ($i = $fromCount; $i <= $toCount; $i++) {
             $code = $prefix . $i;//str_pad($i, 3, '-', STR_PAD_LEFT);
             
             // Check if code already exists

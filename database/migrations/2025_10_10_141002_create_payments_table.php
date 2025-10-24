@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('method')->nullable(); // payment method
             $table->boolean('is_payed')->default(false);
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

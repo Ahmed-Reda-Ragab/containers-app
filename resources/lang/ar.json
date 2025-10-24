@@ -348,5 +348,7 @@
     "Discharge Car" : "سيارة التفريغ",
     "Discharge By" : "سائق التفريغ",
     "Choose car..." : "اختر سيارة...",
-    "Delivery Date" : "تاريخ التسليم"
+    "Delivery Date" : "تاريخ التسليم",
+    "From Count" : "من العدد",
+    "To Count" : "إلى العدد"
 }
