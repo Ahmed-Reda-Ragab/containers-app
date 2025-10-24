@@ -49,8 +49,8 @@
                                 'placeholder' => __('customers.filter_by_type'),
                                 'column' => 1,
                                 'options' => [
-                                    'individual' => __('customers.individual'),
-                                    'company' => __('customers.company')
+                                    'individual' => __('Individual'),
+                                    'business' => __('Business')
                                 ]
                             ]
                         ]"
