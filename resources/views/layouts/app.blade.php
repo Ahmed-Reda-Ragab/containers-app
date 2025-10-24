@@ -55,6 +55,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contract-container-fills.index') }}">{{ __('Container Fills') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('cars.index') }}">{{ __('Cars') }}</a>
+                            </li>
                             
                             <li class="nav-item d-none">
                                 <a class="nav-link" href="{{ route('bookings.index') }}">{{ __('Daily Bookings') }}</a>
@@ -62,7 +65,10 @@
                             <li class="nav-item d-none">
                                 <a class="nav-link" href="{{ route('receipts.index') }}">{{ __('Receipts') }}</a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('contract-container-filled') }}">{{ __('Filled Containers') }}</a>
+                            </li>
+                            <li class="nav-item dropdown d-none">
                                 <a class="nav-link dropdown-toggle" href="#" id="reportsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ __('Reports') }}
                                 </a>
@@ -73,9 +79,7 @@
                                     <li><a class="dropdown-item" href="{{ route('reports.receipts-report') }}">{{ __('Receipts Report') }}</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('filled-containers.index') }}">{{ __('Filled Containers') }}</a>
-                            </li>
+
                         @endauth
                     </ul>
 

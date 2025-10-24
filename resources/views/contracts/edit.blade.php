@@ -101,11 +101,11 @@
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="type_id" class="form-label">{{ __('Container Type') }} *</label>
-                                    <select class="form-select" id="type_id" name="type_id" required>
+                                    <label for="size_id" class="form-label">{{ __('Container Type') }} *</label>
+                                    <select class="form-select" id="size_id" name="size_id" required>
                                         <option value="">{{ __('Choose container type...') }}</option>
                                         @foreach($types as $type)
-                                            <option value="{{ $type->id }}" {{ $contract->type_id == $type->id ? 'selected' : '' }}>
+                                            <option value="{{ $type->id }}" {{ $contract->size_id == $type->id ? 'selected' : '' }}>
                                                 {{ $type->name }}
                                             </option>
                                         @endforeach

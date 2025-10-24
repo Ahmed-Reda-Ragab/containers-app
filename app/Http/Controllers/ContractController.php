@@ -51,15 +51,14 @@ class ContractController extends Controller
         $validated = $request->validate([
             'customer_id' => 'required|exists:customers,id',
             'customer' => 'required|array',
+            'type' => 'required|in:business,individual',
             'customer.name' => 'required|string|max:255',
             'customer.contact_person' => 'nullable|string|max:255',
-            'customer.telephone' => 'nullable|string|max:20',
-            'customer.ext' => 'nullable|string|max:10',
-            'customer.fax' => 'nullable|string|max:20',
             'customer.mobile' => 'nullable|string|max:20',
             'customer.city' => 'nullable|string|max:100',
             'customer.address' => 'nullable|string|max:500',
-            'type_id' => 'required|exists:types,id',
+            'customer.*' => 'nullable|string|max:255',
+            'size_id' => 'required|exists:sizes,id',
             'container_price' => 'required|numeric|min:0',
             'no_containers' => 'required|integer|min:1',
             'monthly_dumping_cont' => 'required|numeric|min:0',
@@ -80,7 +79,7 @@ class ContractController extends Controller
         // dd($validated);
 
         // Calculate totals
-        $validated['additional_trip_cost'] = $validated['additional_trip_cost'] == 0 ? $validated['container_price'] : $validated['monthly_dumping_cont'];
+        $validated['additional_trip_cost'] = isset($validated['additional_trip_cost']) && $validated['additional_trip_cost'] > 0 ? $validated['additional_trip_cost'] : $validated['container_price'];
         $monthlyTotalDumpingCost = $validated['container_price'] * $validated['no_containers'];
         $subtotal = $monthlyTotalDumpingCost + $validated['additional_trip_cost'];
         $taxAmount = $subtotal * ($validated['tax_value'] / 100);
@@ -111,8 +110,8 @@ class ContractController extends Controller
     public function show(Contract $contract)
     {
         $users = User::all();
-        $availableContainers = Container::where(['status'=>ContainerStatus::AVAILABLE->value , 'size_id'=>$contract->type_id])->with('size')->get();
-        $contract->load(['customer', 'type', 'user', 'payments.user', 'contractContainerFills.container', 'contractContainerFills.deliver', 'contractContainerFills.discharge', 'contractContainerFills.client', 'contractContainerFills.receipt']);
+        $availableContainers = Container::where(['status'=>ContainerStatus::AVAILABLE->value , 'size_id'=>$contract->size_id])->with('size')->get();
+        $contract->load(['customer', 'size', 'user', 'payments.user', 'contractContainerFills.container', 'contractContainerFills.deliver', 'contractContainerFills.discharge', 'contractContainerFills.client', 'contractContainerFills.receipt']);
 
         return view('contracts.show', compact('contract', 'users', 'availableContainers'));
     }
@@ -145,7 +144,7 @@ class ContractController extends Controller
             'customer.mobile' => 'nullable|string|max:20',
             'customer.city' => 'nullable|string|max:100',
             'customer.address' => 'nullable|string|max:500',
-            'type_id' => 'required|exists:types,id',
+            'size_id' => 'required|exists:sizes,id',
             'container_price' => 'required|numeric|min:0',
             'no_containers' => 'required|integer|min:1',
             'monthly_dumping_cont' => 'required|numeric|min:0',

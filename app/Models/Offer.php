@@ -11,7 +11,7 @@ class Offer extends Model
     protected $fillable = [
         'customer_id',
         'customer',
-        'type_id',
+        'size_id',
         'container_price',
         'no_containers',
         'monthly_dumping_cont', // number of dumpings per month for one container

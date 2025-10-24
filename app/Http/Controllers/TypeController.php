@@ -17,7 +17,7 @@ class TypeController extends Controller
     public function store(Request $request): JsonResponse
     {
         $request->validate([
-            'name' => 'required|string|max:255|unique:types,name',
+            'name' => 'required|string|max:255|unique:sizes,name',
         ]);
 
         $type = Type::create($request->only('name'));

@@ -82,20 +82,37 @@
                                     <td><strong>#{{ $contract->id }}</strong></td>
                                 </tr>
                                 <tr>
+                                    <th width="40%">{{ __('Contract #') }}:</th>
+                                    <td><strong>#{{ $contract->number }}</strong></td>
+                                </tr>
+                                <tr>
                                     <th>{{ __('Customer') }}:</th>
+                                    <td>
+                                        <a href="{{ route('customers.show', $contract->customer_id) }}" class="text-decoration-none">
+                                            {{ $contract->customer['name'] ?? 'N/A' }}
+                                        </a>
+                                    </td>
+                                </tr>
+                                @if($contract->isBusiness())
+                                <tr>
+                                    <th>{{ __('Tax Number') }}:</th>
+                                    <td>{{ $contract->customer['tax_number'] ?? 'N/A' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>{{ __('Commercial Number') }}:</th>
+                                    <td>{{ $contract->customer['commercial_number'] ?? 'N/A' }}</td>
+                                </tr>
+                                @endif
+                                    <th>{{ __('Contact Person') }}:</th>
                                     <td>{{ $contract->customer['name'] ?? 'N/A' }}</td>
                                 </tr>
                                 <tr>
-                                    <th>{{ __('Contact Person') }}:</th>
-                                    <td>{{ $contract->customer['contact_person'] ?? 'N/A' }}</td>
-                                </tr>
-                                <tr>
                                     <th>{{ __('Telephone') }}:</th>
-                                    <td>{{ $contract->customer['telephone'] ?? 'N/A' }}</td>
+                                    <td>{{ $contract->customer['contact_phone'] ?? 'N/A' }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('Mobile') }}:</th>
-                                    <td>{{ $contract->customer['mobile'] ?? 'N/A' }}</td>
+                                    <td>{{ $contract->customer['phone'] ?? 'N/A' }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('City') }}:</th>
@@ -110,8 +127,12 @@
                         <div class="col-md-6">
                             <table class="table table-borderless">
                                 <tr>
+                                    <th width="40%">{{ __('Contract Type') }}:</th>
+                                    <td>{{ __(ucfirst($contract->type??'business')) }}</td>
+                                </tr>
+                                <tr>
                                     <th width="40%">{{ __('Container Type') }}:</th>
-                                    <td>{{ $contract->type->name ?? 'N/A' }}</td>
+                                    <td>{{ $contract->size->name ?? 'N/A' }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('Container Price') }}:</th>
@@ -123,7 +144,11 @@
                                 </tr>
                                 <tr>
                                     <th>{{ __('Contract Period') }}:</th>
-                                    <td>{{ $contract->contract_period }} {{ __('days') }}</td>
+                                    <td>{{ $contract->contract_period }} {{ __('Months') }}</td>
+                                </tr>
+                                <tr>
+                                    <th>{{ __('Additional Trip Cost') }}:</th>
+                                    <td>{{ number_format($contract->additional_trip_cost, 2) }} {{ __('SAR') }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('Start Date') }}:</th>
@@ -133,7 +158,7 @@
                                     <th>{{ __('End Date') }}:</th>
                                     <td>{{ $contract->end_date->format('Y-m-d') }}</td>
                                 </tr>
-                                <tr>
+                                <tr class="d-none">
                                     <th>{{ __('Status') }}:</th>
                                     <td>
                                         <span class="badge bg-{{ $contract->status_badge }}">

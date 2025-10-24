@@ -25,7 +25,7 @@ class OfferController extends Controller
             });
         }
 
-        $offers = $query->orderByDesc('created_at')->limit(20)->get(['id', 'customer', 'status', 'type_id']);
+        $offers = $query->orderByDesc('created_at')->limit(20)->get(['id', 'customer', 'status', 'size_id']);
 
         return response()->json([
             'results' => $offers->map(function (Offer $offer) {
@@ -47,7 +47,7 @@ class OfferController extends Controller
             'id' => $offer->id,
             'customer_id' => $offer->customer_id,
             'customer' => $offer->customer,
-            'type_id' => $offer->type_id,
+            'size_id' => $offer->size_id,
             'container_price' => $offer->container_price,
             'no_containers' => $offer->no_containers,
             'monthly_dumping_cont' => $offer->monthly_dumping_cont,

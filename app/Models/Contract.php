@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Contract extends Model
 {
+    Const BUSINESS_TYPE = 'business';
+    Const INDIVIDUAL_TYPE = 'individual';
     protected $fillable = [
         'customer_id',
+        'type',
         'customer',
-        'type_id',
+        'size_id',
         'container_price',
         'no_containers',
         'monthly_dumping_cont', // number of dumpings per month for one container
@@ -56,33 +59,25 @@ class Contract extends Model
 
     public function customer(): BelongsTo
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Customer::class , 'customer_id');
     }
 
     protected static function booted(): void
     {
         static::creating(function (Contract $contract) {
-            // Ensure default customer type is Business if not set
-            $customer = is_array($contract->customer) ? $contract->customer : [];
-            if (!isset($customer['type']) || empty($customer['type'])) {
-                $customer['type'] = 'business';
-            }
-
             // Generate contract number based on type prefix
-            $prefix = strtolower($customer['type'] ?? 'business') === 'individual' ? 'IND' : 'BUS';
+            $prefix = strtolower($contract->type ?? 'business') === 'individual' ? 'IND' : 'BUS';
             // number format: PREFIX-YYYYMM-XXXX
             $datePart = now()->format('Ym');
-            $sequence = str_pad((string) (Contract::whereYear('created_at', now()->year)->count() + 1), 4, '0', STR_PAD_LEFT);
-            $contract->number = sprintf('%s-%s-%s', $prefix, $datePart, $sequence);
-
-            $contract->customer = $customer;
+            $sequence = str_pad((string) (Contract::where('type', $contract->type)->count() + 1), 4, '0', STR_PAD_LEFT);
+            $contract->number = sprintf('%s-%s', $prefix, $sequence);
         });
     }
-
-    public function type(): BelongsTo
+    public function isBusiness()
     {
-        return $this->belongsTo(Type::class);
+        return str_starts_with($this->number, 'BUS') ? true : false;
     }
+
     public function size(): BelongsTo
     {
         return $this->belongsTo(Type::class);

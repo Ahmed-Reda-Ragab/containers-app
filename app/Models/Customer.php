@@ -12,11 +12,6 @@ class Customer extends Model
         'phone',
         'email',
         'address',
-        'company_name',
-        'notes',
-        'ext',
-        // 'fax',
-        // 'mobile',
         'city',
         'type',
         'tax_number',
@@ -25,8 +20,8 @@ class Customer extends Model
     ];
 
     protected $casts = [
-        'type' => 'string',
-        'contact_person' => 'array',
+        'type' => 'string', // individual, business
+        'contact_person' => 'array', // name, phone
     ];
     
 

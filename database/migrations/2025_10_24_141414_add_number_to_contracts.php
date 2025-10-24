@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('containers', function (Blueprint $table) {
-            $table->renameColumn('type_id', 'size_id');
+        Schema::table('contracts', function (Blueprint $table) {
+            if (!Schema::hasColumn('contracts', 'number')) {
+                $table->string('number')->nullable()->after('id');
+            }
         });
     }
 
@@ -21,8 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('containers', function (Blueprint $table) {
-            $table->renameColumn('size_id', 'type_id');
+        Schema::table('contracts', function (Blueprint $table) {
+            //
         });
     }
 };

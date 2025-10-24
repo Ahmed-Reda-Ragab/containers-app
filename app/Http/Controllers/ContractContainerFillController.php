@@ -26,6 +26,17 @@ class ContractContainerFillController extends Controller
         return view('contract-container-fills.index', compact('fills'));
     }
 
+    public function filled()
+    {
+        $fills = ContractContainerFill::with(['contract.customer', 'container', 'deliver', 'discharge', 'client'])
+            // ->where('status', ContainerStatus::IN_USE->value)
+            ->whereNull('discharge_date')
+            ->orderBy('created_at', 'desc')
+            ->paginate(15);
+        $filled = true;
+        return view('contract-container-fills.index', compact('fills' , 'filled'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -47,9 +58,10 @@ class ContractContainerFillController extends Controller
         $contract = Contract::findOrFail($request->contract_id);
         $validated = $request->validate([
             'contract_id' => 'required|exists:contracts,id',
-            'container_id' => 'required|exists:containers,id,size_id,' . $contract->type_id.',status,'.ContainerStatus::AVAILABLE->value,
+            'container_id' => 'required|exists:containers,id,size_id,' . $contract->size_id.',status,'.ContainerStatus::AVAILABLE->value,
             // 'no' => 'required|integer|min:1',
             'deliver_id' => 'required|exists:users,id',
+            'deliver_car_id' => 'nullable|exists:cars,id',
             'deliver_at' => 'required|date',
             'expected_discharge_date' => 'required|date',
             'price' => 'nullable|numeric|min:0',
@@ -58,7 +70,6 @@ class ContractContainerFillController extends Controller
             'address' => 'required|string|max:500',
             'notes' => 'nullable|string|max:1000',
         ]);
-
         try {
             $validated['client_id'] = $contract->customer_id;
             $validated['price'] = $contract->priceForNextContainer();
@@ -157,7 +168,7 @@ class ContractContainerFillController extends Controller
      */
     public function createForContract(Contract $contract)
     {
-        $containers = Container::where(['status'=>ContainerStatus::AVAILABLE->value , 'size_id'=>$contract->type_id])->get();
+        $containers = Container::where(['status'=>ContainerStatus::AVAILABLE->value , 'size_id'=>$contract->size_id])->get();
         $customers = [];//Customer::all();
         $users = User::all();
         $contracts = [$contract];//Contract::all();
@@ -190,6 +201,7 @@ class ContractContainerFillController extends Controller
         $validated = $request->validate([
             'discharge_date' => 'required|date',
             'discharge_id' => 'required|exists:users,id',
+            'discharge_car_id' => 'nullable|exists:cars,id',
         ]);
 
         try {

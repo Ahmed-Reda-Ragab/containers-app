@@ -22,6 +22,8 @@ class ContractContainerFill extends Model
         'city',
         'address',
         'notes',
+        'deliver_car_id',
+        'discharge_car_id',
     ];
 
     protected $casts = [
@@ -59,6 +61,16 @@ class ContractContainerFill extends Model
     public function receipt(): BelongsTo
     {
         return $this->belongsTo(Receipt::class);
+    }
+
+    public function deliverCar(): BelongsTo
+    {
+        return $this->belongsTo(Car::class, 'deliver_car_id');
+    }
+
+    public function dischargeCar(): BelongsTo
+    {
+        return $this->belongsTo(Car::class, 'discharge_car_id');
     }
 
     public function getIsDischargedAttribute(): bool

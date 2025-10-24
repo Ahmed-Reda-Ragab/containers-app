@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('customer_id')->nullable()->constrained('customers')->onDelete('set null');
             $table->json('customer')->nullable(); // JSON: name, contact_person, telephone, ext, fax, mobile, city, address
-            $table->foreignId('type_id')->constrained('types'); // container type/size
+            $table->foreignId('size_id')->constrained('sizes'); // container size
             $table->decimal('container_price', 10, 2);
             $table->integer('no_containers');
             $table->decimal('monthly_dumping_cont', 10, 2);
@@ -38,6 +38,8 @@ return new class extends Migration
             $table->text('payment_policy')->nullable();
             $table->date('valid_until')->nullable(); // for offers
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

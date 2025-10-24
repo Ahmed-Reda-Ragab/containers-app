@@ -55,7 +55,7 @@ class ContractSeeder extends Seeder
             ['code' => 'CONT-001'],
             [
                 'code' => 'CONT-001',
-                'type_id' => $type->id,
+                'size_id' => $type->id,
                 'size' => '12 Yards',
                 'status' => 'available',
                 'description' => '12 Yard Container',

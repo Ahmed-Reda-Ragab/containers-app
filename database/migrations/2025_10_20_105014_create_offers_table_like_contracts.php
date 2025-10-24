@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('customer_id')->nullable()->constrained('customers')->nullOnDelete();
             $table->json('customer')->nullable();
-            $table->foreignId('type_id')->constrained('types');
+            $table->foreignId('size_id')->constrained('sizes');
             $table->decimal('container_price', 10, 2);
             $table->integer('no_containers');
             $table->decimal('monthly_dumping_cont', 10, 2);

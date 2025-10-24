@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cars', function (Blueprint $table) {
+        Schema::create('containers', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('type')->nullable();
-            $table->text('access_token')->nullable();
-            $table->text('refresh_token')->nullable();
-            $table->text('expires_at')->nullable();
+            $table->unsignedBigInteger('size_id');
+            $table->string('code')->unique();
+            $table->string('status');
+            $table->text('description')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cars');
+        Schema::dropIfExists('containers');
     }
 };

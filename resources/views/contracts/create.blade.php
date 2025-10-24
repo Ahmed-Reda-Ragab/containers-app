@@ -23,35 +23,35 @@
 
             <!-- Offer Loader -->
             <div class="col-12">
-                        <div class="card mb-4">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0">{{ __('Load From Offer') }}</h5>
-                                <small class="text-muted">{{ __('Search by offer # or client name') }}</small>
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">{{ __('Load From Offer') }}</h5>
+                        <small class="text-muted">{{ __('Search by offer # or client name') }}</small>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-2 align-items-end">
+                            <div class="col-md-8">
+                                <label for="offer_select" class="form-label">{{ __('Select Offer') }}</label>
+                                <select id="offer_select" class="form-select" style="width: 100%"></select>
                             </div>
-                            <div class="card-body">
-                                <div class="row g-2 align-items-end">
-                                    <div class="col-md-8">
-                                        <label for="offer_select" class="form-label">{{ __('Select Offer') }}</label>
-                                        <select id="offer_select" class="form-select" style="width: 100%"></select>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <form action="{{ route('contracts.convert-from-offer') }}" method="POST" id="convertOfferForm">
-                                            @csrf
-                                            <input type="hidden" name="offer_id" id="convert_offer_id">
-                                            <button type="submit" class="btn btn-outline-primary">
-                                                <i class="fas fa-exchange-alt"></i> {{ __('Convert Offer to Contract') }}
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
+                            <div class="col-md-4">
+                                <form action="{{ route('contracts.convert-from-offer') }}" method="POST" id="convertOfferForm">
+                                    @csrf
+                                    <input type="hidden" name="offer_id" id="convert_offer_id">
+                                    <button type="submit" class="btn btn-outline-primary">
+                                        <i class="fas fa-exchange-alt"></i> {{ __('Convert Offer to Contract') }}
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
             <form action="{{ route('contracts.store') }}" method="POST" id="contractForm">
                 @csrf
-
+                <input type="hidden" name="type" value="{{ $type??'business' }}">
                 <div class="row">
-                    
+
                     <!-- Customer Information -->
                     <div class="col-md-6">
                         <div class="card mb-4">
@@ -64,46 +64,53 @@
                                     <select class="form-select" id="customer_id" name="customer_id">
                                         <option value="">{{ __('Choose a customer...') }}</option>
                                         @foreach($customers as $customer)
-                                        <option value="{{ $customer->id }}"
-                                            data-name="{{ $customer->name }}"
-                                            data-contact-person="{{ $customer->contact_person['name']??'' }}"
-                                            data-telephone="{{ $customer->contact_person['phone']??'' }}"
-                                            data-city="{{ $customer->city??'' }}"
-                                            data-type="{{ $customer->type??'' }}"
-                                            data-tax_number="{{ $customer->tax_number??'' }}"
-                                            data-commercial_number="{{ $customer->commercial_number??'' }}">
-                                            {{ $customer->name }}
-                                        </option>
-                                        @endforeach
+                                    <option value="{{ $customer->id }}"
+                                        data-name="{{ $customer->name }}"
+                                        data-phone="{{ $customer->phone ?? '' }}"
+                                        data-contact-person="{{ $customer->contact_person['name'] ?? '' }}"
+                                        data-contact-phone="{{ $customer->contact_person['phone'] ?? '' }}"
+                                        data-city="{{ $customer->city ?? '' }}"
+                                        data-type="{{ $customer->type ?? '' }}"
+                                        data-tax_number="{{ $customer->tax_number ?? '' }}"
+                                        data-commercial_number="{{ $customer->commercial_number ?? '' }}"
+                                        data-address="{{ $customer->address ?? '' }}">
+                                        {{ $customer->name }}
+                                    </option>
+                                    @endforeach
                                     </select>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="customer_name" class="form-label">{{ __('Customer Name') }} *</label>
-                                    <input type="text" class="form-control" id="customer_name" name="customer[name]" required>
+                                    <input type="text" class="form-control" id="customer_name" name="customer[name]" required readonly>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="customer_mobile" class="form-label">{{ __('Phone') }}</label>
+                                    <input type="text" class="form-control" id="customer_mobile" name="customer[mobile]" readonly>
                                 </div>
 
                                 @if ( isset($type) && $type == 'business')
 
-                                    <div class="row is-company ">
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label for="customer_contact_tax_number" class="form-label">{{ __('Tax Number') }}</label>
-                                                <input type="text" class="form-control" id="customer_contact_tax_number" name="customer[tax_number]">
-                                            </div>
+                                <div class="row is-company ">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="customer_contact_tax_number" class="form-label">{{ __('Tax Number') }}</label>
+                                            <input type="text" class="form-control" id="customer_contact_tax_number" name="customer[tax_number]">
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label for="customer_commercial_number" class="form-label">{{ __('Commercial Number') }}</label>
-                                                <input type="text" class="form-control" id="customer_commercial_number" name="customer[commercial_number]">
-                                            </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="customer_commercial_number" class="form-label">{{ __('Commercial Number') }}</label>
+                                            <input type="text" class="form-control" id="customer_commercial_number" name="customer[commercial_number]">
                                         </div>
-                                    </div>     
+                                    </div>
+                                </div>
                                 @endif
-                               
 
 
-                                <div class="row">
+
+                                <div class="row ">
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="customer_contact_person" class="form-label">{{ __('Contact Person') }}</label>
@@ -116,16 +123,8 @@
                                             <input type="text" class="form-control" id="customer_telephone" name="customer[contact_phone]">
                                         </div>
                                     </div>
-                                </div>
 
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="customer_mobile" class="form-label">{{ __('Mobile') }}</label>
-                                            <input type="text" class="form-control" id="customer_mobile" name="customer[mobile]">
-                                        </div>
-                                    </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="customer_city" class="form-label">{{ __('City') }}</label>
@@ -150,11 +149,11 @@
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
-                                    <label for="type_id" class="form-label">{{ __('Container Type') }} *</label>
-                                    <select class="form-select" id="type_id" name="type_id" required>
+                                    <label for="size_id" class="form-label">{{ __('Container Type') }} *</label>
+                                    <select class="form-select" id="size_id" name="size_id" required>
                                         <option value="">{{ __('Choose container type...') }}</option>
-                                        @foreach($types as $type)
-                                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                        @foreach($types as $size)
+                                        <option value="{{ $size->id }}">{{ $size->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -194,7 +193,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-md-6 {{ isset($type) && $type != 'business' ? 'd-none' : '' }}">
                                         <div class="mb-3">
@@ -214,17 +212,18 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-12">
                                         <div class="mb-3">
                                             <label for="tax_value" class="form-label">{{ __('Tax Value (%)') }} *</label>
                                             <input type="number" class="form-control" id="tax_value" name="tax_value" readonly step="0.01" min="0" max="100" value="15" required>
+                                            <p class="text-warning">{{ __('Prices include tax') }}</p>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 d-none">
                                         <div class="mb-3">
                                             <label for="status" class="form-label">{{ __('Status') }} *</label>
                                             <select class="form-select" id="status" name="status" required>
-                                                <option value="pending">{{ __('Pending') }}</option>
+                                                <option value="pending" selected>{{ __('Pending') }}</option>
                                                 <option value="active">{{ __('Active') }}</option>
                                                 <option value="expired">{{ __('Expired') }}</option>
                                                 <option value="canceled">{{ __('Canceled') }}</option>
@@ -262,13 +261,14 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="agreement_terms" class="form-label">{{ __('Agreement Terms') }}</label>
-                                    <textarea class="form-control" id="agreement_terms" name="agreement_terms" rows="4"></textarea>
+                                    <textarea class="form-control" id="agreement_terms" name="agreement_terms" rows="4">{{ old('agreement_terms', $offer->agreement_terms ?? '') }}</textarea>
+
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="material_restrictions" class="form-label">{{ __('Material Restrictions') }}</label>
-                                    <textarea class="form-control" id="material_restrictions" name="material_restrictions" rows="4"></textarea>
+                                    <textarea class="form-control" id="material_restrictions" name="material_restrictions" rows="4">{{ old('material_restrictions', $offer->material_restrictions ?? '') }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -277,20 +277,20 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="delivery_terms" class="form-label">{{ __('Delivery Terms') }}</label>
-                                    <textarea class="form-control" id="delivery_terms" name="delivery_terms" rows="4"></textarea>
+                                    <textarea class="form-control" id="delivery_terms" name="delivery_terms" rows="4">{{ old('delivery_terms', $offer->delivery_terms ?? '') }}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="payment_policy" class="form-label">{{ __('Payment Policy') }}</label>
-                                    <textarea class="form-control" id="payment_policy" name="payment_policy" rows="4"></textarea>
+                                    <textarea class="form-control" id="payment_policy" name="payment_policy" rows="4">{{ old('payment_policy', $offer->payment_policy ?? '') }}</textarea>
                                 </div>
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="notes" class="form-label">{{ __('Notes') }}</label>
-                            <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+                            <textarea class="form-control" id="notes" name="notes" rows="3">{{ old('notes', $offer->notes ?? '') }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -302,28 +302,28 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="text-center">
                                     <label class="form-label">{{ __('Monthly Total Dumping Cost') }}</label>
                                     <div class="h4 text-primary" id="monthly_total_dumping_cost_display">0.00 {{ __('SAR') }}</div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 d-none">
                                 <div class="text-center">
                                     <label class="form-label">{{ __('Subtotal') }}</label>
                                     <div class="h4 text-info" id="subtotal_display">0.00 {{ __('SAR') }}</div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 d-none">
                                 <div class="text-center">
                                     <label class="form-label">{{ __('Tax Amount') }}</label>
                                     <div class="h4 text-warning" id="tax_amount_display">0.00 {{ __('SAR') }}</div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="text-center">
-                                    <label class="form-label">{{ __('Total Price') }}</label>
-                                    <div class="h4 text-success" id="total_price_display">0.00 {{ __('SAR') }}</div>
+                                    <label class="form-label">{{ __('Total Contract Price') }}</label>
+                                    <div class="h4 text-success" id="total_contract_price_display">0.00 {{ __('SAR') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -346,27 +346,47 @@
         const queryOfferId = new URLSearchParams(window.location.search).get('offer_id');
 
         // Auto-fill customer data when customer is selected
-        $('#customer_id').change(function() {
-            const selectedOption = $(this).find('option:selected');
-            if (selectedOption.val()) {
-                $('#customer_name').val(selectedOption.data('name'));
-                $('#customer_contact_person').val(selectedOption.data('contact-person'));
-                $('#customer_telephone').val(selectedOption.data('telephone'));
-                $('#customer_ext').val(selectedOption.data('ext'));
-                $('#customer_fax').val(selectedOption.data('fax'));
-                $('#customer_mobile').val(selectedOption.data('mobile'));
-                $('#customer_city').val(selectedOption.data('city'));
-                // if (selectedOption.data('type') === 'company') {
-                //     $('.is-company').show();
-                // } else {
-                //     $('.is-company').hide();
-                // }
-                $('#customer_tax_number').val(selectedOption.data('tax_number'));
-                $('#customer_commercial_number').val(selectedOption.data('commercial_number'));
-                $('#customer_address').val(selectedOption.data('address'));
-                $('#customer_type').val(selectedOption.data('type'));
+
+        $('#customer_id').on('change', function() {
+            const selected = $(this).find('option:selected');
+
+            // Reset if no customer selected
+            if (!selected.val()) {
+                $('#customer_name').val('').prop('readonly', false);
+                $('#customer_contact_tax_number, #customer_commercial_number, #customer_contact_person, #customer_telephone, #customer_mobile, #customer_city, #customer_address').val('');
+                $('.is-company').hide();
+                return;
+            }
+
+            // Extract data
+            const name = selected.data('name') || '';
+            const phone = selected.data('phone') || '';
+            const contactPerson = selected.data('contact-person') || '';
+            const contactPhone = selected.data('contact-phone') || '';
+            const city = selected.data('city') || '';
+            const type = selected.data('type') || '';
+            const taxNumber = selected.data('tax_number') || '';
+            const commercialNumber = selected.data('commercial_number') || '';
+            const address = selected.data('address') || '';
+
+            // Fill values
+            $('#customer_name').val(name).prop('readonly', true);
+            $('#customer_mobile').val(phone);
+            $('#customer_contact_person').val(contactPerson);
+            $('#customer_telephone').val(contactPhone);
+            $('#customer_city').val(city);
+            $('#customer_contact_tax_number').val(taxNumber);
+            $('#customer_commercial_number').val(commercialNumber);
+            $('#customer_address').val(address || '');
+
+            // Show/hide business fields
+            if (type === 'business') {
+                $('.is-company').slideDown();
+            } else {
+                $('.is-company').slideUp();
             }
         });
+
 
         // Calculate totals when values change
         function calculateTotals() {
@@ -375,9 +395,12 @@
             const monthly_dumping_cont = parseFloat($('#monthly_dumping_cont').val()) || 0;
             const additional_trip_cost = parseFloat($('#additional_trip_cost').val()) || 0;
             const tax_value = parseFloat($('#tax_value').val()) || 0;
+            const contract_period = parseInt($('#contract_period').val()) || 1;
 
-            const monthly_total_dumping_cost = container_price * noContainers * monthly_dumping_cont;
-            const subtotal = monthly_total_dumping_cost ;
+            console.log(container_price, noContainers, monthly_dumping_cont);
+            const monthly_total_dumping_cost = container_price * noContainers;
+            const total_contract_price = monthly_total_dumping_cost * contract_period;
+            const subtotal = monthly_total_dumping_cost;
             const tax_amount = subtotal * (tax_value / 100);
             const total_price = subtotal + tax_amount;
 
@@ -385,16 +408,17 @@
             $('#subtotal_display').text(subtotal.toFixed(2) + ' {{ __("SAR") }}');
             $('#tax_amount_display').text(tax_amount.toFixed(2) + ' {{ __("SAR") }}');
             $('#total_price_display').text(total_price.toFixed(2) + ' {{ __("SAR") }}');
+            $('#total_contract_price_display').text(total_contract_price.toFixed(2) + ' {{ __("SAR") }}');
         }
 
         // Bind calculation to input changes
-        $('#dumping_cost, #no_containers, #additional_trip_cost, #tax_value').on('input', calculateTotals);
+        $('#container_price, #no_containers, #additional_trip_cost, #tax_value, #contract_period').on('input', calculateTotals);
 
         // Set default dates
         const today = new Date().toISOString().split('T')[0];
         $('#start_date').val(today);
 
-        
+
 
         // Initial calculation
         calculateTotals();
@@ -424,14 +448,14 @@
                         $('#customer_name').val(data.customer.name || '');
                         $('#customer_contact_person').val(data.customer.contact_person || '');
                         $('#customer_telephone').val(data.customer.telephone || data.customer.contact_phone || '');
-                        $('#customer_mobile').val(data.customer.mobile || '');
+                        $('#customer_mobile').val(data.customer.phone || '');
                         $('#customer_city').val(data.customer.city || '');
                         $('#customer_address').val(data.customer.address || '');
                     }
                     if (data.customer_id) {
                         $('#customer_id').val(data.customer_id).trigger('change');
                     }
-                    if (data.type_id) $('#type_id').val(data.type_id).trigger('change');
+                    if (data.size_id) $('#size_id').val(data.size_id).trigger('change');
                     if (data.container_price) $('#container_price').val(data.container_price);
                     if (data.no_containers) $('#no_containers').val(data.no_containers);
                     if (data.monthly_dumping_cont) $('#monthly_dumping_cont').val(data.monthly_dumping_cont);

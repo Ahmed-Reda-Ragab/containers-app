@@ -66,7 +66,7 @@ class FilledContainerController extends Controller
     public function assignContainer(ContractContainer $contractContainer): RedirectResponse
     {
         // Find available container of the required type
-        $availableContainer = Container::where('type_id', $contractContainer->type_id)
+        $availableContainer = Container::where('size_id', $contractContainer->size_id)
             ->where('status', ContainerStatus::AVAILABLE)
             ->first();
 

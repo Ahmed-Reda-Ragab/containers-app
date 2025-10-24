@@ -47,14 +47,14 @@ class ContainerService
     public function createBulk(array $data): int
     {
         $containers = [];
-        $prefix = $data['code_prefix'];
+        $prefix = $data['code_prefix'] ?? '';
         $count = $data['count'];
         $sizeId = $data['size_id'];
         $status = $data['status'];
         $description = $data['description'] ?? null;
 
         for ($i = 1; $i <= $count; $i++) {
-            $code = $prefix . str_pad($i, 3, '-', STR_PAD_LEFT);
+            $code = $prefix . $i;//str_pad($i, 3, '-', STR_PAD_LEFT);
             
             // Check if code already exists
             if (Container::where('code', $code)->exists()) {

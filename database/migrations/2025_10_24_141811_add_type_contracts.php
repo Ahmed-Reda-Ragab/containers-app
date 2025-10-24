@@ -11,18 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('cars', function (Blueprint $table) {
-            $table->json('vehicles')->nullable();
+        Schema::table('contracts', function (Blueprint $table) {
+            if (!Schema::hasColumn('contracts', 'type')) {
+                $table->string('type')->default('business')->after('id');
+            }
         });
     }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::table('cars', function (Blueprint $table) {
-            //
-        });
+        //
     }
 };

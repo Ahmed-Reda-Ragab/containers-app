@@ -56,7 +56,7 @@ class ContainerController extends Controller
     {
         $validated = $request->validate([
             'code' => 'required|string|max:255|unique:containers,code',
-            'size_id' => 'required|exists:types,id',
+            'size_id' => 'required|exists:sizes,id',
             'status' => 'required|string',
             'description' => 'nullable|string',
         ]);
@@ -73,9 +73,9 @@ class ContainerController extends Controller
     public function storeBulk(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'code_prefix' => 'required|string|max:50',
+            'code_prefix' => 'nullable|string|max:50',
             'count' => 'required|integer|min:1|max:100',
-            'size_id' => 'required|exists:types,id',
+            'size_id' => 'required|exists:sizes,id',
             'status' => 'required|string',
             'description' => 'nullable|string',
         ]);
@@ -111,7 +111,7 @@ class ContainerController extends Controller
     {
         $validated = $request->validate([
             'code' => 'required|string|max:255|unique:containers,code,' . $container->id,
-            'size_id' => 'required|exists:types,id',
+            'size_id' => 'required|exists:sizes,id',
             'status' => 'required|string',
             'description' => 'nullable|string',
         ]);

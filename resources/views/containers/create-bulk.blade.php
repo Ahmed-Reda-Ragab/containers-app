@@ -23,10 +23,10 @@
 
                         <div class="row">
                             <div class="col-md-4 mb-3">
-                                <label for="code_prefix" class="form-label">{{ __('containers.code_prefix') }} <span class="text-danger">*</span></label>
+                                <label for="code_prefix" class="form-label">{{ __('containers.code_prefix') }} </label>
                                 <input type="text" class="form-control @error('code_prefix') is-invalid @enderror"
                                        id="code_prefix" name="code_prefix" value="{{ old('code_prefix') }}"
-                                       placeholder="{{ __('containers.enter_prefix') }}" required>
+                                       placeholder="{{ __('containers.enter_prefix') }}" >
                                 @error('code_prefix')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -127,17 +127,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const count = document.getElementById('count');
 
     previewBtn.addEventListener('click', function() {
-        const prefix = codePrefix.value.trim();
+        const prefix =  codePrefix.value.trim();
         const containerCount = parseInt(count.value) || 0;
 
-        if (!prefix || containerCount <= 0) {
-            alert('{{ __("Please enter a code prefix and count") }}');
-            return;
+        if (containerCount <= 0) {
+            // if (!prefix || containerCount <= 0) {
+            // alert('{{ __("Please enter a code prefix and count") }}');
+            // return;
         }
 
         let codesHtml = '<div class="row">';
         for (let i = 1; i <= containerCount; i++) {
-            const code = prefix + String(i).padStart(3, '-');
+            const code = prefix + String(i);//.padStart(3, '-');
             codesHtml += `<div class="col-md-3 mb-2"><span class="badge bg-primary">${code}</span></div>`;
         }
         codesHtml += '</div>';

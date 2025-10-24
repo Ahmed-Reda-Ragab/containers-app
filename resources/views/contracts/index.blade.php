@@ -26,7 +26,6 @@
                         <th>{{ __('Type') }}</th>
                         <th>{{ __('Containers') }}</th>
                         <th>{{ __('Period') }}</th>
-                        <th>{{ __('Status') }}</th>
                         <th>{{ __('Actions') }}</th>
                     </tr>
                 </thead>
@@ -37,8 +36,7 @@
                         <td>{{ $contract->customer['name'] ?? 'N/A' }}</td>
                         <td>{{ ucfirst($contract->customer['type'] ?? 'business') }}</td>
                         <td>{{ $contract->no_containers }}</td>
-                        <td>{{ $contract->contract_period }}</td>
-                        <td><span class="badge bg-{{ $contract->status_badge }}">{{ ucfirst($contract->status) }}</span></td>
+                        <td>{{ $contract->contract_period }} {{ __('months') }}</td>
                         <td>
                             <a class="btn btn-sm btn-outline-primary" href="{{ route('contracts.show', $contract) }}">{{ __('View') }}</a>
                         </td>

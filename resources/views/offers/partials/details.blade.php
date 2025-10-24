@@ -16,11 +16,11 @@
                     </tr>
                     <tr>
                         <th>{{ __('Contact Person') }}:</th>
-                        <td>{{ $offer->customer['contact_person'] ?? 'N/A' }}</td>
+                        <td>{{ $offer->customer['name'] ?? 'N/A' }}</td>
                     </tr>
                     <tr>
-                        <th>{{ __('Telephone') }}:</th>
-                        <td>{{ $offer->customer['telephone'] ?? 'N/A' }}</td>
+                        <th>{{ __('phone') }}:</th>
+                        <td>{{ $offer->customer['phone'] ?? 'N/A' }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Mobile') }}:</th>

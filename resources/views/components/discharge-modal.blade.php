@@ -22,6 +22,16 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <div class="mb-3">
+                        <label for="discharge_car_id" class="form-label">{{ __('Discharge Car') }}</label>
+                        <select class="form-select" id="discharge_car_id" name="discharge_car_id">
+                            <option value="">{{ __('Choose car...') }}</option>
+                            @foreach(App\Models\Car::all(['id', 'number']) as $car)
+                                <option value="{{ $car->id }}">{{ $car->number }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
 
                 <div class="modal-footer">

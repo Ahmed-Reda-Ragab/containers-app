@@ -26,10 +26,10 @@
                     <tr>
                         <td>#{{ $offer->id }}</td>
                         <td>{{ $offer->customer['name'] ?? 'N/A' }}</td>
-                        <td>{{ ucfirst($offer->customer['type'] ?? 'business') }}</td>
+                        <td>{{ __(ucfirst($offer->customer['type'] ?? 'business')) }}</td>
                         <td>{{ $offer->no_containers }}</td>
-                        <td>{{ $offer->contract_period }}</td>
-                        <td>{{ ucfirst($offer->status ?? 'draft') }}</td>
+                        <td>{{ $offer->contract_period }} {{ __('months') }}</td>
+                        <td>{{ __(ucfirst($offer->status ?? 'draft')) }}</td>
                         <td>
                             <a class="btn btn-sm btn-outline-primary" href="{{ route('offers.show', $offer) }}">{{ __('View') }}</a>
                         </td>

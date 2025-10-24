@@ -98,6 +98,20 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
+                                            <label for="deliver_car_id" class="form-label">{{ __('Delivery Car') }}</label>
+                                            <select class="form-select" id="deliver_car_id" name="deliver_car_id">
+                                                <option value="">{{ __('Choose car...') }}</option>
+                                                @foreach(App\Models\Car::all(['id', 'number']) as $car)
+                                                    <option value="{{ $car->id }}">{{ $car->number }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
                                             <label for="expected_discharge_date" class="form-label">{{ __('Expected Discharge Date') }} *</label>
                                             <input type="date" class="form-control" id="expected_discharge_date" name="expected_discharge_date" required>
                                         </div>

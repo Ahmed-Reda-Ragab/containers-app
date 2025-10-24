@@ -10,6 +10,7 @@ use App\Http\Controllers\ContainerController;
 
 use App\Http\Controllers\FilledContainerController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\CarController;
 
 Route::auth();
 Route::get('/', [HomeController::class, 'index']);
@@ -46,10 +47,11 @@ Route::middleware('auth')->group(function () {
     
     // Contract Container Fills routes
     Route::resource('contract-container-fills', ContractContainerFillController::class);
+    Route::get('contract-container/fills', [ContractContainerFillController::class, 'filled'])->name('contract-container-filled');
     Route::get('contracts/{contract}/container-fills/create', [ContractContainerFillController::class, 'createForContract'])->name('contract-container-fills.create-for-contract');
-    Route::post('contract-container-fills/{contractContainerFill}/mark-filled', [ContractContainerFillController::class, 'markAsFilled'])->name('contract-container-fills.mark-filled');
+    // Route::post('contract-container-fills/{contractContainerFill}/mark-filled', [ContractContainerFillController::class, 'markAsFilled'])->name('contract-container-fills.mark-filled');
     Route::post('contract-container-fills/{contractContainerFill}/discharge', [ContractContainerFillController::class, 'discharge'])->name('contract-container-fills.discharge');
-    Route::post('contract-container-fills/{contractContainerFill}/replace', [ContractContainerFillController::class, 'replaceContainer'])->name('contract-container-fills.replace');
+    // Route::post('contract-container-fills/{contractContainerFill}/replace', [ContractContainerFillController::class, 'replaceContainer'])->name('contract-container-fills.replace');
 
     // Type management routes
     Route::get('types', [TypeController::class, 'index'])->name('types.index');
@@ -88,4 +90,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('offers', App\Http\Controllers\OfferCrudController::class);
     Route::get('offers-search', [OfferController::class, 'search'])->name('offers.search');
     Route::get('offers/{offer}/data', [OfferController::class, 'data'])->name('offers.data');
+
+    // Cars CRUD
+    Route::resource('cars', CarController::class);
 });

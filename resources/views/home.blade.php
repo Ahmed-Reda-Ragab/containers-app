@@ -30,9 +30,10 @@
                         <a href="{{ route('contracts.index') }}" class="btn btn-info">
                             <i class="fas fa-file-contract"></i> {{ __('Manage Contracts') }}
                         </a>
-                        <a href="{{ route('contracts.create') }}" class="btn btn-warning">
-                            <i class="fas fa-plus"></i> {{ __('Create Contract') }}
-                        </a>
+                        
+                        <a href="{{ route('contracts.create.by-type', ['type' => 'business']) }}" class="btn btn-primary">{{ __('New Business Contract') }}</a>
+                        <a href="{{ route('contracts.create.by-type', ['type' => 'individual']) }}" class="btn btn-primary">{{ __('New Individual Contract') }}</a>
+
                     </div>
                 </div>
             </div>

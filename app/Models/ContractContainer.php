@@ -9,7 +9,7 @@ class ContractContainer extends Model
 {
     protected $fillable = [
         'contract_id',
-        'type_id',
+        'size_id',
         'container_id',
         'no_of_containers',
         'monthly_dumping',

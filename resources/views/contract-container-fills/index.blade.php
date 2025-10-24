@@ -5,10 +5,14 @@
     <div class="row">
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2>{{ __('Container Fills') }}</h2>
-                <a href="{{ route('contract-container-fills.create') }}" class="btn btn-primary">
+                @isset($filled)
+                <h2>{{ __('Filled Containers') }} ( {{ $fills->count() }} )</h2>
+                @else
+                <h2>{{ __('Container Fills') }}  </h2>
+                @endif
+                <!-- <a href="{{ route('contract-container-fills.create') }}" class="btn btn-primary">
                     <i class="fas fa-plus"></i> {{ __('Record Container Fill') }}
-                </a>
+                </a> -->
             </div>
 
             @if(session('success'))
@@ -28,10 +32,12 @@
                                     <th>{{ __('Contract') }}</th>
                                     <th>{{ __('Container') }}</th>
                                     <th>{{ __('Delivered By') }}</th>
+                                    <th>{{ __('Delivery Car') }}</th>
                                     <th>{{ __('Delivery Date') }}</th>
                                     <th>{{ __('Expected Discharge') }}</th>
                                     <th>{{ __('Discharge Date') }}</th>
                                     <th>{{ __('Discharged By') }}</th>
+                                    <th>{{ __('Discharge Car') }}</th>
                                     <th>{{ __('Status') }}</th>
                                     <th>{{ __('Actions') }}</th>
                                 </tr>
@@ -47,10 +53,12 @@
                                         </td>
                                         <td>{{ $fill->container->code ?? 'N/A' }}</td>
                                         <td>{{ $fill->deliver->name ?? 'N/A' }}</td>
+                                        <td>{{ $fill->deliverCar->number ?? 'N/A' }}</td>
                                         <td>{{ $fill->deliver_at->format('Y-m-d') }}</td>
                                         <td>{{ $fill->expected_discharge_date->format('Y-m-d') }}</td>
                                         <td>{{ $fill->discharge_date?->format('Y-m-d') ?? 'N/A' }}</td>
                                         <td>{{ $fill->discharge?->name ?? 'N/A' }}</td>
+                                        <td>{{ $fill->dischargeCar->number ?? 'N/A' }}</td>
                                         <td>
                                             @if($fill->is_discharged)
                                                 <span class="badge bg-success">{{ __('Discharged') }}</span>
@@ -104,7 +112,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="8" class="text-center">
+                                        <td colspan="12" class="text-center">
                                             <div class="py-4">
                                                 <i class="fas fa-truck fa-3x text-muted mb-3"></i>
                                                 <p class="text-muted">{{ __('No container fills found.') }}</p>

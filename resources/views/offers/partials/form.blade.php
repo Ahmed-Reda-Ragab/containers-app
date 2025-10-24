@@ -15,18 +15,23 @@
                         <label for="customer_id" class="form-label">{{ __('Select Customer') }} *</label>
                         <select class="form-select" id="customer_id" name="customer_id">
                             <option value="">{{ __('Choose a customer...') }}</option>
+                           
                             @foreach($customers as $customer)
-                            <option value="{{ $customer->id }}"
-                                data-name="{{ $customer->name }}"
-                                data-contact-person="{{ $customer->contact_person['name']??'' }}"
-                                data-telephone="{{ $customer->contact_person['phone']??'' }}"
-                                data-city="{{ $customer->city??'' }}"
-                                data-type="{{ $customer->type??'' }}"
-                                data-tax_number="{{ $customer->tax_number??'' }}"
-                                data-commercial_number="{{ $customer->commercial_number??'' }}">
-                                {{ $customer->name }}
-                            </option>
-                            @endforeach
+        <option value="{{ $customer->id }}"
+            data-name="{{ $customer->name }}"
+            data-phone="{{ $customer->phone ?? '' }}"
+            data-contact-person="{{ $customer->contact_person['name'] ?? '' }}"
+            data-contact-phone="{{ $customer->contact_person['phone'] ?? '' }}"
+            data-city="{{ $customer->city ?? '' }}"
+            data-type="{{ $customer->type ?? '' }}"
+            data-tax_number="{{ $customer->tax_number ?? '' }}"
+            data-commercial_number="{{ $customer->commercial_number ?? '' }}"
+            data-address="{{ $customer->address ?? '' }}">
+            {{ $customer->name }}
+        </option>
+    @endforeach
+
+
                         </select>
                     </div>
 
@@ -46,16 +51,17 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="customer_telephone" class="form-label">{{ __('Telephone') }}</label>
-                                <input type="text" class="form-control" id="customer_telephone" name="customer[telephone]" value="{{ old('customer.telephone', $offer->customer['telephone'] ?? '') }}">
+                                <input type="text" class="form-control" id="customer_telephone" name="customer[phone]" value="{{ old('customer.telephone', $offer->customer['telephone'] ?? '') }}">
                             </div>
                         </div>
                     </div>
+                    
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="customer_mobile" class="form-label">{{ __('Mobile') }}</label>
-                                <input type="text" class="form-control" id="customer_mobile" name="customer[mobile]" value="{{ old('customer.mobile', $offer->customer['mobile'] ?? '') }}">
+                                <input type="text" class="form-control" id="customer_mobile" name="customer[contact_phone]" value="{{ old('customer.mobile', $offer->customer['mobile'] ?? '') }}">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -81,11 +87,11 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <label for="type_id" class="form-label">{{ __('Container Type') }} *</label>
-                        <select class="form-select" id="type_id" name="type_id" required>
+                        <label for="size_id" class="form-label">{{ __('Container Type') }} *</label>
+                        <select class="form-select" id="size_id" name="size_id" required>
                             <option value="">{{ __('Choose container type...') }}</option>
                             @foreach($types as $type)
-                            <option value="{{ $type->id }}" @selected(old('type_id', $offer->type_id ?? '') == $type->id)>{{ $type->name }}</option>
+                            <option value="{{ $type->id }}" @selected(old('size_id', $offer->size_id ?? '') == $type->id)>{{ $type->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -216,27 +222,46 @@
         const queryOfferId = new URLSearchParams(window.location.search).get('offer_id');
 
         // Auto-fill customer data when customer is selected
-        $('#customer_id').change(function() {
-            const selectedOption = $(this).find('option:selected');
-            if (selectedOption.val()) {
-                $('#customer_name').val(selectedOption.data('name'));
-                $('#customer_contact_person').val(selectedOption.data('contact-person'));
-                $('#customer_telephone').val(selectedOption.data('telephone'));
-                $('#customer_ext').val(selectedOption.data('ext'));
-                $('#customer_fax').val(selectedOption.data('fax'));
-                $('#customer_mobile').val(selectedOption.data('mobile'));
-                $('#customer_city').val(selectedOption.data('city'));
-                // if (selectedOption.data('type') === 'company') {
-                //     $('.is-company').show();
-                // } else {
-                //     $('.is-company').hide();
-                // }
-                $('#customer_tax_number').val(selectedOption.data('tax_number'));
-                $('#customer_commercial_number').val(selectedOption.data('commercial_number'));
-                $('#customer_address').val(selectedOption.data('address'));
-                $('#customer_type').val(selectedOption.data('type'));
-            }
-        });
+        
+    $('#customer_id').on('change', function () {
+        const selected = $(this).find('option:selected');
+
+        // Reset if no customer selected
+        if (!selected.val()) {
+            $('#customer_name').val('').prop('readonly', false);
+            $('#customer_contact_tax_number, #customer_commercial_number, #customer_contact_person, #customer_telephone, #customer_mobile, #customer_city, #customer_address').val('');
+            $('.is-company').hide();
+            return;
+        }
+
+        // Extract data
+        const name = selected.data('name') || '';
+        const phone = selected.data('phone') || '';
+        const contactPerson = selected.data('contact-person') || '';
+        const contactPhone = selected.data('contact-phone') || '';
+        const city = selected.data('city') || '';
+        const type = selected.data('type') || '';
+        const taxNumber = selected.data('tax_number') || '';
+        const commercialNumber = selected.data('commercial_number') || '';
+        const address = selected.data('address') || '';
+
+        // Fill values
+        $('#customer_name').val(name).prop('readonly', true);
+        $('#customer_mobile').val(phone);
+        $('#customer_contact_person').val(contactPerson);
+        $('#customer_telephone').val(contactPhone);
+        $('#customer_city').val(city);
+        $('#customer_contact_tax_number').val(taxNumber);
+        $('#customer_commercial_number').val(commercialNumber);
+        $('#customer_address').val(address || '');
+
+        // Show/hide business fields
+        if (type === 'business') {
+            $('.is-company').slideDown();
+        } else {
+            $('.is-company').slideUp();
+        }
+    });
 
          // Set end date to 1 year from start date
          $('#contract_period , #start_date').on('input', function() {

@@ -83,7 +83,7 @@
                                     'name' => 'size',
                                     'placeholder' => __('containers.filter_by_size'),
                                     'column' => 2,
-                                    'options' => $sizes->pluck('name', 'id')->toArray()
+                                    'options' => $sizes->pluck('name', 'name')->toArray()
                                 ]
                             ]"
                             :language="app()->getLocale()"
@@ -231,7 +231,7 @@
             <div class="modal-body">
                 <form id="typeForm">
                     @csrf
-                    <input type="hidden" id="typeId" name="type_id">
+                    <input type="hidden" id="typeId" name="size_id">
                     <div class="mb-3">
                         <label for="typeName" class="form-label">{{ __('Type Name') }} <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="typeName" name="name" required>
