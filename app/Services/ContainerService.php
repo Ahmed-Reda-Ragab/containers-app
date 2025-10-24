@@ -12,7 +12,7 @@ class ContainerService
     /**
      * Get all containers with pagination
      */
-    public function getAll(?int $perPage = null): LengthAwarePaginator
+    public function getAll(?int $perPage = null)
     {
         return $perPage ? Container::latest()->paginate($perPage) : Container::latest()->get();
     }
