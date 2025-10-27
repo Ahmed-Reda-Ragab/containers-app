@@ -43,9 +43,9 @@
                                                 #{{ $payment->contract->id }}
                                             </a>
                                         </td>
-                                        <td>{{ $payment->contract->customer['name'] ?? 'N/A' }}</td>
+                                        <td>{{ $payment->contract->customer['name'] ?? '' }}</td>
                                         <td><strong>{{ number_format($payment->payed, 2) }} {{ __('SAR') }}</strong></td>
-                                        <td>{{ $payment->method ?? 'N/A' }}</td>
+                                        <td>{{ $payment->method ?? '' }}</td>
                                         <td>
                                             <span class="badge bg-{{ $payment->is_payed ? 'success' : 'warning' }}">
                                                 {{ $payment->is_payed ? __('Paid') : __('Pending') }}

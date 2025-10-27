@@ -167,7 +167,7 @@ class DashboardService
                 return [
                     'id' => $container->id,
                     'code' => $container->code,
-                    'size' => $container->size->name ?? 'N/A',
+                    'size' => $container->size->name ?? '',
                     'status' => $container->status->value,
                     'status_label' => $container->status->label(),
                     'description' => $container->description,

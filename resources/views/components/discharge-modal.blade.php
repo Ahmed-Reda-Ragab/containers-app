@@ -53,10 +53,14 @@ $(document).ready(function () {
     $(document).on('click', '[data-bs-target="#dischargeModal"]', function () {
         const url = $(this).data('url');
         const containerNo = $(this).data('no') || '';
+        const userRole = $(this).data('user-role') || 'driver';
         const modal = $('#dischargeModal');
 
         // Set form action
         modal.find('form').attr('action', url);
+
+        // Update user role filter
+        modal.find('#discharge_id').data('role', userRole);
 
         // Update modal title (optional)
         modal.find('.modal-title').text(`{{ __('Discharge Container') }} ${containerNo ? '#' + containerNo : ''}`);

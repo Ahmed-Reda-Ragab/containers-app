@@ -87,7 +87,7 @@
                                     <td><strong>Container:</strong></td>
                                     <td>
                                         @if($contractContainerFill->container)
-                                            {{ $contractContainerFill->container->code }} ({{ $contractContainerFill->container->type->name ?? 'N/A' }})
+                                            {{ $contractContainerFill->container->code }} ({{ $contractContainerFill->container->type->name ?? '' }})
                                         @else
                                             <span class="text-muted">N/A</span>
                                         @endif
@@ -95,15 +95,15 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Client:</strong></td>
-                                    <td>{{ $contractContainerFill->client->name ?? 'N/A' }}</td>
+                                    <td>{{ $contractContainerFill->client->name ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Deliver:</strong></td>
-                                    <td>{{ $contractContainerFill->deliver->name ?? 'N/A' }}</td>
+                                    <td>{{ $contractContainerFill->deliver->name ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Discharge By:</strong></td>
-                                    <td>{{ $contractContainerFill->discharge->name ?? 'N/A' }}</td>
+                                    <td>{{ $contractContainerFill->discharge->name ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Created At:</strong></td>

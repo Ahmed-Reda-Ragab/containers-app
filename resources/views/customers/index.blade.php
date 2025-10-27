@@ -50,7 +50,7 @@
                                 'column' => 1,
                                 'options' => [
                                     'individual' => __('Individual'),
-                                    'business' => __('Business')
+                                    'company' => __('Business')
                                 ]
                             ]
                         ]"

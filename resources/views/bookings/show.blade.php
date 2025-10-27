@@ -60,7 +60,7 @@
                                         <strong>{{ __('Container') }}:</strong>
                                         <div>
                                             {{ $booking->container->code }} - {{ $booking->container->type->name ?? 'Unknown' }}
-                                            <br><small class="text-muted">{{ $booking->container->size ?? 'N/A' }}</small>
+                                            <br><small class="text-muted">{{ $booking->container->size ?? '' }}</small>
                                         </div>
                                     </div>
                                 </div>
@@ -201,7 +201,7 @@
                             </div>
                             <div class="mb-3">
                                 <strong>{{ __('Size') }}:</strong>
-                                <div>{{ $booking->container->size ?? 'N/A' }}</div>
+                                <div>{{ $booking->container->size ?? '' }}</div>
                             </div>
                             <div class="mb-3">
                                 <strong>{{ __('Status') }}:</strong>

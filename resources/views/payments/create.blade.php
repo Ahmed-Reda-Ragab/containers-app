@@ -39,21 +39,21 @@
                                         @if($contract)
                                         <option value="{{ $contract->id }}" 
                                                     {{ isset($contract) && $contract->id == $contract->id ? 'selected' : '' }}
-                                                    data-customer="{{ $contract->customer['name'] ?? 'N/A' }}"
+                                                    data-customer="{{ $contract->customer['name'] ?? '' }}"
                                                     data-total-price="{{ $contract->total_price }}"
                                                     data-total-payed="{{ $contract->total_payed }}"
                                                     data-remaining="{{ $contract->remaining_amount }}">
-                                                #{{ $contract->id }} - {{ $contract->customer['name'] ?? 'N/A' }}
+                                                #{{ $contract->id }} - {{ $contract->customer['name'] ?? '' }}
                                             </option>
                                         @else
                                         @foreach($contracts as $contractOption)
                                             <option value="{{ $contractOption->id }}" 
                                                     {{ isset($contract) && $contract->id == $contractOption->id ? 'selected' : '' }}
-                                                    data-customer="{{ $contractOption->customer['name'] ?? 'N/A' }}"
+                                                    data-customer="{{ $contractOption->customer['name'] ?? '' }}"
                                                     data-total-price="{{ $contractOption->total_price }}"
                                                     data-total-payed="{{ $contractOption->total_payed }}"
                                                     data-remaining="{{ $contractOption->remaining_amount }}">
-                                                #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? 'N/A' }}
+                                                #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? '' }}
                                             </option>
                                         @endforeach
                                                                                 @endif

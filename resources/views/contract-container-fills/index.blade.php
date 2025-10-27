@@ -51,14 +51,14 @@
                                                 #{{ $fill->contract->id }}
                                             </a>
                                         </td>
-                                        <td>{{ $fill->container->code ?? 'N/A' }}</td>
-                                        <td>{{ $fill->deliver->name ?? 'N/A' }}</td>
-                                        <td>{{ $fill->deliverCar->number ?? 'N/A' }}</td>
+                                        <td>{{ $fill->container->code ?? '' }}</td>
+                                        <td>{{ $fill->deliver->name ?? '' }}</td>
+                                        <td>{{ $fill->deliverCar->number ?? '' }}</td>
                                         <td>{{ $fill->deliver_at->format('Y-m-d') }}</td>
                                         <td>{{ $fill->expected_discharge_date->format('Y-m-d') }}</td>
-                                        <td>{{ $fill->discharge_date?->format('Y-m-d') ?? 'N/A' }}</td>
-                                        <td>{{ $fill->discharge?->name ?? 'N/A' }}</td>
-                                        <td>{{ $fill->dischargeCar->number ?? 'N/A' }}</td>
+                                        <td>{{ $fill->discharge_date?->format('Y-m-d') ?? '' }}</td>
+                                        <td>{{ $fill->discharge?->name ?? '' }}</td>
+                                        <td>{{ $fill->dischargeCar->number ?? '' }}</td>
                                         <td>
                                             @if($fill->is_discharged)
                                                 <span class="badge bg-success">{{ __('Discharged') }}</span>

@@ -25,7 +25,7 @@
                 @forelse($offers as $offer)
                     <tr>
                         <td>#{{ $offer->id }}</td>
-                        <td>{{ $offer->customer['name'] ?? 'N/A' }}</td>
+                        <td>{{ $offer->customer['name'] ?? '' }}</td>
                         <td>{{ __(ucfirst($offer->customer['type'] ?? 'business')) }}</td>
                         <td>{{ $offer->no_containers }}</td>
                         <td>{{ $offer->contract_period }} {{ __('months') }}</td>

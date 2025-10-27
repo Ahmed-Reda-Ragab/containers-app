@@ -38,14 +38,14 @@
                                         @foreach($contracts as $contractOption)
                                             <option value="{{ $contractOption->id }}" 
                                                     {{ isset($contract) && $contract->id == $contractOption->id ? 'selected' : '' }}
-                                                    data-customer="{{ $contractOption->customer['name'] ?? 'N/A' }}"
+                                                    data-customer="{{ $contractOption->customer['name'] ?? '' }}"
                                                     data-city="{{ $contractOption->customer['city'] ?? '' }}"
                                                     data-address="{{ $contractOption->customer['address'] ?? '' }}"
                                                     data-start-date="{{ $contractOption->start_date->format('Y-m-d') }}"
                                                     data-period="{{ $contractOption->VisiteEveryDay }}"
                                                     
                                                     >
-                                                #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? 'N/A' }}
+                                                #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? '' }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -66,8 +66,8 @@
                                                 @foreach($containers as $container)
                                                     <option value="{{ $container->id }}" 
                                                             data-code="{{ $container->code }}"
-                                                            data-type="{{ $container->size->name ?? 'N/A' }}">
-                                                        {{ $container->code }} ( {{ __('Size') }} : {{ $container->size->name ?? 'N/A' }})
+                                                            data-type="{{ $container->size->name ?? '' }}">
+                                                        {{ $container->code }} ( {{ __('Size') }} : {{ $container->size->name ?? '' }})
                                                     </option>
                                                 @endforeach
                                             </select>

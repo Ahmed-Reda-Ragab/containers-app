@@ -40,15 +40,15 @@
                                         </tr>
                                         <tr>
                                             <th>{{ __('Container') }}:</th>
-                                            <td>{{ $contractContainerFill->container->code ?? 'N/A' }}</td>
+                                            <td>{{ $contractContainerFill->container->code ?? '' }}</td>
                                         </tr>
                                         <tr>
                                             <th>{{ __('Container Type') }}:</th>
-                                            <td>{{ $contractContainerFill->container->type->name ?? 'N/A' }}</td>
+                                            <td>{{ $contractContainerFill->container->type->name ?? '' }}</td>
                                         </tr>
                                         <tr>
                                             <th>{{ __('Delivered By') }}:</th>
-                                            <td>{{ $contractContainerFill->deliver->name ?? 'N/A' }}</td>
+                                            <td>{{ $contractContainerFill->deliver->name ?? '' }}</td>
                                         </tr>
                                         <tr>
                                             <th>{{ __('Delivery Date') }}:</th>
@@ -64,15 +64,15 @@
                                         </tr>
                                         <tr>
                                             <th>{{ __('Discharge Date') }}:</th>
-                                            <td>{{ $contractContainerFill->discharge_date ? $contractContainerFill->discharge_date->format('Y-m-d') : 'N/A' }}</td>
+                                            <td>{{ $contractContainerFill->discharge_date ? $contractContainerFill->discharge_date->format('Y-m-d') : '' }}</td>
                                         </tr>
                                         <tr>
                                             <th>{{ __('Discharged By') }}:</th>
-                                            <td>{{ $contractContainerFill->discharge->name ?? 'N/A' }}</td>
+                                            <td>{{ $contractContainerFill->discharge->name ?? '' }}</td>
                                         </tr>
                                         <tr>
                                             <th>{{ __('Client') }}:</th>
-                                            <td>{{ $contractContainerFill->client->name ?? 'N/A' }}</td>
+                                            <td>{{ $contractContainerFill->client->name ?? '' }}</td>
                                         </tr>
                                         <tr>
                                             <th>{{ __('City') }}:</th>

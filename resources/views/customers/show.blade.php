@@ -163,8 +163,8 @@
                                             @foreach($customer->contracts as $contract)
                                                 <tr>
                                                     <td><a href="{{ route('contracts.show', $contract) }}">#{{ $contract->id }}</a></td>
-                                                    <td>{{ $contract->start_date ? $contract->start_date->format('M d, Y') : 'N/A' }}</td>
-                                                    <td>{{ $contract->end_date ? $contract->end_date->format('M d, Y') : 'N/A' }}</td>
+                                                    <td>{{ $contract->start_date ? $contract->start_date->format('M d, Y') : '' }}</td>
+                                                    <td>{{ $contract->end_date ? $contract->end_date->format('M d, Y') : '' }}</td>
                                                     <td>
                                                         <span class="badge bg-{{ $contract->status_badge }}">
                                                             {{ ucfirst($contract->status) }}

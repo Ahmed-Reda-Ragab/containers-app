@@ -39,11 +39,11 @@
                                         @foreach($contracts as $contractOption)
                                             <option value="{{ $contractOption->id }}" 
                                                     {{ $payment->contract_id == $contractOption->id ? 'selected' : '' }}
-                                                    data-customer="{{ $contractOption->customer['name'] ?? 'N/A' }}"
+                                                    data-customer="{{ $contractOption->customer['name'] ?? '' }}"
                                                     data-total-price="{{ $contractOption->total_price }}"
                                                     data-total-payed="{{ $contractOption->total_payed }}"
                                                     data-remaining="{{ $contractOption->remaining_amount }}">
-                                                #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? 'N/A' }}
+                                                #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? '' }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -108,7 +108,7 @@
                             <div class="card-body">
                                 <div class="mb-3">
                                     <strong>{{ __('Customer') }}:</strong>
-                                    <div id="contract-customer">{{ $payment->contract->customer['name'] ?? 'N/A' }}</div>
+                                    <div id="contract-customer">{{ $payment->contract->customer['name'] ?? '' }}</div>
                                 </div>
                                 <div class="mb-3">
                                     <strong>{{ __('Total Price') }}:</strong>

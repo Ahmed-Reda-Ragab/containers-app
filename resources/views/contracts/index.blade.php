@@ -3,17 +3,23 @@
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>{{ __('Contracts') }} @isset($type)<small class="text-muted">- {{ ucfirst($type) }}</small>@endisset</h2>
+    @if (isset($type) && $type == 'business')
+
+        <h2>
+            {{ __('Business Contracts') }}
+            </h2>
         <div>
             <a href="{{ route('contracts.create.by-type', ['type' => 'business']) }}" class="btn btn-primary">{{ __('New Business Contract') }}</a>
-            <a href="{{ route('contracts.create.by-type', ['type' => 'individual']) }}" class="btn btn-outline-primary">{{ __('New Individual Contract') }}</a>
         </div>
-    </div>
+        @else
+            <h2>
+                {{ __('Individual Contracts') }}
+            </h2>
+            <div>
+                <a href="{{ route('contracts.create.by-type', ['type' => 'individual']) }}" class="btn btn-primary">{{ __('New Individual Contract') }}</a>
+            </div>
+        @endif
 
-    <div class="mb-3">
-        <a href="{{ route('contracts.index.by-type', ['type' => 'business']) }}" class="btn btn-sm btn-secondary">{{ __('Business') }}</a>
-        <a href="{{ route('contracts.index.by-type', ['type' => 'individual']) }}" class="btn btn-sm btn-secondary">{{ __('Individual') }}</a>
-        <a href="{{ route('contracts.index') }}" class="btn btn-sm btn-light">{{ __('All') }}</a>
     </div>
 
     <div class="card">
@@ -33,7 +39,7 @@
                 @forelse($contracts as $contract)
                     <tr>
                         <td>{{ $contract->number ?? ('#'.$contract->id) }}</td>
-                        <td>{{ $contract->customer['name'] ?? 'N/A' }}</td>
+                        <td>{{ $contract->customer['name'] ?? '' }}</td>
                         <td>{{ ucfirst($contract->customer['type'] ?? 'business') }}</td>
                         <td>{{ $contract->no_containers }}</td>
                         <td>{{ $contract->contract_period }} {{ __('months') }}</td>

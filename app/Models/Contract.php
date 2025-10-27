@@ -146,5 +146,10 @@ class Contract extends Model
     {
         return $this->additional_trip_cost * $this->no_containers;
     }
+
+    // public function getPriceWithVatAttribute()
+    // {
+    //     return $this->price + ($this->price * $this->vat_rate / 100);
+    // }
     
 }
