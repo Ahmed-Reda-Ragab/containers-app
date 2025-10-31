@@ -60,10 +60,14 @@
                                 @endif
                             @endif
 
-                            @if($customer->contact_person)
+                            @if($customer->contact_person && isset($customer->contact_person['phone']))
                                 <div class="mb-3">
                                     <label class="form-label fw-bold">{{ __('customers.contact_person') }}:</label>
-                                    <p class="form-control-plaintext">{{ $customer->contact_person }}</p>
+                                    <p class="form-control-plaintext">{{ $customer->contact_person['name']??'' }}</p>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">{{ __('customers.contact_person') }}:</label>
+                                    <p class="form-control-plaintext">{{ $customer->contact_person['phone']??'' }}</p>
                                 </div>
                             @endif
                         </div>
