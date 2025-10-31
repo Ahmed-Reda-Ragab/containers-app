@@ -76,7 +76,7 @@
                                 <div class="mb-3">
                                     <label for="password" class="form-label">{{ __('Password') }} *</label>
                                     <input type="password" class="form-control @error('password') is-invalid @enderror" 
-                                           id="password" name="password" required>
+                                           id="password" name="password" >
                                     @error('password')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -87,7 +87,7 @@
                                 <div class="mb-3">
                                     <label for="password_confirmation" class="form-label">{{ __('Confirm Password') }} *</label>
                                     <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" 
-                                           id="password_confirmation" name="password_confirmation" required>
+                                           id="password_confirmation" name="password_confirmation" >
                                     @error('password_confirmation')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror

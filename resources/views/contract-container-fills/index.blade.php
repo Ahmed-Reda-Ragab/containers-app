@@ -10,9 +10,9 @@
                 @else
                 <h2>{{ __('Container Fills') }}  </h2>
                 @endif
-                <!-- <a href="{{ route('contract-container-fills.create') }}" class="btn btn-primary">
+                <a href="{{ route('contract-container-fills.create') }}" class="btn btn-primary">
                     <i class="fas fa-plus"></i> {{ __('Record Container Fill') }}
-                </a> -->
+                </a>
             </div>
 
             @if(session('success'))

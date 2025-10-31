@@ -36,7 +36,7 @@
                                     <label for="contract_id" class="form-label">{{ __('Contract') }} *</label>
                                     <select class="form-select" id="contract_id" name="contract_id" required>
                                         <option value="">{{ __('Choose a contract...') }}</option>
-                                        @if($contract)
+                                        @isset($contract)
                                         <option value="{{ $contract->id }}" 
                                                     {{ isset($contract) && $contract->id == $contract->id ? 'selected' : '' }}
                                                     data-customer="{{ $contract->customer['name'] ?? '' }}"

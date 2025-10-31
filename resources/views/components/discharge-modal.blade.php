@@ -17,7 +17,7 @@
                         <label for="discharge_id" class="form-label">{{ __('Discharged By') }} *</label>
                         <select class="form-select" id="discharge_id" name="discharge_id" required>
                             <option value="">{{ __('Choose user...') }}</option>
-                            @foreach(App\Models\User::all(['id', 'name']) as $user)
+                            @foreach(App\Models\User::drivers()->get(['id', 'name']) as $user)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                             @endforeach
                         </select>
