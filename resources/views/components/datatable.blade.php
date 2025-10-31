@@ -50,7 +50,7 @@
     @endif
 
     <div class="table-responsive">
-        <table id="{{ $id }}" class="table table-striped table-hover" style="width:100%">
+        <table id="{{ $id }}" class="table table-striped table-hover text-start" style="width:100%">
             <thead class="table-dark">
                 <tr>
                     @foreach($columns as $column)

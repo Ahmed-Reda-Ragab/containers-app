@@ -50,12 +50,12 @@
                                         </td>
                                         <td>
                                             @if($fill->container)
-                                                {{ $fill->container->code }} ({{ $fill->container->type->name ?? 'N/A' }})
+                                                {{ $fill->container->code }} ({{ $fill->container->type->name ?? '' }})
                                             @else
                                                 <span class="text-muted">N/A</span>
                                             @endif
                                         </td>
-                                        <td>{{ $fill->client->name ?? 'N/A' }}</td>
+                                        <td>{{ $fill->client->name ?? '' }}</td>
                                         <td>{{ $fill->deliver_at->format('Y-m-d') }}</td>
                                         <td>{{ $fill->expected_discharge_date->format('Y-m-d') }}</td>
                                         <td>

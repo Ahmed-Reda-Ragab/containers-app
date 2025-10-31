@@ -38,14 +38,16 @@
                                         @foreach($contracts as $contractOption)
                                             <option value="{{ $contractOption->id }}" 
                                                     {{ isset($contract) && $contract->id == $contractOption->id ? 'selected' : '' }}
-                                                    data-customer="{{ $contractOption->customer['name'] ?? 'N/A' }}"
+                                                    data-customer="{{ $contractOption->customer['name'] ?? '' }}"
+                                                    data-size_id="{{ $contractOption->size_id }}"
+                                                    data-size="{{ $contractOption->size->name??"" }}"
                                                     data-city="{{ $contractOption->customer['city'] ?? '' }}"
                                                     data-address="{{ $contractOption->customer['address'] ?? '' }}"
                                                     data-start-date="{{ $contractOption->start_date->format('Y-m-d') }}"
                                                     data-period="{{ $contractOption->VisiteEveryDay }}"
                                                     
                                                     >
-                                                #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? 'N/A' }}
+                                                #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? '' }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -66,8 +68,9 @@
                                                 @foreach($containers as $container)
                                                     <option value="{{ $container->id }}" 
                                                             data-code="{{ $container->code }}"
-                                                            data-type="{{ $container->size->name ?? 'N/A' }}">
-                                                        {{ $container->code }} ( {{ __('Size') }} : {{ $container->size->name ?? 'N/A' }})
+                                                            data-size_id="{{ $container->size_id }}"
+                                                            data-type="{{ $container->size->name ?? '' }}">
+                                                        {{ $container->code }} ( {{ __('Size') }} : {{ $container->size->name ?? '' }})
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -180,6 +183,10 @@
                                     <div id="contract-customer">-</div>
                                 </div>
                                 <div class="mb-3">
+                                    <strong>{{ __('Container Size') }}:</strong>
+                                    <div id="contract-size">-</div>
+                                </div>
+                                <div class="mb-3">
                                     <strong>{{ __('City') }}:</strong>
                                     <div id="contract-city">-</div>
                                 </div>
@@ -209,37 +216,64 @@
 $(document).ready(function() {
     // Show contract information when contract is selected
     $('#contract_id').change(function() {
-        const selectedOption = $(this).find('option:selected');
-        if (selectedOption.val()) {
-            const customer = selectedOption.data('customer');
-            const city = selectedOption.data('city');
-            const address = selectedOption.data('address');
-            const startDate = selectedOption.data('start-date');
-            const period = selectedOption.data('period');
+    const selectedOption = $(this).find('option:selected');
+    const contractInfo = $('#contract-info');
 
-            $('#contract-customer').text(customer);
-            $('#contract-city').text(city);
-            $('#contract-address').text(address);
-            $('#contract-start-date').text(startDate);
-            $('#contract-period').text(period + ' {{ __("days") }}');
-            
-            // Auto-fill city and address
-            $('#city').val(city);
-            $('#address').val(address);
-            
-            // Calculate expected discharge date
-            if (startDate && period) {
-                const start = new Date(startDate);
-                const expectedDate = new Date(start);
-                expectedDate.setDate(start.getDate() + parseInt(period));
-                $('#expected_discharge_date').val(expectedDate.toISOString().split('T')[0]);
-            }
-            
-            $('#contract-info').show();
-        } else {
-            $('#contract-info').hide();
+    if (selectedOption.val()) {
+        const customer = selectedOption.data('customer');
+        const city = selectedOption.data('city');
+        const size = selectedOption.data('size');
+        const address = selectedOption.data('address');
+        const startDate = selectedOption.data('start-date');
+        const period = selectedOption.data('period');
+        const sizeId = selectedOption.data('size_id'); // Get the contract's size_id
+
+        $('#contract-customer').text(customer);
+        $('#contract-size').text(size);
+        $('#contract-city').text(city);
+        $('#contract-address').text(address);
+        $('#contract-start-date').text(startDate);
+        $('#contract-period').text(period + ' ' + '{{ __("days") }}');
+
+        // Auto-fill city and address
+        $('#city').val(city);
+        $('#address').val(address);
+
+        // Calculate expected discharge date
+        if (startDate && period) {
+            const start = new Date(startDate);
+            const expectedDate = new Date(start);
+            expectedDate.setDate(start.getDate() + parseInt(period));
+            $('#expected_discharge_date').val(expectedDate.toISOString().split('T')[0]);
         }
-    });
+
+        // Show contract info
+        contractInfo.show();
+
+        // ===== Filter containers by size_id =====
+        const containerSelect = $('#container_id');
+        const allOptions = containerSelect.find('option');
+
+        // Store all options initially if not already stored
+        if (!containerSelect.data('all-options')) {
+            containerSelect.data('all-options', allOptions.clone());
+        }
+
+        const filteredOptions = containerSelect
+            .data('all-options')
+            .filter(function() {
+                const optionSizeId = $(this).data('size_id');
+                return !optionSizeId || optionSizeId == sizeId; // keep default empty option or matching ones
+            });
+
+        containerSelect.html(filteredOptions);
+        containerSelect.val(''); // reset selection
+    } else {
+        // Hide contract info if none selected
+        contractInfo.hide();
+    }
+});
+
 
     // Set default delivery date to today
     $('#deliver_at').val(new Date().toISOString().split('T')[0]);

@@ -17,7 +17,7 @@
                         <label for="discharge_id" class="form-label">{{ __('Discharged By') }} *</label>
                         <select class="form-select" id="discharge_id" name="discharge_id" required>
                             <option value="">{{ __('Choose user...') }}</option>
-                            @foreach(App\Models\User::all(['id', 'name']) as $user)
+                            @foreach(App\Models\User::drivers()->get(['id', 'name']) as $user)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                             @endforeach
                         </select>
@@ -53,10 +53,14 @@ $(document).ready(function () {
     $(document).on('click', '[data-bs-target="#dischargeModal"]', function () {
         const url = $(this).data('url');
         const containerNo = $(this).data('no') || '';
+        const userRole = $(this).data('user-role') || 'driver';
         const modal = $('#dischargeModal');
 
         // Set form action
         modal.find('form').attr('action', url);
+
+        // Update user role filter
+        modal.find('#discharge_id').data('role', userRole);
 
         // Update modal title (optional)
         modal.find('.modal-title').text(`{{ __('Discharge Container') }} ${containerNo ? '#' + containerNo : ''}`);

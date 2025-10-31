@@ -29,7 +29,7 @@ class OfferController extends Controller
 
         return response()->json([
             'results' => $offers->map(function (Offer $offer) {
-                $customerName = $offer->customer['name'] ?? 'N/A';
+                $customerName = $offer->customer['name'] ?? '';
                 return [
                     'id' => $offer->id,
                     'text' => __('Offer') . ' #' . $offer->id . ' - ' . $customerName,

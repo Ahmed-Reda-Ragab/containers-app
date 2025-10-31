@@ -36,6 +36,10 @@ class Receipt extends Model
     {
         return $this->belongsTo(User::class, 'issued_by');
     }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'issued_by');
+    }
 
     public function collectedBy(): BelongsTo
     {

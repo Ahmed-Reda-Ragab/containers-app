@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>{{ __('Customer') }}:</strong> {{ $contract->customer['name'] ?? 'N/A' }}</p>
+                            <p><strong>{{ __('Customer') }}:</strong> {{ $contract->customer['name'] ?? '' }}</p>
                             <p><strong>{{ __('Contract #') }}:</strong> #{{ $contract->id }}</p>
                         </div>
                         <div class="col-md-6">
@@ -80,8 +80,8 @@
                                                            data-price="{{ $fill->price }}">
                                                 </td>
                                                 <td><strong>#{{ $fill->id }}</strong></td>
-                                                <td>{{ $fill->container->code ?? 'N/A' }}</td>
-                                                <td>{{ $fill->deliver->name ?? 'N/A' }}</td>
+                                                <td>{{ $fill->container->code ?? '' }}</td>
+                                                <td>{{ $fill->deliver->name ?? '' }}</td>
                                                 <td>{{ $fill->deliver_at->format('Y-m-d') }}</td>
                                                 <td><strong>{{ number_format($fill->price, 2) }} {{ __('SAR') }}</strong></td>
                                                 <td>

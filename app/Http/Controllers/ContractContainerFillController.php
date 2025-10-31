@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Enums\ContainerStatus;
 use App\Enums\ContractStatus;
+use App\Enums\UserType;
 
 class ContractContainerFillController extends Controller
 {
@@ -45,8 +46,7 @@ class ContractContainerFillController extends Controller
         $contracts = Contract::with('customer')->get();
         $containers = Container::where('status', 'available')->get();
         $customers = Customer::all();
-        $users = User::all();
-
+        $users = User::drivers()->get();
         return view('contract-container-fills.create', compact('contracts', 'containers', 'customers', 'users'));
     }
 
@@ -105,7 +105,7 @@ class ContractContainerFillController extends Controller
         $contracts = Contract::with('customer')->get();
         $containers = Container::all();
         $customers = Customer::all();
-        $users = User::all();
+        $users = User::drivers()->get();
 
         return view('contract-container-fills.edit', compact('contractContainerFill', 'contracts', 'containers', 'customers', 'users'));
     }
@@ -170,7 +170,7 @@ class ContractContainerFillController extends Controller
     {
         $containers = Container::where(['status'=>ContainerStatus::AVAILABLE->value , 'size_id'=>$contract->size_id])->get();
         $customers = [];//Customer::all();
-        $users = User::all();
+        $users = User::drivers()->get();
         $contracts = [$contract];//Contract::all();
         return view('contract-container-fills.create', compact('contract', 'containers', 'customers', 'users' , 'contracts'));
     }

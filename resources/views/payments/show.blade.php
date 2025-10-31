@@ -36,7 +36,7 @@
                                         </tr>
                                         <tr>
                                             <th>{{ __('Payment Method') }}:</th>
-                                            <td>{{ $payment->method ?? 'N/A' }}</td>
+                                            <td>{{ $payment->method ?? '' }}</td>
                                         </tr>
                                         <tr>
                                             <th>{{ __('Status') }}:</th>
@@ -68,7 +68,7 @@
                                         </tr>
                                         <tr>
                                             <th>{{ __('Customer') }}:</th>
-                                            <td>{{ $payment->contract->customer['name'] ?? 'N/A' }}</td>
+                                            <td>{{ $payment->contract->customer['name'] ?? '' }}</td>
                                         </tr>
                                         <tr>
                                             <th>{{ __('Contract Total') }}:</th>

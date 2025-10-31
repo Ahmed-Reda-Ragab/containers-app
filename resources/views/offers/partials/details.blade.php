@@ -12,27 +12,27 @@
                     </tr>
                     <tr>
                         <th>{{ __('Customer') }}:</th>
-                        <td>{{ $offer->customer['name'] ?? 'N/A' }}</td>
+                        <td>{{ $offer->customer['name'] ?? '' }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Contact Person') }}:</th>
-                        <td>{{ $offer->customer['name'] ?? 'N/A' }}</td>
+                        <td>{{ $offer->customer['name'] ?? '' }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('phone') }}:</th>
-                        <td>{{ $offer->customer['phone'] ?? 'N/A' }}</td>
+                        <td>{{ $offer->customer['phone'] ?? '' }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Mobile') }}:</th>
-                        <td>{{ $offer->customer['mobile'] ?? 'N/A' }}</td>
+                        <td>{{ $offer->customer['mobile'] ?? '' }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('City') }}:</th>
-                        <td>{{ $offer->customer['city'] ?? 'N/A' }}</td>
+                        <td>{{ $offer->customer['city'] ?? '' }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Address') }}:</th>
-                        <td>{{ $offer->customer['address'] ?? 'N/A' }}</td>
+                        <td>{{ $offer->customer['address'] ?? '' }}</td>
                     </tr>
                 </table>
             </div>
@@ -40,7 +40,7 @@
                 <table class="table table-borderless">
                     <tr>
                         <th width="40%">{{ __('Container Type') }}:</th>
-                        <td>{{ $offer->type->name ?? 'N/A' }}</td>
+                        <td>{{ $offer->type->name ?? '' }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Container Price') }}:</th>

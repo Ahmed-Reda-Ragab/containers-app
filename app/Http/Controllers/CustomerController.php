@@ -30,6 +30,14 @@ class CustomerController extends Controller
         $customers = Customer::query()->orderBy('created_at', 'desc');
 
         return DataTables::of($customers)
+            ->filter(function ($query) use ($request) {
+                
+                $query->when(request('search.value' , null), function ($query) {
+                    $query->where('name', 'like', '%' . request('search.value') . '%');
+                })->when(request('type' , null), function ($query) {
+                    $query->where('type', request('type'));
+                });
+            })
             ->addColumn('type_badge', function ($customer) {
                 $badgeClass = $customer->type === 'company' ? 'bg-info' : 'bg-success';
                 return '<span class="badge ' . $badgeClass . '">' . ucfirst($customer->type) . '</span>';

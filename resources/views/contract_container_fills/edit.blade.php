@@ -25,7 +25,7 @@
                                     <option value="">Select Contract</option>
                                     @foreach($contracts as $contract)
                                         <option value="{{ $contract->id }}" {{ (old('contract_id', $contractContainerFill->contract_id) == $contract->id) ? 'selected' : '' }}>
-                                            Contract #{{ $contract->id }} - {{ $contract->customer->name ?? 'N/A' }}
+                                            Contract #{{ $contract->id }} - {{ $contract->customer->name ?? '' }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -41,7 +41,7 @@
                                     <option value="">Select Container</option>
                                     @foreach($containers as $container)
                                         <option value="{{ $container->id }}" {{ (old('container_id', $contractContainerFill->container_id) == $container->id) ? 'selected' : '' }}>
-                                            {{ $container->code }} ( {{ __('Size') }} : {{ $container->size->name ?? 'N/A' }})
+                                            {{ $container->code }} ( {{ __('Size') }} : {{ $container->size->name ?? '' }})
                                         </option>
                                     @endforeach
                                 </select>

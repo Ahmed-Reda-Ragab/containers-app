@@ -6,9 +6,9 @@
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>{{ __('Payments') }}</h2>
-                <!-- <a href="{{ route('payments.create') }}" class="btn btn-primary">
+                <a href="{{ route('payments.create') }}" class="btn btn-primary">
                     <i class="fas fa-plus"></i> {{ __('Record Payment') }}
-                </a> -->
+                </a>
             </div>
 
             @if(session('success'))
@@ -43,9 +43,9 @@
                                                 #{{ $payment->contract->id }}
                                             </a>
                                         </td>
-                                        <td>{{ $payment->contract->customer['name'] ?? 'N/A' }}</td>
+                                        <td>{{ $payment->contract->customer['name'] ?? '' }}</td>
                                         <td><strong>{{ number_format($payment->payed, 2) }} {{ __('SAR') }}</strong></td>
-                                        <td>{{ $payment->method ?? 'N/A' }}</td>
+                                        <td>{{ $payment->method ?? '' }}</td>
                                         <td>
                                             <span class="badge bg-{{ $payment->is_payed ? 'success' : 'warning' }}">
                                                 {{ $payment->is_payed ? __('Paid') : __('Pending') }}
@@ -113,12 +113,7 @@
 <script>
 $(document).ready(function() {
     $('#paymentsTable').DataTable({
-        responsive: true,
-        language: {
-            @if(app()->getLocale() === 'ar')
-                url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json'
-            @endif
-        }
+        responsive: true
     });
 });
 </script>

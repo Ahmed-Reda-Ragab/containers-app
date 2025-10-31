@@ -66,11 +66,11 @@
                                                 <option value="">{{ __('Choose a contract...') }}</option>
                                                 @foreach($contracts as $contract)
                                                     <option value="{{ $contract->id }}" {{ old('contract_id', $booking->contract_id) == $contract->id ? 'selected' : '' }}
-                                                            data-customer="{{ $contract->customer['name'] ?? 'N/A' }}"
+                                                            data-customer="{{ $contract->customer['name'] ?? '' }}"
                                                             data-phone="{{ $contract->customer['mobile'] ?? $contract->customer['telephone'] ?? '' }}"
                                                             data-address="{{ $contract->customer['address'] ?? '' }}"
                                                             data-city="{{ $contract->customer['city'] ?? '' }}">
-                                                        #{{ $contract->id }} - {{ $contract->customer['name'] ?? 'N/A' }}
+                                                        #{{ $contract->id }} - {{ $contract->customer['name'] ?? '' }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -83,7 +83,7 @@
                                                 <option value="">{{ __('Choose a container...') }}</option>
                                                 @foreach($containers as $container)
                                                     <option value="{{ $container->id }}" {{ old('container_id', $booking->container_id) == $container->id ? 'selected' : '' }}>
-                                                        {{ $container->code }} - {{ $container->size->name ?? 'Unknown' }} ({{ $container->size ?? 'N/A' }})
+                                                        {{ $container->code }} - {{ $container->size->name ?? 'Unknown' }} ({{ $container->size ?? '' }})
                                                     </option>
                                                 @endforeach
                                             </select>

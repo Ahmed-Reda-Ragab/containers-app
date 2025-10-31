@@ -27,7 +27,7 @@ class Customer extends Model
 
     public function contracts(): HasMany
     {
-        return $this->hasMany(Contract::class);
+        return $this->hasMany(Contract::class)->latest();
     }
 
 

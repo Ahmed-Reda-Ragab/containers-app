@@ -46,10 +46,10 @@
             <div class="card bg-primary text-white">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
-                        <div>
+                        <a href="{{route('contract-container-filled',['expected_discharge_date' => date('Y-m-d')] ) }}" class="text-white">
                             <h4 class="mb-0">{{ $dashboardData['todays_summary']['scheduled_for_unloading'] }}</h4>
                             <p class="mb-0">{{ __('containers.scheduled_for_unloading_today') }}</p>
-                        </div>
+                        </a>
                         <div class="align-self-center">
                             <i class="fas fa-calendar-check fa-2x"></i>
                         </div>
@@ -61,10 +61,10 @@
             <div class="card bg-success text-white">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
-                        <div>
+                        <a href="{{route('contract-container-filled',['discharge_date' => date('Y-m-d')] ) }}" class="text-white">
                             <h4 class="mb-0">{{ $dashboardData['todays_summary']['actually_unloaded'] }}</h4>
                             <p class="mb-0">{{ __('containers.actually_unloaded_today') }}</p>
-                        </div>
+                        </a>
                         <div class="align-self-center">
                             <i class="fas fa-truck fa-2x"></i>
                         </div>
@@ -76,10 +76,11 @@
             <div class="card bg-info text-white">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
-                        <div>
+                    <a href="{{route('containers.index',['status' =>  App\Enums\ContainerStatus::AVAILABLE->value ] ) }}" class="text-white">
+
                             <h4 class="mb-0">{{ $dashboardData['todays_summary']['available_containers'] }}</h4>
                             <p class="mb-0">{{ __('containers.available_containers') }}</p>
-                        </div>
+                        </a>
                         <div class="align-self-center">
                             <i class="fas fa-check-circle fa-2x"></i>
                         </div>
@@ -91,10 +92,11 @@
             <div class="card bg-warning text-white clickable-card" data-bs-toggle="modal" data-bs-target="#unavailableContainersModal">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
-                        <div>
+                    <a href="{{route('containers.index',['status' =>  App\Enums\ContainerStatus::IN_USE->value ] ) }}" class="text-white">
+
                             <h4 class="mb-0">{{ $dashboardData['todays_summary']['unavailable_containers'] }}</h4>
                             <p class="mb-0">{{ __('containers.unavailable_containers') }}</p>
-                        </div>
+                    </a>
                         <div class="align-self-center">
                             <i class="fas fa-exclamation-triangle fa-2x"></i>
                         </div>

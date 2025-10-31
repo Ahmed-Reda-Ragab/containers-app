@@ -21,7 +21,6 @@ class FilledContainerController extends Controller
             ->where('status', 'filled')
             ->whereNotNull('container_id')
             ->paginate(15);
-
         return view('filled-containers.index', compact('filledContainers'));
     }
 

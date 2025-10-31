@@ -21,50 +21,60 @@
                     <form action="{{ route('containers.store-bulk') }}" method="POST" id="bulkForm">
                         @csrf
 
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+
                         <div class="row">
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-4 mb-3 d-none">
                                 <label for="code_prefix" class="form-label">{{ __('containers.code_prefix') }} </label>
                                 <input type="text" class="form-control @error('code_prefix') is-invalid @enderror"
-                                       id="code_prefix" name="code_prefix" value="{{ old('code_prefix') }}"
-                                       placeholder="{{ __('containers.enter_prefix') }}" >
+                                    id="code_prefix" name="code_prefix" value="{{ old('code_prefix') }}"
+                                    placeholder="{{ __('containers.enter_prefix') }}">
                                 @error('code_prefix')
-                                    <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <label for="from_count" class="form-label">{{ __('From Count') }} <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control @error('count') is-invalid @enderror"
-                                       id="from_count" name="from_count" value="{{ old('from_count', 1) }}" min="1"
-                                       placeholder="{{ __('From Count') }}" required>
+                                    id="from_count" name="from_count" value="{{ old('from_count', 1) }}" min="1"
+                                    placeholder="{{ __('From Count') }}" required>
                                 @error('from_count')
-                                    <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <label for="count" class="form-label">{{ __('To Count') }} <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control @error('count') is-invalid @enderror"
-                                       id="to_count" name="to_count" value="{{ old('to_count', 1) }}" min="1"
-                                       placeholder="{{ __('To Count') }}" required>
+                                    id="to_count" name="to_count" value="{{ old('to_count', 1) }}" min="1"
+                                    placeholder="{{ __('To Count') }}" required>
                                 @error('to_count')
-                                    <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
 
                             <div class="col-md-4 mb-3">
                                 <label for="size_id" class="form-label">{{ __('containers.size') }} <span class="text-danger">*</span></label>
                                 <select class="form-select @error('size_id') is-invalid @enderror"
-                                        id="size_id" name="size_id" required>
+                                    id="size_id" name="size_id" required>
                                     <option value="">{{ __('containers.select_size') }}</option>
                                     @foreach($sizes as $size)
-                                        <option value="{{ $size->id }}" {{ old('size_id') == $size->id ? 'selected' : '' }}>
-                                            {{ $size->name }}
-                                        </option>
+                                    <option value="{{ $size->id }}" {{ old('size_id') == $size->id ? 'selected' : '' }}>
+                                        {{ $size->name }}
+                                    </option>
                                     @endforeach
                                 </select>
                                 @error('size_id')
-                                    <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -73,16 +83,16 @@
                             <div class="col-md-6 mb-3">
                                 <label for="status" class="form-label">{{ __('containers.status') }} <span class="text-danger">*</span></label>
                                 <select class="form-select @error('status') is-invalid @enderror"
-                                        id="status" name="status" required>
+                                    id="status" name="status" required>
                                     <option value="">{{ __('containers.select_status') }}</option>
                                     @foreach($statuses as $key => $label)
-                                        <option value="{{ $key }}" {{ old('status') == $key ? 'selected' : '' }}>
-                                            {{ $label }}
-                                        </option>
+                                    <option value="{{ $key }}" {{ old('status') == $key ? 'selected' : '' }}>
+                                        {{ $label }}
+                                    </option>
                                     @endforeach
                                 </select>
                                 @error('status')
-                                    <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -90,10 +100,10 @@
                         <div class="mb-3">
                             <label for="description" class="form-label">{{ __('containers.description') }}</label>
                             <textarea class="form-control @error('description') is-invalid @enderror"
-                                      id="description" name="description" rows="4"
-                                      placeholder="{{ __('containers.enter_description') }}">{{ old('description') }}</textarea>
+                                id="description" name="description" rows="4"
+                                placeholder="{{ __('containers.enter_description') }}">{{ old('description') }}</textarea>
                             @error('description')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
@@ -129,33 +139,33 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const previewBtn = document.getElementById('previewBtn');
-    const previewSection = document.getElementById('previewSection');
-    const generatedCodes = document.getElementById('generatedCodes');
-    const codePrefix = document.getElementById('code_prefix');
-    const count = document.getElementById('count');
+    document.addEventListener('DOMContentLoaded', function() {
+        const previewBtn = document.getElementById('previewBtn');
+        const previewSection = document.getElementById('previewSection');
+        const generatedCodes = document.getElementById('generatedCodes');
+        const codePrefix = document.getElementById('code_prefix');
+        const count = document.getElementById('count');
 
-    previewBtn.addEventListener('click', function() {
-        const prefix =  codePrefix.value.trim();
-        const containerCount = parseInt(count.value) || 0;
+        previewBtn.addEventListener('click', function() {
+            const prefix = codePrefix.value.trim();
+            const containerCount = parseInt(count.value) || 0;
 
-        if (containerCount <= 0) {
-            // if (!prefix || containerCount <= 0) {
-            // alert('{{ __("Please enter a code prefix and count") }}');
-            // return;
-        }
+            if (containerCount <= 0) {
+                // if (!prefix || containerCount <= 0) {
+                // alert('{{ __("Please enter a code prefix and count") }}');
+                // return;
+            }
 
-        let codesHtml = '<div class="row">';
-        for (let i = 1; i <= containerCount; i++) {
-            const code = prefix + String(i);//.padStart(3, '-');
-            codesHtml += `<div class="col-md-3 mb-2"><span class="badge bg-primary">${code}</span></div>`;
-        }
-        codesHtml += '</div>';
+            let codesHtml = '<div class="row">';
+            for (let i = 1; i <= containerCount; i++) {
+                const code = prefix + String(i); //.padStart(3, '-');
+                codesHtml += `<div class="col-md-3 mb-2"><span class="badge bg-primary">${code}</span></div>`;
+            }
+            codesHtml += '</div>';
 
-        generatedCodes.innerHTML = codesHtml;
-        previewSection.style.display = 'block';
+            generatedCodes.innerHTML = codesHtml;
+            previewSection.style.display = 'block';
+        });
     });
-});
 </script>
 @endsection

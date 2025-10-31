@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Container;
 use App\Models\Type;
+use App\Rules\UniqueContainerRange;
 use App\Services\ContainerService;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -74,8 +75,20 @@ class ContainerController extends Controller
     {
         $validated = $request->validate([
             'code_prefix' => 'nullable|string|max:50',
-            'from_count' => 'required|integer|min:1|max:100',
-            'to_count' => 'required|integer|min:'.($request->from_count??1).'|max:99999',
+            'from_count' => 'required|integer|min:1|max:999999',
+            // 'to_count' => 'required|integer|min:'.($request->from_count??1).'|max:9999999',
+            'to_count' => [
+                'required',
+                'integer',
+                'min:' . ($request->from_count ?? 1),
+                'max:9999999',
+                new UniqueContainerRange(
+                    $request->code_prefix,
+                    $request->from_count,
+                    $request->to_count,
+                    $request->size_id
+                ),
+            ],
             // 'count' => 'required|integer|min:1|max:100',
             'size_id' => 'required|exists:sizes,id',
             'status' => 'required|string',

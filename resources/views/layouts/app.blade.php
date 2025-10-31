@@ -44,7 +44,13 @@
                                 <a class="nav-link" href="{{ route('customers.index') }}"> {{ __('Customers') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('contracts.index') }}">{{ __('Contracts') }}</a>
+                                <a class="nav-link" href="{{ route('users.index') }}"> {{ __('Users') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('contracts.index.by-type' , ['type' => 'business']) }}">{{ __('Business Contracts') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('contracts.index.by-type' , ['type' => 'individual']) }}">{{ __('Individual Contracts') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('offers.index') }}">{{ __('Offers') }}</a>

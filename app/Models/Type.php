@@ -14,6 +14,6 @@ class Type extends Model
 
     public function containers(): HasMany
     {
-        return $this->hasMany(Container::class);
+        return $this->hasMany(Container::class , 'size_id');
     }
 }

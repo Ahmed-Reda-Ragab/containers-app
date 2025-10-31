@@ -39,12 +39,12 @@
                                         @foreach($contracts as $contractOption)
                                             <option value="{{ $contractOption->id }}" 
                                                     {{ $contractContainerFill->contract_id == $contractOption->id ? 'selected' : '' }}
-                                                    data-customer="{{ $contractOption->customer['name'] ?? 'N/A' }}"
+                                                    data-customer="{{ $contractOption->customer['name'] ?? '' }}"
                                                     data-city="{{ $contractOption->customer['city'] ?? '' }}"
                                                     data-address="{{ $contractOption->customer['address'] ?? '' }}"
                                                     data-start-date="{{ $contractOption->start_date->format('Y-m-d') }}"
                                                     data-period="{{ $contractOption->contract_period }}">
-                                                #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? 'N/A' }}
+                                                #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? '' }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -67,8 +67,8 @@
                                                     <option value="{{ $container->id }}" 
                                                             {{ $contractContainerFill->container_id == $container->id ? 'selected' : '' }}
                                                             data-code="{{ $container->code }}"
-                                                            data-type="{{ $container->size->name ?? 'N/A' }}">
-                                                        {{ $container->code }} - {{ $container->size->name ?? 'N/A' }}
+                                                            data-type="{{ $container->size->name ?? '' }}">
+                                                        {{ $container->code }} - {{ $container->size->name ?? '' }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -198,15 +198,15 @@
                             <div class="card-body">
                                 <div class="mb-3">
                                     <strong>{{ __('Customer') }}:</strong>
-                                    <div id="contract-customer">{{ $contractContainerFill->contract->customer['name'] ?? 'N/A' }}</div>
+                                    <div id="contract-customer">{{ $contractContainerFill->contract->customer['name'] ?? '' }}</div>
                                 </div>
                                 <div class="mb-3">
                                     <strong>{{ __('City') }}:</strong>
-                                    <div id="contract-city">{{ $contractContainerFill->contract->customer['city'] ?? 'N/A' }}</div>
+                                    <div id="contract-city">{{ $contractContainerFill->contract->customer['city'] ?? '' }}</div>
                                 </div>
                                 <div class="mb-3">
                                     <strong>{{ __('Address') }}:</strong>
-                                    <div id="contract-address">{{ $contractContainerFill->contract->customer['address'] ?? 'N/A' }}</div>
+                                    <div id="contract-address">{{ $contractContainerFill->contract->customer['address'] ?? '' }}</div>
                                 </div>
                                 <div class="mb-3">
                                     <strong>{{ __('Start Date') }}:</strong>
@@ -244,7 +244,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <strong>{{ __('Discharged By') }}:</strong>
-                                        <div>{{ $contractContainerFill->discharge->name ?? 'N/A' }}</div>
+                                        <div>{{ $contractContainerFill->discharge->name ?? '' }}</div>
                                     </div>
                                 @endif
                             </div>

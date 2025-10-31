@@ -89,38 +89,38 @@
                                     <th>{{ __('Customer') }}:</th>
                                     <td>
                                         <a href="{{ route('customers.show', $contract->customer_id) }}" class="text-decoration-none">
-                                            {{ $contract->customer['name'] ?? 'N/A' }}
+                                            {{ $contract->customer['name'] ?? '' }}
                                         </a>
                                     </td>
                                 </tr>
                                 @if($contract->isBusiness())
                                 <tr>
                                     <th>{{ __('Tax Number') }}:</th>
-                                    <td>{{ $contract->customer['tax_number'] ?? 'N/A' }}</td>
+                                    <td>{{ $contract->customer['tax_number'] ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('Commercial Number') }}:</th>
-                                    <td>{{ $contract->customer['commercial_number'] ?? 'N/A' }}</td>
+                                    <td>{{ $contract->customer['commercial_number'] ?? '' }}</td>
                                 </tr>
                                 @endif
                                     <th>{{ __('Contact Person') }}:</th>
-                                    <td>{{ $contract->customer['name'] ?? 'N/A' }}</td>
+                                    <td>{{ $contract->customer['name'] ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('Telephone') }}:</th>
-                                    <td>{{ $contract->customer['contact_phone'] ?? 'N/A' }}</td>
+                                    <td>{{ $contract->customer['contact_phone'] ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('Mobile') }}:</th>
-                                    <td>{{ $contract->customer['phone'] ?? 'N/A' }}</td>
+                                    <td>{{ $contract->customer['phone'] ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('City') }}:</th>
-                                    <td>{{ $contract->customer['city'] ?? 'N/A' }}</td>
+                                    <td>{{ $contract->customer['city'] ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('Address') }}:</th>
-                                    <td>{{ $contract->customer['address'] ?? 'N/A' }}</td>
+                                    <td>{{ $contract->customer['address'] ?? '' }}</td>
                                 </tr>
                             </table>
                         </div>
@@ -132,7 +132,7 @@
                                 </tr>
                                 <tr>
                                     <th width="40%">{{ __('Container Type') }}:</th>
-                                    <td>{{ $contract->size->name ?? 'N/A' }}</td>
+                                    <td>{{ $contract->size->name ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <th>{{ __('Container Price') }}:</th>
@@ -247,6 +247,11 @@
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="receipts-tab" data-bs-toggle="tab" data-bs-target="#receipts" type="button" role="tab">
+                        {{ __('Receipts') }} ({{ $contract->receipts->count() }})
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
                     <button class="nav-link" id="terms-tab" data-bs-toggle="tab" data-bs-target="#terms" type="button" role="tab">
                         {{ __('Terms & Conditions') }}
                     </button>
@@ -277,14 +282,14 @@
                                         <tr>
                                             <td>{{ $payment->created_at->format('Y-m-d H:i') }}</td>
                                             <td><strong>{{ number_format($payment->payed, 2) }} {{ __('SAR') }}</strong></td>
-                                            <td>{{ $payment->method ?? 'N/A' }}</td>
+                                            <td>{{ $payment->method ?? '' }}</td>
                                             <td>
                                                 <span class="badge bg-{{ $payment->is_payed ? 'success' : 'warning' }}">
                                                     {{ $payment->is_payed ? __('Paid') : __('Pending') }}
                                                 </span>
                                             </td>
                                             <td>{{ $payment->user->name }}</td>
-                                            <td>{{ $payment->notes ?? 'N/A' }}</td>
+                                            <td>{{ $payment->notes ?? '' }}</td>
                                             <td>
                                                 <div class="btn-group btn-group-sm">
                                                     <a href="{{ route('payments.edit', $payment) }}" class="btn btn-outline-primary btn-sm">
@@ -320,6 +325,69 @@
                         </div>
                     </div>
                 </div>
+                <!-- Receipts Tab -->
+                <div class="tab-pane fade" id="receipts" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body">
+                            @if($contract->receipts->count() > 0)
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __('Date') }}</th>
+                                            <th>{{ __('Amount') }}</th>
+                                            <th>{{ __('Method') }}</th>
+                                            <th>{{ __('Status') }}</th>
+                                            <th>{{ __('Recorded By') }}</th>
+                                            <th>{{ __('Notes') }}</th>
+                                            <th>{{ __('Actions') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($contract->receipts as $receipt)
+                                        <tr>
+                                            <td>{{ $receipt->created_at->format('Y-m-d H:i') }}</td>
+                                            <td><strong>{{ number_format($receipt->amount, 2) }} {{ __('SAR') }}</strong></td>
+                                            <td>{{ $receipt->method ?? '' }}</td>
+                                            <td>
+                                                <span class="badge bg-{{ $receipt->is_paid ? 'success' : 'warning' }}">
+                                                    {{ $receipt->is_paid ? __('Paid') : __('Pending') }}
+                                                </span>
+                                            </td>
+                                            <td>{{ $receipt->user->name }}</td>
+                                            <td>{{ $receipt->notes ?? '' }}</td>
+                                            <td>
+                                                <div class="btn-group btn-group-sm">
+                                                    <a href="{{ route('receipts.edit', $receipt) }}" class="btn btn-outline-primary btn-sm">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                    <form action="{{ route('receipts.destroy', $receipt) }}" method="POST" class="d-inline"
+                                                        onsubmit="return confirm('{{ __('Are you sure?') }}')">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            @else
+                            <div class="text-center py-4">
+                                <i class="fas fa-receipt fa-3x text-muted mb-3"></i>
+                                <p class="text-muted">{{ __('No receipts recorded yet.') }}</p>
+                                <a href="{{ route('receipts.create-from-fills', $contract) }}" class="btn btn-warning">
+                                    {{ __('Create Receipt') }}
+                                </a>
+                            </div>  
+                            @endif
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Container Fills Tab -->
                 <div class="tab-pane fade" id="container-fills" role="tabpanel">
@@ -346,11 +414,11 @@
                                         @foreach($contract->contractContainerFills as $fill)
                                         <tr>
                                             <td><strong>#{{ $fill->id }}</strong></td>
-                                            <td>{{ $fill->container->code ?? 'N/A' }}</td>
-                                            <td>{{ $fill->deliver->name ?? 'N/A' }}</td>
+                                            <td>{{ $fill->container->code ?? '' }}</td>
+                                            <td>{{ $fill->deliver->name ?? '' }}</td>
                                             <td>{{ $fill->deliver_at->format('Y-m-d') }}</td>
                                             <td>{{ $fill->expected_discharge_date->format('Y-m-d') }}</td>
-                                            <td>{{ $fill->discharge_date ? $fill->discharge_date->format('Y-m-d') : 'N/A' }}</td>
+                                            <td>{{ $fill->discharge_date ? $fill->discharge_date->format('Y-m-d') : '' }}</td>
                                             <td><strong>{{ number_format($fill->price, 2) }} {{ __('SAR') }}</strong></td>
                                             <td>
                                                 @if($fill->receipt_id)

@@ -166,37 +166,37 @@
             <div>
                 <div class="info-row">
                     <div class="info-label">{{ __('Customer Name') }}</div>
-                    <div class="info-value">{{ $contract->customer['name'] ?? 'N/A' }}</div>
+                    <div class="info-value">{{ $contract->customer['name'] ?? '' }}</div>
                 </div>
                 <div class="info-row">
                     <div class="info-label">{{ __('Contact Person') }}</div>
-                    <div class="info-value">{{ $contract->customer['contact_person'] ?? 'N/A' }}</div>
+                    <div class="info-value">{{ $contract->customer['contact_person'] ?? '' }}</div>
                 </div>
                 <div class="info-row">
                     <div class="info-label">{{ __('Telephone') }}</div>
-                    <div class="info-value">{{ $contract->customer['telephone'] ?? 'N/A' }}</div>
+                    <div class="info-value">{{ $contract->customer['telephone'] ?? '' }}</div>
                 </div>
                 <div class="info-row">
                     <div class="info-label">{{ __('Ext') }}</div>
-                    <div class="info-value">{{ $contract->customer['ext'] ?? 'N/A' }}</div>
+                    <div class="info-value">{{ $contract->customer['ext'] ?? '' }}</div>
                 </div>
                 <div class="info-row">
                     <div class="info-label">{{ __('Fax') }}</div>
-                    <div class="info-value">{{ $contract->customer['fax'] ?? 'N/A' }}</div>
+                    <div class="info-value">{{ $contract->customer['fax'] ?? '' }}</div>
                 </div>
                 <div class="info-row">
                     <div class="info-label">{{ __('Mobile') }}</div>
-                    <div class="info-value">{{ $contract->customer['mobile'] ?? 'N/A' }}</div>
+                    <div class="info-value">{{ $contract->customer['mobile'] ?? '' }}</div>
                 </div>
             </div>
             <div>
                 <div class="info-row">
                     <div class="info-label">{{ __('City') }}</div>
-                    <div class="info-value">{{ $contract->customer['city'] ?? 'N/A' }}</div>
+                    <div class="info-value">{{ $contract->customer['city'] ?? '' }}</div>
                 </div>
                 <div class="info-row">
                     <div class="info-label">{{ __('Address') }}</div>
-                    <div class="info-value">{{ $contract->customer['address'] ?? 'N/A' }}</div>
+                    <div class="info-value">{{ $contract->customer['address'] ?? '' }}</div>
                 </div>
             </div>
         </div>
@@ -208,7 +208,7 @@
         <div class="service-details">
             <div class="service-row">
                 <div class="service-label">{{ __('Container Size') }}</div>
-                <div class="service-value">{{ $contract->type->name ?? 'N/A' }}</div>
+                <div class="service-value">{{ $contract->type->name ?? '' }}</div>
                 <div class="service-value">{{ __('Yards') }}</div>
                 <div class="service-value">{{ __('Container Size') }}</div>
             </div>
@@ -317,7 +317,7 @@
                 <div style="margin: 20px 0; border-bottom: 1px solid #000;"></div>
                 <div style="margin: 20px 0; border-bottom: 1px solid #000;"></div>
                 <div style="margin-top: 20px;">
-                    <strong>{{ __('Name') }} - الاسم:</strong> {{ $contract->customer['name'] ?? 'N/A' }}<br>
+                    <strong>{{ __('Name') }} - الاسم:</strong> {{ $contract->customer['name'] ?? '' }}<br>
                     <strong>{{ __('Signature') }} - التوقيع:</strong> _________________<br>
                     <strong>{{ __('Date') }} - التاريخ:</strong> _________________
                 </div>

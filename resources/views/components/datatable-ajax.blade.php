@@ -15,22 +15,12 @@
 <div class="datatable-container">
     @if($searchable || $filterable)
         <div class="datatable-controls mb-3">
-            <div class="row">
-                <!-- @if($searchable)
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <span class="input-group-text">
-                                <i class="fas fa-search"></i>
-                            </span>
-                            <input type="text" class="form-control" id="{{ $id }}_search" 
-                                   placeholder="{{ __('customers.search_placeholder') }}">
-                        </div>
-                    </div>
-                @endif -->
+            <div class="row justify-content-end">
+               
                 
                 @if($filterable && !empty($filters))
                     <div class="col-md-6">
-                        <div class="row">
+                        <div class="row justify-content-end">
                             @foreach($filters as $filter)
                                 <div class="col-md-6">
                                     <select class="form-select filter-datatable" name="{{ $filter['name'] }}" id="{{ $id }}_filter_{{ $filter['name'] }}">
@@ -189,7 +179,8 @@ $(document).ready(function() {
             type: 'GET',
             data: function(d) {
                 $('.filter-datatable').each(function() {
-                    d[$(this).attr('name')] = $(this).val();
+                    if($(this).attr('name'))
+                        d[$(this).attr('name')] = $(this).val();
                 });
                 console.log(d);
             }

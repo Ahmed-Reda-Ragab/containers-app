@@ -11,6 +11,8 @@ use App\Http\Controllers\ContainerController;
 use App\Http\Controllers\FilledContainerController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UserController;
 
 Route::auth();
 Route::get('/', [HomeController::class, 'index']);
@@ -93,4 +95,9 @@ Route::middleware('auth')->group(function () {
 
     // Cars CRUD
     Route::resource('cars', CarController::class);
+    Route::resource('employees', EmployeeController::class);
+
+    // Users CRUD
+    Route::resource('users', UserController::class);
+    Route::get('users-search', [UserController::class, 'search'])->name('users.search');
 });

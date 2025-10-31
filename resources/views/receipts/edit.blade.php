@@ -66,11 +66,11 @@
                                                 <option value="">{{ __('Choose a contract...') }}</option>
                                                 @foreach($contracts as $contract)
                                                     <option value="{{ $contract->id }}" {{ old('contract_id', $receipt->contract_id) == $contract->id ? 'selected' : '' }}
-                                                            data-customer="{{ $contract->customer['name'] ?? 'N/A' }}"
+                                                            data-customer="{{ $contract->customer['name'] ?? '' }}"
                                                             data-phone="{{ $contract->customer['mobile'] ?? $contract->customer['telephone'] ?? '' }}"
                                                             data-address="{{ $contract->customer['address'] ?? '' }}"
                                                             data-city="{{ $contract->customer['city'] ?? '' }}">
-                                                        #{{ $contract->id }} - {{ $contract->customer['name'] ?? 'N/A' }}
+                                                        #{{ $contract->id }} - {{ $contract->customer['name'] ?? '' }}
                                                     </option>
                                                 @endforeach
                                             </select>
