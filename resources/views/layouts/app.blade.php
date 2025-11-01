@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +23,7 @@
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -37,54 +39,54 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         @auth
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('containers.index') }}">{{ __('Containers') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('customers.index') }}"> {{ __('Customers') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('users.index') }}"> {{ __('Users') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('contracts.index.by-type' , ['type' => 'business']) }}">{{ __('Business Contracts') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('contracts.index.by-type' , ['type' => 'individual']) }}">{{ __('Individual Contracts') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('offers.index') }}">{{ __('Offers') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('payments.index') }}">{{ __('Payments') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('contract-container-fills.index') }}">{{ __('Container Fills') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('cars.index') }}">{{ __('Cars') }}</a>
-                            </li>
-                            
-                            <li class="nav-item d-none">
-                                <a class="nav-link" href="{{ route('bookings.index') }}">{{ __('Daily Bookings') }}</a>
-                            </li>
-                            <li class="nav-item d-none">
-                                <a class="nav-link" href="{{ route('receipts.index') }}">{{ __('Receipts') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('contract-container-filled') }}">{{ __('Filled Containers') }}</a>
-                            </li>
-                            <li class="nav-item dropdown d-none">
-                                <a class="nav-link dropdown-toggle" href="#" id="reportsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{ __('Reports') }}
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="reportsDropdown">
-                                    <li><a class="dropdown-item" href="{{ route('reports.container-status') }}">{{ __('Container Status') }}</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('reports.daily-report') }}">{{ __('Daily Report') }}</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('reports.monthly-report') }}">{{ __('Monthly Report') }}</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('reports.receipts-report') }}">{{ __('Receipts Report') }}</a></li>
-                                </ul>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('containers.index') }}">{{ __('Containers') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('customers.index') }}"> {{ __('Customers') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('users.index') }}"> {{ __('Users') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contracts.index.by-type' , ['type' => 'business']) }}">{{ __('Business Contracts') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contracts.index.by-type' , ['type' => 'individual']) }}">{{ __('Individual Contracts') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('offers.index') }}">{{ __('Offers') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('payments.index') }}">{{ __('Payments') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contract-container-fills.index') }}">{{ __('Container Fills') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cars.index') }}">{{ __('Cars') }}</a>
+                        </li>
+
+                        <li class="nav-item d-none">
+                            <a class="nav-link" href="{{ route('bookings.index') }}">{{ __('Daily Bookings') }}</a>
+                        </li>
+                        <li class="nav-item d-none">
+                            <a class="nav-link" href="{{ route('receipts.index') }}">{{ __('Receipts') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contract-container-filled') }}">{{ __('Filled Containers') }}</a>
+                        </li>
+                        <li class="nav-item dropdown d-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="reportsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ __('Reports') }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="reportsDropdown">
+                                <li><a class="dropdown-item" href="{{ route('reports.container-status') }}">{{ __('Container Status') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('reports.daily-report') }}">{{ __('Daily Report') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('reports.monthly-report') }}">{{ __('Monthly Report') }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('reports.receipts-report') }}">{{ __('Receipts Report') }}</a></li>
+                            </ul>
+                        </li>
 
                         @endauth
                     </ul>
@@ -101,38 +103,38 @@
                                 <li><a class="dropdown-item" href="{{ route('locale.set', 'ar') }}">العربية</a></li>
                             </ul>
                         </li>
-                        
+
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                        @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -160,4 +162,5 @@
     </script>
     @stack('scripts')
 </body>
+
 </html>
