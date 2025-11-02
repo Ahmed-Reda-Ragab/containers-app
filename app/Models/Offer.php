@@ -50,9 +50,9 @@ class Offer extends Model
         'total_paid' => 'decimal:2',
     ];
 
-    public function customer(): BelongsTo
+    public function customerData(): BelongsTo
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Customer::class , 'customer_id');
     }
 
     public function type(): BelongsTo

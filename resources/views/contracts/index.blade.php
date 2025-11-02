@@ -32,6 +32,7 @@
                         <th>{{ __('Type') }}</th>
                         <th>{{ __('Containers') }}</th>
                         <th>{{ __('Period') }}</th>
+                        <th>{{ __('Created At') }}</th>
                         <th>{{ __('Actions') }}</th>
                     </tr>
                 </thead>
@@ -43,6 +44,7 @@
                         <td>{{ ucfirst($contract->customer['type'] ?? 'business') }}</td>
                         <td>{{ $contract->no_containers }}</td>
                         <td>{{ $contract->contract_period }} {{ __('months') }}</td>
+                        <td>{{ optional($contract->created_at)->format('F j, Y, g:i A') }}</td>
                         <td>
                             <a class="btn btn-sm btn-outline-primary" href="{{ route('contracts.show', $contract) }}">{{ __('View') }}</a>
                         </td>

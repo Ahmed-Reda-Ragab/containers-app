@@ -1,3 +1,6 @@
+@php
+    $isBusiness = isset($type) && $type == 'business';
+@endphp
 @extends('layouts.app')
 
 @section('content')
@@ -7,7 +10,9 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>{{ __('Create Contract') }}</h2>
                 <a href="{{ route('contracts.index') }}" class="btn btn-secondary">
-                    <i class="fas fa-arrow-left"></i> {{ __('Back to Contracts') }}
+                    <i class="fas fa-arrow-left"></i>
+                    
+                    {{ $isBusiness ?  __('Back to Contracts') : __('Individual Contracts') }}
                 </a>
             </div>
 
@@ -90,7 +95,7 @@
                                     <input type="text" class="form-control" id="customer_mobile" name="customer[mobile]" readonly>
                                 </div>
 
-                                @if ( isset($type) && $type == 'business')
+                                @if ( $isBusiness )
 
                                 <div class="row is-company ">
                                     <div class="col-md-6">
@@ -177,7 +182,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6 {{ isset($type) && $type != 'business' ? 'd-none' : '' }}">
+                                    <div class="col-md-6 {{ !$isBusiness  ? 'd-none' : '' }}">
                                         <div class="mb-3">
                                             <label for="monthly_dumping_cont" class="form-label">{{ __('Monthly Dumping per Container') }} *</label>
                                             <input type="number" class="form-control" id="monthly_dumping_cont" name="monthly_dumping_cont" step="1" value="1" min="1" required>
