@@ -143,6 +143,11 @@
                                     <td>{{ $contract->no_containers }}</td>
                                 </tr>
                                 <tr>
+                                    <th>{{ __('Monthly Dumping per Container') }}:</th>
+                                    <td>{{ (int)  $contract->monthly_dumping_cont }} </td>
+                                </tr>
+
+                                <tr>
                                     <th>{{ __('Contract Period') }}:</th>
                                     <td>{{ $contract->contract_period }} {{ __('Months') }}</td>
                                 </tr>
@@ -233,6 +238,72 @@
                     </div>
                 </div>
             </div>
+
+            
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-4">
+
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div  class="text-white">
+                                <h4 class="mb-0">{{ $contract->contractContainerFills->count() }}</h4>
+                                <p class="mb-0">{{ __('Container Fills') }}</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-truck fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div  class="text-white">
+                                <h4 class="mb-0">{{ $contract->contractContainerFills->where('is_discharged', true)->count() }}</h4>
+                                <p class="mb-0">{{ __('Discharged Containers') }}</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-truck fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div  class="text-white">
+                                <h4 class="mb-0">{{ $contract->TotalContractContainers }}</h4>
+                                <p class="mb-0">{{ __('Total Contract Containers') }}</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-truck fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card bg-warning text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div  class="text-white">
+                                <h4 class="mb-0">{{ $contract->TotalContractContainers - $contract->contractContainerFills->count() }}</h4>
+                                <p class="mb-0">{{ __('Remaining Containers') }}</p>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="fas fa-truck fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
 
             <!-- Tabs for detailed information -->
             <ul class="nav nav-tabs" id="contractTabs" role="tablist">

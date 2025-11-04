@@ -61,6 +61,10 @@ class Contract extends Model
     {
         return $this->belongsTo(Customer::class , 'customer_id');
     }
+    public function customerData(): BelongsTo
+    {
+        return $this->belongsTo(Customer::class , 'customer_id');
+    }
 
     protected static function booted(): void
     {
@@ -151,5 +155,9 @@ class Contract extends Model
     // {
     //     return $this->price + ($this->price * $this->vat_rate / 100);
     // }
-    
+    public function getTotalContractContainersAttribute()
+    {
+        return $this->no_containers * $this->contract_period * $this->monthly_dumping_cont;
+    }
+
 }

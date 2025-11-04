@@ -323,7 +323,7 @@
     "Not in Receipt" : "ليس في الفاتورة",
     "VAT Value" : "قيمة الضريبة",
     "New Business Contract" : "عقد جديد للشركات",
-    "New Individual Contract" : "اضافه جديد",
+    "New Individual Contract" : "تاجير حاويات للافراد",
     "Business" : "الشركات",
     "Individual" : "الأفراد",
     "All" : "الكل",
@@ -394,5 +394,9 @@
     "Employee National ID" : "رقم الجوال",
     "Employee Status" : "حالة الموظف",
     "Employee Notes" : "ملاحظات الموظف",
-    "Employee User ID" : "معرف المستخدم"
+    "Employee User ID" : "معرف المستخدم",
+    "Per Container" : "لكل حاوية",
+    "Remaining Containers" : "الحاويات المتبقية",
+    "Total Contract Containers" : "إجمالي عدد الحاويات في العقد"
+
 }

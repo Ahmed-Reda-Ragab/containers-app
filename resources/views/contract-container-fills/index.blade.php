@@ -13,6 +13,10 @@
                 <a href="{{ route('contract-container-fills.create') }}" class="btn btn-primary">
                     <i class="fas fa-plus"></i> {{ __('Record Container Fill') }}
                 </a>
+
+                <a href="{{ route('contracts.create.by-type' , ['type' => 'individual']) }}" class="btn btn-info">
+                    <i class="fas fa-file-contract"></i> {{ __('New Individual Contract') }}
+                </a>
             </div>
 
             @if(session('success'))
@@ -24,114 +28,41 @@
 
             <div class="card">
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover" id="fillsTable">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>{{ __('Contract') }}</th>
-                                    <th>{{ __('Container') }}</th>
-                                    <th>{{ __('Delivered By') }}</th>
-                                    <th>{{ __('Delivery Car') }}</th>
-                                    <th>{{ __('Delivery Date') }}</th>
-                                    <th>{{ __('Expected Discharge') }}</th>
-                                    <th>{{ __('Discharge Date') }}</th>
-                                    <th>{{ __('Discharged By') }}</th>
-                                    <th>{{ __('Discharge Car') }}</th>
-                                    <th>{{ __('Status') }}</th>
-                                    <th>{{ __('Actions') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse($fills as $fill)
-                                    <tr>
-                                        <td><strong>#{{ $fill->no }}</strong></td>
-                                        <td>
-                                            <a href="{{ route('contracts.show', $fill->contract) }}" class="text-decoration-none">
-                                                #{{ $fill->contract->id }}
-                                            </a>
-                                        </td>
-                                        <td>{{ $fill->container->code ?? '' }}</td>
-                                        <td>{{ $fill->deliver->name ?? '' }}</td>
-                                        <td>{{ $fill->deliverCar->number ?? '' }}</td>
-                                        <td>{{ $fill->deliver_at->format('Y-m-d') }}</td>
-                                        <td>{{ $fill->expected_discharge_date->format('Y-m-d') }}</td>
-                                        <td>{{ $fill->discharge_date?->format('Y-m-d') ?? '' }}</td>
-                                        <td>{{ $fill->discharge?->name ?? '' }}</td>
-                                        <td>{{ $fill->dischargeCar->number ?? '' }}</td>
-                                        <td>
-                                            @if($fill->is_discharged)
-                                                <span class="badge bg-success">{{ __('Discharged') }}</span>
-                                            @elseif($fill->is_overdue)
-                                                <span class="badge bg-danger">{{ __('Overdue') }}</span>
-                                            @else
-                                                <span class="badge bg-warning">{{ __('Active') }}</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <div class="btn-group" role="group">
-                                                <a href="{{ route('contract-container-fills.show', $fill) }}" 
-                                                   class="btn btn-sm btn-outline-primary" 
-                                                   title="{{ __('View') }}">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                                @if(!$fill->is_discharged)
-                                                 
-                                                    <button 
-                                                        type="button" 
-                                                        class="btn btn-success btn-sm"
-                                                        data-bs-toggle="modal" 
-                                                        data-bs-target="#dischargeModal"
-                                                        data-url="{{ route('contract-container-fills.discharge', $fill) }}"
-                                                        >
-                                                        <i class="fas fa-dolly"></i> {{ __('Discharge') }}
-                                                    </button>
-                                                @endif
-
-                                                {{-- 
-                                                <a href="{{ route('contract-container-fills.edit', $fill) }}" 
-                                                   class="btn btn-sm btn-outline-secondary" 
-                                                   title="{{ __('Edit') }}">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                <form action="{{ route('contract-container-fills.destroy', $fill) }}" 
-                                                      method="POST" 
-                                                      class="d-inline"
-                                                      onsubmit="return confirm('{{ __('Are you sure you want to delete this container fill?') }}')">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" 
-                                                            class="btn btn-sm btn-outline-danger" 
-                                                            title="{{ __('Delete') }}">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </form>
-                                                --}}
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="12" class="text-center">
-                                            <div class="py-4">
-                                                <i class="fas fa-truck fa-3x text-muted mb-3"></i>
-                                                <p class="text-muted">{{ __('No container fills found.') }}</p>
-                                                <a href="{{ route('contract-container-fills.create') }}" class="btn btn-primary">
-                                                    {{ __('Record your first container fill') }}
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div>
-
-                    @if($fills->hasPages())
-                        <div class="d-flex justify-content-center mt-4">
-                            {{ $fills->links() }}
-                        </div>
-                    @endif
+                    
+                    <x-datatable-ajax
+                            :url="url()->current()"
+                            :columns="[
+                            ['title' => '#', 'data' => 'name'],
+                            ['title' => __('Contract'), 'data' => 'name'],
+                            ['title' => __('Customer'), 'data' => 'name'],
+                            ['title' => __('Container'), 'data' => 'name'],
+                            ['title' => __('Delivered By'), 'data' => 'name'],
+                            ['title' => __('Delivery Car'), 'data' => 'name'],
+                            ['title' => __('Delivery Date'), 'data' => 'name'],
+                            ['title' => __('Expected Discharge'), 'data' => 'name'],
+                            ['title' => __('Discharge Date'), 'data' => 'name'],
+                            ['title' => __('Discharged By'), 'data' => 'name'],
+                            ['title' => __('Discharge Car'), 'data' => 'name'],
+                            ['title' => __('Status'), 'data' => 'name'],
+                            ['title' => __('Address'), 'data' => 'name'],
+                            ['title' => __('Actions'), 'data' => 'actions'],
+                            ]"
+                            :dataColumns="[
+                            ['data' => 'no'],
+                            ['data' => 'contract'],
+                            ['data' => 'customer'],
+                            ['data' => 'container'],
+                            ['data' => 'deliver'],
+                            ['data' => 'deliver_car'],
+                            ['data' => 'deliver_at'],
+                            ['data' => 'expected_discharge_date'],
+                            ['data' => 'discharge_date'],
+                            ['data' => 'discharge'],
+                            ['data' => 'discharge_car'],
+                            ['data' => 'status'],
+                            ['data' => 'location'],
+                            ['data' => 'actions'],
+                            ]" />
                 </div>
             </div>
         </div>
