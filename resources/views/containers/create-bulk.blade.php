@@ -6,10 +6,16 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-title">
+
                     <h4 class="mb-0">{{ __('containers.create_bulk') }}</h4>
+                </div>
+                <div class="card-toolbar">
+
                     <a href="{{ route('containers.index') }}" class="btn btn-secondary">
                         <i class="fas fa-arrow-left"></i> {{ __('containers.back') }}
                     </a>
+                </div>
                 </div>
 
                 <div class="card-body">
@@ -110,7 +116,10 @@
                         <!-- Preview Section -->
                         <div class="card mb-3" id="previewSection" style="display: none;">
                             <div class="card-header">
+                <div class="card-title">
+
                                 <h6 class="mb-0">{{ __('containers.generated_codes_preview') }}</h6>
+                </div>
                             </div>
                             <div class="card-body">
                                 <div id="generatedCodes"></div>

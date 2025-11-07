@@ -91,7 +91,10 @@
             <!-- Bookings Table -->
             <div class="card">
                 <div class="card-header">
+                <div class="card-title">
+
                     <h5 class="mb-0">{{ __('Bookings for') }} {{ \Carbon\Carbon::parse($date)->format('d/m/Y') }}</h5>
+                </div>
                 </div>
                 <div class="card-body">
                     @if($bookings->count() > 0)

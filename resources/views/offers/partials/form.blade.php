@@ -8,28 +8,33 @@
         <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-header">
-                    <h5 class="mb-0">{{ __('Customer Information') }}</h5>
+                    <div class="card-title">
+                    <div class="card-title">
+
+                        <h5 class="mb-0">{{ __('Customer Information') }}</h5>
+                    </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
                         <label for="customer_id" class="form-label">{{ __('Select Customer') }} *</label>
                         <select class="form-select" id="customer_id" name="customer_id">
                             <option value="">{{ __('Choose a customer...') }}</option>
-                           
+
                             @foreach($customers as $customer)
-        <option value="{{ $customer->id }}"
-            data-name="{{ $customer->name }}"
-            data-phone="{{ $customer->phone ?? '' }}"
-            data-contact-person="{{ $customer->contact_person['name'] ?? '' }}"
-            data-contact-phone="{{ $customer->contact_person['phone'] ?? '' }}"
-            data-city="{{ $customer->city ?? '' }}"
-            data-type="{{ $customer->type ?? '' }}"
-            data-tax_number="{{ $customer->tax_number ?? '' }}"
-            data-commercial_number="{{ $customer->commercial_number ?? '' }}"
-            data-address="{{ $customer->address ?? '' }}">
-            {{ $customer->name }}
-        </option>
-    @endforeach
+                            <option value="{{ $customer->id }}"
+                                data-name="{{ $customer->name }}"
+                                data-phone="{{ $customer->phone ?? '' }}"
+                                data-contact-person="{{ $customer->contact_person['name'] ?? '' }}"
+                                data-contact-phone="{{ $customer->contact_person['phone'] ?? '' }}"
+                                data-city="{{ $customer->city ?? '' }}"
+                                data-type="{{ $customer->type ?? '' }}"
+                                data-tax_number="{{ $customer->tax_number ?? '' }}"
+                                data-commercial_number="{{ $customer->commercial_number ?? '' }}"
+                                data-address="{{ $customer->address ?? '' }}">
+                                {{ $customer->name }}
+                            </option>
+                            @endforeach
 
 
                         </select>
@@ -55,7 +60,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
 
                     <div class="row">
                         <div class="col-md-6">
@@ -83,7 +88,10 @@
         <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-header">
-                    <h5 class="mb-0">{{ __('Offer Details') }}</h5>
+                    <div class="card-title">
+
+                        <h5 class="mb-0">{{ __('Offer Details') }}</h5>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
@@ -168,7 +176,10 @@
 
     <div class="card mb-4">
         <div class="card-header">
-            <h5 class="mb-0">{{ __('Terms and Conditions') }}</h5>
+            <div class="card-title">
+
+                <h5 class="mb-0">{{ __('Terms and Conditions') }}</h5>
+            </div>
         </div>
         <div class="card-body">
             <div class="row">
@@ -210,39 +221,42 @@
 
     <!-- Calculated Totals -->
     <div class="card mb-4">
-                    <div class="card-header">
-                        <h5 class="mb-0">{{ __('Calculated Totals') }}</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="text-center">
-                                    <label class="form-label">{{ __('Monthly Total Dumping Cost') }}</label>
-                                    <div class="h4 text-primary" id="monthly_total_dumping_cost_display">0.00 {{ __('SAR') }}</div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 d-none">
-                                <div class="text-center">
-                                    <label class="form-label">{{ __('Subtotal') }}</label>
-                                    <div class="h4 text-info" id="subtotal_display">0.00 {{ __('SAR') }}</div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 d-none">
-                                <div class="text-center">
-                                    <label class="form-label">{{ __('Tax Amount') }}</label>
-                                    <div class="h4 text-warning" id="tax_amount_display">0.00 {{ __('SAR') }}</div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-center">
-                                    <label class="form-label">{{ __('Total Contract Price') }}</label>
-                                    <div class="h4 text-success" id="total_contract_price_display">0.00 {{ __('SAR') }}</div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="card-header">
+            <div class="card-title">
+
+                <h5 class="mb-0">{{ __('Calculated Totals') }}</h5>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <label class="form-label">{{ __('Monthly Total Dumping Cost') }}</label>
+                        <div class="h4 text-primary" id="monthly_total_dumping_cost_display">0.00 {{ __('SAR') }}</div>
                     </div>
                 </div>
-                
+                <div class="col-md-3 d-none">
+                    <div class="text-center">
+                        <label class="form-label">{{ __('Subtotal') }}</label>
+                        <div class="h4 text-info" id="subtotal_display">0.00 {{ __('SAR') }}</div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-none">
+                    <div class="text-center">
+                        <label class="form-label">{{ __('Tax Amount') }}</label>
+                        <div class="h4 text-warning" id="tax_amount_display">0.00 {{ __('SAR') }}</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <label class="form-label">{{ __('Total Contract Price') }}</label>
+                        <div class="h4 text-success" id="total_contract_price_display">0.00 {{ __('SAR') }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="d-flex justify-content-end">
         <button type="submit" class="btn btn-primary btn-lg">
             <i class="fas fa-save"></i> {{ $method === 'PUT' ? __('Update Offer') : __('Create Offer') }}
@@ -257,49 +271,49 @@
         const queryOfferId = new URLSearchParams(window.location.search).get('offer_id');
 
         // Auto-fill customer data when customer is selected
-        
-    $('#customer_id').on('change', function () {
-        const selected = $(this).find('option:selected');
 
-        // Reset if no customer selected
-        if (!selected.val()) {
-            $('#customer_name').val('').prop('readonly', false);
-            $('#customer_contact_tax_number, #customer_commercial_number, #customer_contact_person, #customer_telephone, #customer_mobile, #customer_city, #customer_address').val('');
-            $('.is-company').hide();
-            return;
-        }
+        $('#customer_id').on('change', function() {
+            const selected = $(this).find('option:selected');
 
-        // Extract data
-        const name = selected.data('name') || '';
-        const phone = selected.data('phone') || '';
-        const contactPerson = selected.data('contact-person') || '';
-        const contactPhone = selected.data('contact-phone') || '';
-        const city = selected.data('city') || '';
-        const type = selected.data('type') || '';
-        const taxNumber = selected.data('tax_number') || '';
-        const commercialNumber = selected.data('commercial_number') || '';
-        const address = selected.data('address') || '';
+            // Reset if no customer selected
+            if (!selected.val()) {
+                $('#customer_name').val('').prop('readonly', false);
+                $('#customer_contact_tax_number, #customer_commercial_number, #customer_contact_person, #customer_telephone, #customer_mobile, #customer_city, #customer_address').val('');
+                $('.is-company').hide();
+                return;
+            }
 
-        // Fill values
-        $('#customer_name').val(name).prop('readonly', true);
-        $('#customer_mobile').val(phone);
-        $('#customer_contact_person').val(contactPerson);
-        $('#customer_telephone').val(contactPhone);
-        $('#customer_city').val(city);
-        $('#customer_contact_tax_number').val(taxNumber);
-        $('#customer_commercial_number').val(commercialNumber);
-        $('#customer_address').val(address || '');
+            // Extract data
+            const name = selected.data('name') || '';
+            const phone = selected.data('phone') || '';
+            const contactPerson = selected.data('contact-person') || '';
+            const contactPhone = selected.data('contact-phone') || '';
+            const city = selected.data('city') || '';
+            const type = selected.data('type') || '';
+            const taxNumber = selected.data('tax_number') || '';
+            const commercialNumber = selected.data('commercial_number') || '';
+            const address = selected.data('address') || '';
 
-        // Show/hide business fields
-        if (type === 'business') {
-            $('.is-company').slideDown();
-        } else {
-            $('.is-company').slideUp();
-        }
-    });
+            // Fill values
+            $('#customer_name').val(name).prop('readonly', true);
+            $('#customer_mobile').val(phone);
+            $('#customer_contact_person').val(contactPerson);
+            $('#customer_telephone').val(contactPhone);
+            $('#customer_city').val(city);
+            $('#customer_contact_tax_number').val(taxNumber);
+            $('#customer_commercial_number').val(commercialNumber);
+            $('#customer_address').val(address || '');
 
-         // Set end date to 1 year from start date
-         $('#contract_period , #start_date').on('input', function() {
+            // Show/hide business fields
+            if (type === 'business') {
+                $('.is-company').slideDown();
+            } else {
+                $('.is-company').slideUp();
+            }
+        });
+
+        // Set end date to 1 year from start date
+        $('#contract_period , #start_date').on('input', function() {
             console.log('change');
             setEndDate();
         });
@@ -321,6 +335,7 @@
             $('#end_date').val(formatDate(endDate));
 
         }
+
         function formatDate(date) {
             const d = new Date(date);
             const month = ('0' + (d.getMonth() + 1)).slice(-2);

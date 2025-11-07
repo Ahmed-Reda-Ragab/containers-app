@@ -68,10 +68,13 @@
             <!-- Contract Information Card -->
             <div class="card mb-4">
                 <div class="card-header">
+                <div class="card-title">
+
                     <div class="d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">{{ __('Contract Information') }}</h5>
                         <small class="text-muted">{{ __('Created by') }}: {{ $contract->user->name ?? '—' }} • {{ $contract->created_at?->format('Y-m-d H:i') }}</small>
                     </div>
+                </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -180,7 +183,10 @@
             <!-- Financial Summary -->
             <div class="card mb-4">
                 <div class="card-header">
+                <div class="card-title">
+
                     <h5 class="mb-0">{{ __('Financial Summary') }}</h5>
+                </div>
                 </div>
                 <div class="card-body">
                     <div class="row">

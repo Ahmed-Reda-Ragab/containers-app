@@ -20,7 +20,10 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
+                <div class="card-title">
+
                             <h5 class="card-title mb-0">{{ __('User Information') }}</h5>
+                </div>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -81,7 +84,10 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
+                <div class="card-title">
+
                             <h5 class="card-title mb-0">{{ __('User Statistics') }}</h5>
+                </div>
                         </div>
                         <div class="card-body">
                             <div class="mb-3">
@@ -108,7 +114,10 @@
 
                     <div class="card mt-3">
                         <div class="card-header">
+                <div class="card-title">
+                            
                             <h5 class="card-title mb-0">{{ __('Actions') }}</h5>
+                </div>
                         </div>
                         <div class="card-body">
                             <div class="d-grid gap-2">

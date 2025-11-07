@@ -12,24 +12,27 @@
             </div>
 
             @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul class="mb-0">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
 
             <form action="{{ route('payments.update', $payment) }}" method="POST">
                 @csrf
                 @method('PUT')
-                
+
                 <div class="row">
                     <div class="col-md-8">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="mb-0">{{ __('Payment Information') }}</h5>
+                                <div class="card-title">
+
+                                    <h5 class="mb-0">{{ __('Payment Information') }}</h5>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
@@ -37,14 +40,14 @@
                                     <select class="form-select" id="contract_id" name="contract_id" required>
                                         <option value="">{{ __('Choose a contract...') }}</option>
                                         @foreach($contracts as $contractOption)
-                                            <option value="{{ $contractOption->id }}" 
-                                                    {{ $payment->contract_id == $contractOption->id ? 'selected' : '' }}
-                                                    data-customer="{{ $contractOption->customer['name'] ?? '' }}"
-                                                    data-total-price="{{ $contractOption->total_price }}"
-                                                    data-total-payed="{{ $contractOption->total_payed }}"
-                                                    data-remaining="{{ $contractOption->remaining_amount }}">
-                                                #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? '' }}
-                                            </option>
+                                        <option value="{{ $contractOption->id }}"
+                                            {{ $payment->contract_id == $contractOption->id ? 'selected' : '' }}
+                                            data-customer="{{ $contractOption->customer['name'] ?? '' }}"
+                                            data-total-price="{{ $contractOption->total_price }}"
+                                            data-total-payed="{{ $contractOption->total_payed }}"
+                                            data-remaining="{{ $contractOption->remaining_amount }}">
+                                            #{{ $contractOption->id }} - {{ $contractOption->customer['name'] ?? '' }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -54,8 +57,8 @@
                                         <div class="mb-3">
                                             <label for="payed" class="form-label">{{ __('Amount') }} *</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control" id="payed" name="payed" 
-                                                       step="0.01" min="0.01" value="{{ $payment->payed }}" required>
+                                                <input type="number" class="form-control" id="payed" name="payed"
+                                                    step="0.01" min="0.01" value="{{ $payment->payed }}" required>
                                                 <span class="input-group-text">{{ __('SAR') }}</span>
                                             </div>
                                         </div>
@@ -86,8 +89,8 @@
 
                                 <div class="mb-3">
                                     <label for="notes" class="form-label">{{ __('Notes') }}</label>
-                                    <textarea class="form-control" id="notes" name="notes" rows="3" 
-                                              placeholder="{{ __('Optional notes about this payment...') }}">{{ $payment->notes }}</textarea>
+                                    <textarea class="form-control" id="notes" name="notes" rows="3"
+                                        placeholder="{{ __('Optional notes about this payment...') }}">{{ $payment->notes }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +106,10 @@
                         <!-- Contract Summary -->
                         <div class="card" id="contract-summary">
                             <div class="card-header">
-                                <h6 class="mb-0">{{ __('Contract Summary') }}</h6>
+                                <div class="card-title">
+
+                                    <h6 class="mb-0">{{ __('Contract Summary') }}</h6>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
@@ -123,8 +129,8 @@
                                     <div id="contract-remaining" class="text-danger">{{ number_format($payment->contract->remaining_amount, 2) }} {{ __('SAR') }}</div>
                                 </div>
                                 <div class="progress mb-3">
-                                    <div class="progress-bar" id="payment-progress" role="progressbar" 
-                                         style="width: {{ $payment->contract->total_price > 0 ? ($payment->contract->total_payed / $payment->contract->total_price) * 100 : 0 }}%"></div>
+                                    <div class="progress-bar" id="payment-progress" role="progressbar"
+                                        style="width: {{ $payment->contract->total_price > 0 ? ($payment->contract->total_payed / $payment->contract->total_price) * 100 : 0 }}%"></div>
                                 </div>
                             </div>
                         </div>
@@ -137,37 +143,37 @@
 
 @push('scripts')
 <script>
-$(document).ready(function() {
-    // Show contract summary when contract is selected
-    $('#contract_id').change(function() {
-        const selectedOption = $(this).find('option:selected');
-        if (selectedOption.val()) {
-            const customer = selectedOption.data('customer');
-            const totalPrice = parseFloat(selectedOption.data('total-price'));
-            const totalPayed = parseFloat(selectedOption.data('total-payed'));
-            const remaining = parseFloat(selectedOption.data('remaining'));
-            const progressPercentage = totalPrice > 0 ? (totalPayed / totalPrice) * 100 : 0;
+    $(document).ready(function() {
+        // Show contract summary when contract is selected
+        $('#contract_id').change(function() {
+            const selectedOption = $(this).find('option:selected');
+            if (selectedOption.val()) {
+                const customer = selectedOption.data('customer');
+                const totalPrice = parseFloat(selectedOption.data('total-price'));
+                const totalPayed = parseFloat(selectedOption.data('total-payed'));
+                const remaining = parseFloat(selectedOption.data('remaining'));
+                const progressPercentage = totalPrice > 0 ? (totalPayed / totalPrice) * 100 : 0;
 
-            $('#contract-customer').text(customer);
-            $('#contract-total-price').text(totalPrice.toFixed(2) + ' {{ __("SAR") }}');
-            $('#contract-total-paid').text(totalPayed.toFixed(2) + ' {{ __("SAR") }}');
-            $('#contract-remaining').text(remaining.toFixed(2) + ' {{ __("SAR") }}');
-            $('#payment-progress').css('width', progressPercentage + '%').attr('aria-valuenow', progressPercentage);
-        }
+                $('#contract-customer').text(customer);
+                $('#contract-total-price').text(totalPrice.toFixed(2) + ' {{ __("SAR") }}');
+                $('#contract-total-paid').text(totalPayed.toFixed(2) + ' {{ __("SAR") }}');
+                $('#contract-remaining').text(remaining.toFixed(2) + ' {{ __("SAR") }}');
+                $('#payment-progress').css('width', progressPercentage + '%').attr('aria-valuenow', progressPercentage);
+            }
+        });
+
+        // Set max payment amount to remaining amount
+        $('#contract_id').change(function() {
+            const selectedOption = $(this).find('option:selected');
+            if (selectedOption.val()) {
+                const remaining = parseFloat(selectedOption.data('remaining'));
+                $('#payed').attr('max', remaining);
+            }
+        });
+
+        // Initial calculation
+        $('#contract_id').trigger('change');
     });
-
-    // Set max payment amount to remaining amount
-    $('#contract_id').change(function() {
-        const selectedOption = $(this).find('option:selected');
-        if (selectedOption.val()) {
-            const remaining = parseFloat(selectedOption.data('remaining'));
-            $('#payed').attr('max', remaining);
-        }
-    });
-
-    // Initial calculation
-    $('#contract_id').trigger('change');
-});
 </script>
 @endpush
 
@@ -175,4 +181,3 @@ $(document).ready(function() {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 @endpush
 @endsection
-

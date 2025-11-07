@@ -6,7 +6,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-title">
+
                     <h4 class="mb-0">{{ __('customers.show') }}: {{ $customer->name }}</h4>
+                </div>
+                <div class="card-toolbar">
+
                     <div class="btn-group">
                         <a href="{{ route('customers.edit', $customer) }}" class="btn btn-warning">
                             <i class="fas fa-edit"></i> {{ __('customers.edit') }}
@@ -16,6 +21,7 @@
                         </a>
                     </div>
                 </div>
+                </div>
 
                 <div class="card-body">
                     <div class="row g-4">
@@ -23,7 +29,10 @@
                         <div class="col-md-6">
                             <div class="card shadow-sm border-0 h-100">
                                 <div class="card-header bg-light border-bottom-0">
+                <div class="card-title">
+
                                     <h5 class="mb-0"><i class="bi bi-person-circle me-2"></i>{{ __('customers.customer_information') }}</h5>
+                </div>
                                 </div>
                                 <div class="card-body">
                                     <dl class="row mb-0">
@@ -70,7 +79,10 @@
                         <div class="col-md-6">
                             <div class="card shadow-sm border-0 h-100">
                                 <div class="card-header bg-light border-bottom-0">
+                <div class="card-title">
+
                                     <h5 class="mb-0"><i class="bi bi-telephone me-2"></i>{{ __('customers.contact_information') }}</h5>
+                </div>
                                 </div>
                                 <div class="card-body">
                                     <dl class="row mb-0">
@@ -122,7 +134,10 @@
                     @if($customer->address)
                     <div class="card mt-4 shadow-sm border-0">
                         <div class="card-header bg-light border-bottom-0">
+                <div class="card-title">
+
                             <h5 class="mb-0"><i class="bi bi-geo-alt me-2"></i>{{ __('customers.address') }}</h5>
+                </div>
                         </div>
                         <div class="card-body">
                             <p class="mb-0">{{ $customer->address }}</p>
@@ -134,7 +149,10 @@
                     @if($customer->notes)
                     <div class="card mt-4 shadow-sm border-0">
                         <div class="card-header bg-light border-bottom-0">
+                <div class="card-title">
+
                             <h5 class="mb-0"><i class="bi bi-journal-text me-2"></i>{{ __('customers.notes') }}</h5>
+                </div>
                         </div>
                         <div class="card-body">
                             <p class="mb-0 text-muted">{{ $customer->notes }}</p>

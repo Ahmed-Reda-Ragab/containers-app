@@ -101,7 +101,10 @@
             <!-- Receipts Table -->
             <div class="card">
                 <div class="card-header">
+                <div class="card-title">
+
                     <h5 class="mb-0">{{ __('Receipts List') }}</h5>
+                </div>
                 </div>
                 <div class="card-body">
                     @if($receipts->count() > 0)

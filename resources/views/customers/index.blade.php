@@ -6,21 +6,27 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4 class="mb-0">{{ __('customers.title') }}</h4>
-                    <a href="{{ route('customers.create') }}" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> {{ __('customers.add_new_customer') }}
-                    </a>
+                    <div class="card-title">
+
+                        <h4 class="mb-0">{{ __('customers.title') }}</h4>
+                    </div>
+                    <div class="card-toolbar">
+
+                        <a href="{{ route('customers.create') }}" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> {{ __('customers.add_new_customer') }}
+                        </a>
+                    </div>
                 </div>
 
                 <div class="card-body">
                     @if(session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                     @endif
 
-                    <x-datatable-ajax 
+                    <x-datatable-ajax
                         id="customersTable"
                         :url="route('customers.index')"
                         :columns="[
@@ -54,8 +60,7 @@
                                 ]
                             ]
                         ]"
-                        :language="app()->getLocale()"
-                    />
+                        :language="app()->getLocale()" />
                 </div>
             </div>
         </div>

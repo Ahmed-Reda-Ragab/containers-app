@@ -28,7 +28,10 @@
                         
                         <div class="card">
                             <div class="card-header">
+                <div class="card-title">
+
                                 <h5 class="mb-0">{{ __('Booking Information') }}</h5>
+                </div>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -165,7 +168,10 @@
                     <!-- Contract Summary -->
                     <div class="card" id="contract-summary" style="display: none;">
                         <div class="card-header">
+                <div class="card-title">
+
                             <h6 class="mb-0">{{ __('Contract Summary') }}</h6>
+                </div>
                         </div>
                         <div class="card-body">
                             <div class="mb-3">

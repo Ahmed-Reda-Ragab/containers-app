@@ -6,7 +6,11 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-title">
+
                     <h4 class="mb-0">Container Fill Details</h4>
+                </div>
+                <div class="card-toolbar">
                     <div class="btn-group" role="group">
                         <a href="{{ route('contract-container-fills.edit', $contractContainerFill) }}" class="btn btn-outline-secondary">
                             <i class="fas fa-edit"></i> Edit
@@ -15,6 +19,7 @@
                             <i class="fas fa-arrow-left"></i> Back to Container Fills
                         </a>
                     </div>
+                </div>
                 </div>
 
                 <div class="card-body">

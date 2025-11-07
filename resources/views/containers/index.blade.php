@@ -42,7 +42,12 @@
 
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4 class="mb-0">{{ __('containers.title') }}</h4>
+                <div class="card-title">
+                    
+                <h4 class="mb-0">{{ __('containers.title') }}</h4>
+                </div>
+                <div class="card-toolbar">
+
                     <div class="btn-group">
                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#typesModal">
                             <i class="fas fa-cog"></i> {{ __('Manage Types') }}
@@ -54,6 +59,7 @@
                             <i class="fas fa-plus"></i> {{ __('containers.add_new_container') }}
                         </a>
                     </div>
+                </div>
                 </div>
 
                 <div class="card-body">

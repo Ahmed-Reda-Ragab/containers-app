@@ -24,7 +24,10 @@
                     <!-- Receipt Information -->
                     <div class="card mb-4">
                         <div class="card-header">
-                            <h5 class="mb-0">{{ __('Receipt Information') }}</h5>
+                            <div class="card-title">
+
+                                <h5 class="mb-0">{{ __('Receipt Information') }}</h5>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -39,18 +42,18 @@
                                         <strong>{{ __('Status') }}:</strong>
                                         <div>
                                             @switch($receipt->status)
-                                                @case('issued')
-                                                    <span class="badge bg-warning">{{ __('Issued') }}</span>
-                                                    @break
-                                                @case('collected')
-                                                    <span class="badge bg-success">{{ __('Collected') }}</span>
-                                                    @break
-                                                @case('overdue')
-                                                    <span class="badge bg-danger">{{ __('Overdue') }}</span>
-                                                    @break
-                                                @case('cancelled')
-                                                    <span class="badge bg-secondary">{{ __('Cancelled') }}</span>
-                                                    @break
+                                            @case('issued')
+                                            <span class="badge bg-warning">{{ __('Issued') }}</span>
+                                            @break
+                                            @case('collected')
+                                            <span class="badge bg-success">{{ __('Collected') }}</span>
+                                            @break
+                                            @case('overdue')
+                                            <span class="badge bg-danger">{{ __('Overdue') }}</span>
+                                            @break
+                                            @case('cancelled')
+                                            <span class="badge bg-secondary">{{ __('Cancelled') }}</span>
+                                            @break
                                             @endswitch
                                         </div>
                                     </div>
@@ -70,7 +73,7 @@
                                         <div class="{{ $receipt->is_overdue ? 'text-danger' : '' }}">
                                             {{ $receipt->due_date->format('d/m/Y') }}
                                             @if($receipt->is_overdue)
-                                                <br><small class="text-danger">{{ __('Overdue') }}</small>
+                                            <br><small class="text-danger">{{ __('Overdue') }}</small>
                                             @endif
                                         </div>
                                     </div>
@@ -99,10 +102,10 @@
                             </div>
 
                             @if($receipt->notes)
-                                <div class="mb-3">
-                                    <strong>{{ __('Notes') }}:</strong>
-                                    <div>{{ $receipt->notes }}</div>
-                                </div>
+                            <div class="mb-3">
+                                <strong>{{ __('Notes') }}:</strong>
+                                <div>{{ $receipt->notes }}</div>
+                            </div>
                             @endif
                         </div>
                     </div>
@@ -110,7 +113,10 @@
                     <!-- Customer Information -->
                     <div class="card mb-4">
                         <div class="card-header">
-                            <h5 class="mb-0">{{ __('Customer Information') }}</h5>
+                            <div class="card-title">
+
+                                <h5 class="mb-0">{{ __('Customer Information') }}</h5>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -147,7 +153,10 @@
                     <!-- Contract Information -->
                     <div class="card mb-4">
                         <div class="card-header">
-                            <h5 class="mb-0">{{ __('Contract Information') }}</h5>
+                            <div class="card-title">
+
+                                <h5 class="mb-0">{{ __('Contract Information') }}</h5>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -172,7 +181,10 @@
                     <!-- Actions -->
                     <div class="card mb-4">
                         <div class="card-header">
-                            <h6 class="mb-0">{{ __('Actions') }}</h6>
+                            <div class="card-title">
+
+                                <h6 class="mb-0">{{ __('Actions') }}</h6>
+                            </div>
                         </div>
                         <div class="card-body">
                             <!-- @if($receipt->status === 'issued')
@@ -198,7 +210,10 @@
                     <!-- Staff Information -->
                     <div class="card">
                         <div class="card-header">
-                            <h6 class="mb-0">{{ __('Staff Information') }}</h6>
+                            <div class="card-title">
+
+                                <h6 class="mb-0">{{ __('Staff Information') }}</h6>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="mb-3">
@@ -206,10 +221,10 @@
                                 <div>{{ $receipt->issuedBy->name ?? '-' }}</div>
                             </div>
                             @if($receipt->collectedBy)
-                                <div class="mb-3">
-                                    <strong>{{ __('Collected By') }}:</strong>
-                                    <div>{{ $receipt->collectedBy->name }}</div>
-                                </div>
+                            <div class="mb-3">
+                                <strong>{{ __('Collected By') }}:</strong>
+                                <div>{{ $receipt->collectedBy->name }}</div>
+                            </div>
                             @endif
                         </div>
                     </div>
@@ -223,5 +238,3 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 @endpush
 @endsection
-
-

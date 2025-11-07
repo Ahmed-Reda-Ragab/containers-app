@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @php
-    $isBusiness = isset($type) && $type == 'business';
+$isBusiness = isset($type) && $type == 'business';
 @endphp
 
 @section('content')
@@ -11,7 +11,7 @@
                 <h2>{{ __('Create Contract') }}</h2>
                 <a href="{{ route('contracts.index') }}" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i>
-                    
+
                     {{ $isBusiness ?  __('Back to Contracts') : __('Individual Contracts') }}
                 </a>
             </div>
@@ -30,8 +30,11 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">{{ __('Load From Offer') }}</h5>
-                        <small class="text-muted">{{ __('Search by offer # or client name') }}</small>
+                        <div class="card-title">
+
+                            <h5 class="mb-0">{{ __('Load From Offer') }}</h5>
+                            <small class="text-muted">{{ __('Search by offer # or client name') }}</small>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row g-2 align-items-end">
@@ -61,7 +64,10 @@
                     <div class="col-md-6">
                         <div class="card mb-4">
                             <div class="card-header">
-                                <h5 class="mb-0">{{ __('Customer Information') }}</h5>
+                                <div class="card-title">
+
+                                    <h5 class="mb-0">{{ __('Customer Information') }}</h5>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
@@ -69,19 +75,19 @@
                                     <select class="form-select" id="customer_id" name="customer_id">
                                         <option value="">{{ __('Choose a customer...') }}</option>
                                         @foreach($customers as $customer)
-                                    <option value="{{ $customer->id }}"
-                                        data-name="{{ $customer->name }}"
-                                        data-phone="{{ $customer->phone ?? '' }}"
-                                        data-contact-person="{{ $customer->contact_person['name'] ?? '' }}"
-                                        data-contact-phone="{{ $customer->contact_person['phone'] ?? '' }}"
-                                        data-city="{{ $customer->city ?? '' }}"
-                                        data-type="{{ $customer->type ?? '' }}"
-                                        data-tax_number="{{ $customer->tax_number ?? '' }}"
-                                        data-commercial_number="{{ $customer->commercial_number ?? '' }}"
-                                        data-address="{{ $customer->address ?? '' }}">
-                                        {{ $customer->name }}
-                                    </option>
-                                    @endforeach
+                                        <option value="{{ $customer->id }}"
+                                            data-name="{{ $customer->name }}"
+                                            data-phone="{{ $customer->phone ?? '' }}"
+                                            data-contact-person="{{ $customer->contact_person['name'] ?? '' }}"
+                                            data-contact-phone="{{ $customer->contact_person['phone'] ?? '' }}"
+                                            data-city="{{ $customer->city ?? '' }}"
+                                            data-type="{{ $customer->type ?? '' }}"
+                                            data-tax_number="{{ $customer->tax_number ?? '' }}"
+                                            data-commercial_number="{{ $customer->commercial_number ?? '' }}"
+                                            data-address="{{ $customer->address ?? '' }}">
+                                            {{ $customer->name }}
+                                        </option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -150,7 +156,10 @@
                     <div class="col-md-6">
                         <div class="card mb-4">
                             <div class="card-header">
-                                <h5 class="mb-0">{{ __('Contract Details') }}</h5>
+                                <div class="card-title">
+
+                                    <h5 class="mb-0">{{ __('Contract Details') }}</h5>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
@@ -259,7 +268,10 @@
                 <!-- Terms and Conditions -->
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h5 class="mb-0">{{ __('Terms and Conditions') }}</h5>
+                        <div class="card-title">
+
+                            <h5 class="mb-0">{{ __('Terms and Conditions') }}</h5>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -303,7 +315,10 @@
                 <!-- Calculated Totals -->
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h5 class="mb-0">{{ __('Calculated Totals') }}</h5>
+                        <div class="card-title">
+
+                            <h5 class="mb-0">{{ __('Calculated Totals') }}</h5>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -447,7 +462,10 @@
         function prefillFromOffer(offerId) {
             if (!offerId) return;
             $('#convert_offer_id').val(offerId);
-            $.getJSON('{{ route('offers.data', ['offer' => 'OFFER_ID']) }}'.replace('OFFER_ID', offerId),
+            $.getJSON('{{ route('
+                offers.data ', ['
+                offer ' => '
+                OFFER_ID ']) }}'.replace('OFFER_ID', offerId),
                 function(data) {
                     if (data.customer) {
                         $('#customer_name').val(data.customer.name || '');
@@ -480,10 +498,12 @@
 
         ensureSelect2Loaded(function() {
             $('#offer_select').select2({
-                placeholder: '{{ __('Search offers...') }}',
+                placeholder: '{{ __('
+                Search offers...') }}',
                 allowClear: true,
                 ajax: {
-                    url: '{{ route('offers.search') }}',
+                    url: '{{ route('
+                    offers.search ') }}',
                     dataType: 'json',
                     delay: 250,
                     data: function(params) {

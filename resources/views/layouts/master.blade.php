@@ -178,6 +178,8 @@
     {!! includeFonts() !!}
     <!--end::Fonts-->
 
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Almarai:wght@300;400;700;800&family=El+Messiri:wght@400;500;600;700&family=Reem+Kufi:wght@400;500;600;700&family=Scheherazade+New:wght@400;500;600;700&family=Tajawal:wght@200;300;400;500;700;800;900&family=Lateef:wght@200;300;400;500;600;700;800&family=Mirza:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     @stack('before-vendor-styles')
 
     <!--begin::Vendor Stylesheets-->

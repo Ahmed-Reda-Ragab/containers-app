@@ -12,25 +12,28 @@
             </div>
 
             @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul class="mb-0">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
 
             <form action="{{ route('contracts.update', $contract) }}" method="POST" id="contractForm">
                 @csrf
                 @method('PUT')
-                
+
                 <div class="row">
                     <!-- Customer Information -->
                     <div class="col-md-6">
                         <div class="card mb-4">
                             <div class="card-header">
-                                <h5 class="mb-0">{{ __('Customer Information') }}</h5>
+                                <div class="card-title">
+
+                                    <h5 class="mb-0">{{ __('Customer Information') }}</h5>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
@@ -38,14 +41,14 @@
                                     <select class="form-select" id="customer_id" name="customer_id">
                                         <option value="">{{ __('Choose a customer...') }}</option>
                                         @foreach($customers as $customer)
-                                            <option value="{{ $customer->id }}" 
-                                                    data-name="{{ $customer->name }}"
-                                                    data-contact-person="{{ $customer->contact_person['name']??'' }}"
-                                                    data-telephone="{{ $customer->contact_person['phone']??'' }}"
-                                                    data-city="{{ $customer->city??'' }}"
-                                                    {{ $contract->customer_id == $customer->id ? 'selected' : '' }}>
-                                                {{ $customer->name }}
-                                            </option>
+                                        <option value="{{ $customer->id }}"
+                                            data-name="{{ $customer->name }}"
+                                            data-contact-person="{{ $customer->contact_person['name']??'' }}"
+                                            data-telephone="{{ $customer->contact_person['phone']??'' }}"
+                                            data-city="{{ $customer->city??'' }}"
+                                            {{ $contract->customer_id == $customer->id ? 'selected' : '' }}>
+                                            {{ $customer->name }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -55,14 +58,14 @@
                                         <div class="mb-3">
                                             <label for="customer_contact_person" class="form-label">{{ __('Contact Person') }}</label>
                                             <input type="text" class="form-control" id="customer_contact_person" name="customer[contact_person]"
-                                                   value="{{ $contract->customer['contact_person']['name'] ?? '' }}">
+                                                value="{{ $contract->customer['contact_person']['name'] ?? '' }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="customer_telephone" class="form-label">{{ __('Telephone') }}</label>
                                             <input type="text" class="form-control" id="customer_telephone" name="customer[telephone]"
-                                                   value="{{ $contract->customer['contact_person']['phone'] ?? '' }}">
+                                                value="{{ $contract->customer['contact_person']['phone'] ?? '' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -73,14 +76,14 @@
                                         <div class="mb-3">
                                             <label for="customer_mobile" class="form-label">{{ __('Mobile') }}</label>
                                             <input type="text" class="form-control" id="customer_mobile" name="customer[mobile]"
-                                                   value="{{ $contract->customer['mobile'] ?? '' }}">
+                                                value="{{ $contract->customer['mobile'] ?? '' }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="customer_city" class="form-label">{{ __('City') }}</label>
                                             <input type="text" class="form-control" id="customer_city" name="customer[city]"
-                                                   value="{{ $contract->customer['city'] ?? '' }}">
+                                                value="{{ $contract->customer['city'] ?? '' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +100,10 @@
                     <div class="col-md-6">
                         <div class="card mb-4">
                             <div class="card-header">
-                                <h5 class="mb-0">{{ __('Contract Details') }}</h5>
+                                <div class="card-title">
+
+                                    <h5 class="mb-0">{{ __('Contract Details') }}</h5>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
@@ -105,9 +111,9 @@
                                     <select class="form-select" id="size_id" name="size_id" required>
                                         <option value="">{{ __('Choose container type...') }}</option>
                                         @foreach($types as $type)
-                                            <option value="{{ $type->id }}" {{ $contract->size_id == $type->id ? 'selected' : '' }}>
-                                                {{ $type->name }}
-                                            </option>
+                                        <option value="{{ $type->id }}" {{ $contract->size_id == $type->id ? 'selected' : '' }}>
+                                            {{ $type->name }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -117,8 +123,8 @@
                                         <div class="mb-3">
                                             <label for="container_price" class="form-label">{{ __('Container Price') }} *</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control" id="container_price" name="container_price" 
-                                                       step="0.01" min="0" value="{{ $contract->container_price }}" required>
+                                                <input type="number" class="form-control" id="container_price" name="container_price"
+                                                    step="0.01" min="0" value="{{ $contract->container_price }}" required>
                                                 <span class="input-group-text">{{ __('SAR') }}</span>
                                             </div>
                                         </div>
@@ -126,8 +132,8 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="no_containers" class="form-label">{{ __('Number of Containers') }} *</label>
-                                            <input type="number" class="form-control" id="no_containers" name="no_containers" 
-                                                   min="1" value="{{ $contract->no_containers }}" required>
+                                            <input type="number" class="form-control" id="no_containers" name="no_containers"
+                                                min="1" value="{{ $contract->no_containers }}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -136,8 +142,8 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="monthly_dumping_cont" class="form-label">{{ __('Monthly Dumping per Container') }} *</label>
-                                            <input type="number" class="form-control" id="monthly_dumping_cont" name="monthly_dumping_cont" 
-                                                   step="0.01" min="0" value="{{ $contract->monthly_dumping_cont }}" required>
+                                            <input type="number" class="form-control" id="monthly_dumping_cont" name="monthly_dumping_cont"
+                                                step="0.01" min="0" value="{{ $contract->monthly_dumping_cont }}" required>
                                         </div>
                                     </div>
                                     <!-- <div class="col-md-6">
@@ -150,7 +156,7 @@
                                             </div>
                                         </div>
                                     </div> -->
-                                
+
                                     <!-- <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="additional_trip_cost" class="form-label">{{ __('Additional Trip Cost') }} *</label>
@@ -161,12 +167,12 @@
                                             </div>
                                         </div>
                                     </div> -->
-                                    
+
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="contract_period" class="form-label">{{ __('Contract Period (Days)') }} *</label>
-                                            <input type="number" class="form-control" id="contract_period" name="contract_period" 
-                                                   min="1" value="{{ $contract->contract_period }}" required>
+                                            <input type="number" class="form-control" id="contract_period" name="contract_period"
+                                                min="1" value="{{ $contract->contract_period }}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -175,8 +181,8 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="tax_value" class="form-label">{{ __('Tax Value (%)') }} *</label>
-                                            <input type="number" class="form-control" id="tax_value" name="tax_value" 
-                                                   step="0.01" min="0" max="100" value="{{ $contract->tax_value }}" required>
+                                            <input type="number" class="form-control" id="tax_value" name="tax_value"
+                                                step="0.01" min="0" max="100" value="{{ $contract->tax_value }}" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -196,15 +202,15 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="start_date" class="form-label">{{ __('Start Date') }} *</label>
-                                            <input type="date" class="form-control" id="start_date" name="start_date" 
-                                                   value="{{ $contract->start_date->format('Y-m-d') }}" required>
+                                            <input type="date" class="form-control" id="start_date" name="start_date"
+                                                value="{{ $contract->start_date->format('Y-m-d') }}" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="end_date" class="form-label">{{ __('End Date') }} *</label>
-                                            <input type="date" class="form-control" id="end_date" name="end_date" 
-                                                   value="{{ $contract->end_date->format('Y-m-d') }}" required>
+                                            <input type="date" class="form-control" id="end_date" name="end_date"
+                                                value="{{ $contract->end_date->format('Y-m-d') }}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +222,10 @@
                 <!-- Terms and Conditions -->
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h5 class="mb-0">{{ __('Terms and Conditions') }}</h5>
+                        <div class="card-title">
+
+                            <h5 class="mb-0">{{ __('Terms and Conditions') }}</h5>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -259,7 +268,10 @@
                 <!-- Calculated Totals -->
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h5 class="mb-0">{{ __('Calculated Totals') }}</h5>
+                        <div class="card-title">
+
+                            <h5 class="mb-0">{{ __('Calculated Totals') }}</h5>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -303,54 +315,54 @@
 
 @push('scripts')
 <script>
-$(document).ready(function() {
-    // Auto-fill customer data when customer is selected
-    $('#customer_id').change(function() {
-        const selectedOption = $(this).find('option:selected');
-        if (selectedOption.val()) {
-            $('#customer_name').val(selectedOption.data('name'));
-            $('#customer_contact_person').val(selectedOption.data('contact-person'));
-            $('#customer_telephone').val(selectedOption.data('telephone'));
-            $('#customer_ext').val(selectedOption.data('ext'));
-            $('#customer_fax').val(selectedOption.data('fax'));
-            $('#customer_mobile').val(selectedOption.data('mobile'));
-            $('#customer_city').val(selectedOption.data('city'));
-            $('#customer_address').val(selectedOption.data('address'));
+    $(document).ready(function() {
+        // Auto-fill customer data when customer is selected
+        $('#customer_id').change(function() {
+            const selectedOption = $(this).find('option:selected');
+            if (selectedOption.val()) {
+                $('#customer_name').val(selectedOption.data('name'));
+                $('#customer_contact_person').val(selectedOption.data('contact-person'));
+                $('#customer_telephone').val(selectedOption.data('telephone'));
+                $('#customer_ext').val(selectedOption.data('ext'));
+                $('#customer_fax').val(selectedOption.data('fax'));
+                $('#customer_mobile').val(selectedOption.data('mobile'));
+                $('#customer_city').val(selectedOption.data('city'));
+                $('#customer_address').val(selectedOption.data('address'));
+            }
+        });
+
+        // Calculate totals when values change
+        function calculateTotals() {
+            const dumpingCost = parseFloat($('#dumping_cost').val()) || 0;
+            const noContainers = parseInt($('#no_containers').val()) || 0;
+            const additionalTripCost = parseFloat($('#additional_trip_cost').val()) || 0;
+            const taxValue = parseFloat($('#tax_value').val()) || 0;
+
+            const monthlyTotalDumpingCost = dumpingCost * noContainers;
+            const subtotal = monthlyTotalDumpingCost + additionalTripCost;
+            const taxAmount = subtotal * (taxValue / 100);
+            const totalPrice = subtotal + taxAmount;
+
+            $('#monthly_total_dumping_cost_display').text(monthlyTotalDumpingCost.toFixed(2) + ' {{ __("SAR") }}');
+            $('#subtotal_display').text(subtotal.toFixed(2) + ' {{ __("SAR") }}');
+            $('#tax_amount_display').text(taxAmount.toFixed(2) + ' {{ __("SAR") }}');
+            $('#total_price_display').text(totalPrice.toFixed(2) + ' {{ __("SAR") }}');
         }
+
+        // Bind calculation to input changes
+        $('#dumping_cost, #no_containers, #additional_trip_cost, #tax_value').on('input', calculateTotals);
+
+        // Set end date when start date changes
+        $('#start_date').change(function() {
+            const startDate = new Date($(this).val());
+            const endDate = new Date(startDate);
+            endDate.setFullYear(endDate.getFullYear() + 1);
+            $('#end_date').val(endDate.toISOString().split('T')[0]);
+        });
+
+        // Initial calculation
+        calculateTotals();
     });
-
-    // Calculate totals when values change
-    function calculateTotals() {
-        const dumpingCost = parseFloat($('#dumping_cost').val()) || 0;
-        const noContainers = parseInt($('#no_containers').val()) || 0;
-        const additionalTripCost = parseFloat($('#additional_trip_cost').val()) || 0;
-        const taxValue = parseFloat($('#tax_value').val()) || 0;
-
-        const monthlyTotalDumpingCost = dumpingCost * noContainers;
-        const subtotal = monthlyTotalDumpingCost + additionalTripCost;
-        const taxAmount = subtotal * (taxValue / 100);
-        const totalPrice = subtotal + taxAmount;
-
-        $('#monthly_total_dumping_cost_display').text(monthlyTotalDumpingCost.toFixed(2) + ' {{ __("SAR") }}');
-        $('#subtotal_display').text(subtotal.toFixed(2) + ' {{ __("SAR") }}');
-        $('#tax_amount_display').text(taxAmount.toFixed(2) + ' {{ __("SAR") }}');
-        $('#total_price_display').text(totalPrice.toFixed(2) + ' {{ __("SAR") }}');
-    }
-
-    // Bind calculation to input changes
-    $('#dumping_cost, #no_containers, #additional_trip_cost, #tax_value').on('input', calculateTotals);
-
-    // Set end date when start date changes
-    $('#start_date').change(function() {
-        const startDate = new Date($(this).val());
-        const endDate = new Date(startDate);
-        endDate.setFullYear(endDate.getFullYear() + 1);
-        $('#end_date').val(endDate.toISOString().split('T')[0]);
-    });
-
-    // Initial calculation
-    calculateTotals();
-});
 </script>
 @endpush
 
@@ -358,4 +370,3 @@ $(document).ready(function() {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 @endpush
 @endsection
-

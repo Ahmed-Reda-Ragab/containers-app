@@ -6,10 +6,16 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-title">
+
                     <h4 class="mb-0">{{ __('containers.edit') }}: {{ $container->code }}</h4>
+                </div>
+                <div class="card-toolbar">
+
                     <a href="{{ route('containers.index') }}" class="btn btn-secondary">
                         <i class="fas fa-arrow-left"></i> {{ __('containers.back') }}
                     </a>
+                </div>
                 </div>
 
                 <div class="card-body">

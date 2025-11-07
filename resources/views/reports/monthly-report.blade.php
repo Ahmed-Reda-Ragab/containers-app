@@ -25,7 +25,7 @@
                             <select class="form-select" id="year" name="year">
                                 @for($i = now()->year - 2; $i <= now()->year + 1; $i++)
                                     <option value="{{ $i }}" {{ $year == $i ? 'selected' : '' }}>{{ $i }}</option>
-                                @endfor
+                                    @endfor
                             </select>
                         </div>
                         <div class="col-md-3">
@@ -33,9 +33,9 @@
                             <select class="form-select" id="month" name="month">
                                 @for($i = 1; $i <= 12; $i++)
                                     <option value="{{ $i }}" {{ $month == $i ? 'selected' : '' }}>
-                                        {{ \Carbon\Carbon::create()->month($i)->format('F') }}
+                                    {{ \Carbon\Carbon::create()->month($i)->format('F') }}
                                     </option>
-                                @endfor
+                                    @endfor
                             </select>
                         </div>
                         <div class="col-md-2">
@@ -89,7 +89,10 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h6 class="mb-0">{{ __('Performance Metrics') }}</h6>
+                            <div class="card-title">
+
+                                <h6 class="mb-0">{{ __('Performance Metrics') }}</h6>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="row mb-2">
@@ -130,7 +133,10 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h6 class="mb-0">{{ __('Container & Contract Status') }}</h6>
+                            <div class="card-title">
+
+                                <h6 class="mb-0">{{ __('Container & Contract Status') }}</h6>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="row mb-2">
@@ -165,7 +171,10 @@
             <!-- Receipts Statistics -->
             <div class="card mb-4">
                 <div class="card-header">
-                    <h5 class="mb-0">{{ __('Receipts Statistics') }}</h5>
+                    <div class="card-title">
+
+                        <h5 class="mb-0">{{ __('Receipts Statistics') }}</h5>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -200,7 +209,10 @@
             <!-- Yearly Statistics -->
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">{{ __('Yearly Statistics') }} - {{ $yearlyStats['year'] ?? $year }}</h5>
+                    <div class="card-title">
+
+                        <h5 class="mb-0">{{ __('Yearly Statistics') }} - {{ $yearlyStats['year'] ?? $year }}</h5>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -231,18 +243,16 @@
 
 @push('styles')
 <style>
-.table th {
-    background-color: #376092 !important;
-    color: white !important;
-    font-weight: bold;
-}
+    .table th {
+        background-color: #376092 !important;
+        color: white !important;
+        font-weight: bold;
+    }
 
-.card-body h5 {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+    .card-body h5 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
 </style>
 @endpush
 @endsection
-
-

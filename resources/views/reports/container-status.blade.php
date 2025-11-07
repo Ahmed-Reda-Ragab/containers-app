@@ -71,7 +71,10 @@
             <!-- Container Status Table -->
             <div class="card">
                 <div class="card-header">
+                <div class="card-title">
+
                     <h5 class="mb-0">{{ __('Container Status Details') }}</h5>
+                </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

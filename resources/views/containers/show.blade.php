@@ -6,7 +6,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-title">
+
                     <h4 class="mb-0">Container Details: {{ $container->code }}</h4>
+                </div>
+                <div class="card-toolbar">
+                
                     <div class="btn-group">
                         <a href="{{ route('containers.edit', $container) }}" class="btn btn-warning">
                             <i class="fas fa-edit"></i> Edit
@@ -15,6 +20,7 @@
                             <i class="fas fa-arrow-left"></i> Back
                         </a>
                     </div>
+                </div>
                 </div>
 
                 <div class="card-body">

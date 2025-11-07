@@ -20,7 +20,9 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mb-0">{{ __('Payment Information') }}</h5>
+                            <div class="card-title">
+                                <h5 class="mb-0">{{ __('Payment Information') }}</h5>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -87,12 +89,12 @@
                             </div>
 
                             @if($payment->notes)
-                                <div class="mt-4">
-                                    <h6>{{ __('Notes') }}</h6>
-                                    <div class="alert alert-light">
-                                        {{ $payment->notes }}
-                                    </div>
+                            <div class="mt-4">
+                                <h6>{{ __('Notes') }}</h6>
+                                <div class="alert alert-light">
+                                    {{ $payment->notes }}
                                 </div>
+                            </div>
                             @endif
                         </div>
                     </div>
@@ -102,19 +104,22 @@
                     <!-- Contract Progress -->
                     <div class="card">
                         <div class="card-header">
-                            <h6 class="mb-0">{{ __('Contract Progress') }}</h6>
+                            <div class="card-title">
+
+                                <h6 class="mb-0">{{ __('Contract Progress') }}</h6>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="text-center mb-3">
                                 <div class="h4 text-primary">{{ number_format($payment->contract->total_price, 2) }} {{ __('SAR') }}</div>
                                 <small class="text-muted">{{ __('Total Contract Value') }}</small>
                             </div>
-                            
+
                             <div class="progress mb-3" style="height: 30px;">
-                                <div class="progress-bar" role="progressbar" 
-                                     style="width: {{ $payment->contract->total_price > 0 ? ($payment->contract->total_payed / $payment->contract->total_price) * 100 : 0 }}%"
-                                     aria-valuenow="{{ $payment->contract->total_price > 0 ? ($payment->contract->total_payed / $payment->contract->total_price) * 100 : 0 }}" 
-                                     aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" role="progressbar"
+                                    style="width: {{ $payment->contract->total_price > 0 ? ($payment->contract->total_payed / $payment->contract->total_price) * 100 : 0 }}%"
+                                    aria-valuenow="{{ $payment->contract->total_price > 0 ? ($payment->contract->total_payed / $payment->contract->total_price) * 100 : 0 }}"
+                                    aria-valuemin="0" aria-valuemax="100">
                                     {{ $payment->contract->total_price > 0 ? round(($payment->contract->total_payed / $payment->contract->total_price) * 100, 1) : 0 }}%
                                 </div>
                             </div>
@@ -133,7 +138,10 @@
                     <!-- Actions -->
                     <div class="card mt-3">
                         <div class="card-header">
-                            <h6 class="mb-0">{{ __('Actions') }}</h6>
+                            <div class="card-title">
+
+                                <h6 class="mb-0">{{ __('Actions') }}</h6>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="d-grid gap-2">
@@ -143,8 +151,8 @@
                                 <a href="{{ route('contracts.show', $payment->contract) }}" class="btn btn-info">
                                     <i class="fas fa-file-contract"></i> {{ __('View Contract') }}
                                 </a>
-                                <form action="{{ route('payments.destroy', $payment) }}" method="POST" 
-                                      onsubmit="return confirm('{{ __('Are you sure you want to delete this payment?') }}')">
+                                <form action="{{ route('payments.destroy', $payment) }}" method="POST"
+                                    onsubmit="return confirm('{{ __('Are you sure you want to delete this payment?') }}')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger w-100">
@@ -164,4 +172,3 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 @endpush
 @endsection
-
