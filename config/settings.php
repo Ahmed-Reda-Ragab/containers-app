@@ -48,6 +48,7 @@ return [
             ],
             'js' => [
                 'assets/plugins/global/plugins.bundle.js',
+                'assets/js/jquery.min.js',
                 'assets/js/scripts.bundle.js',
                 'assets/js/widgets.bundle.js',
             ],

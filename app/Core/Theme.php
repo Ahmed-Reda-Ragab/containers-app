@@ -244,7 +244,7 @@ class Theme
      */
     function isRtlDirection()
     {
-        return self::$direction === 'rtl';
+        return  app()->getLocale() === 'ar' || self::$direction === 'rtl';
     }
 
     /**

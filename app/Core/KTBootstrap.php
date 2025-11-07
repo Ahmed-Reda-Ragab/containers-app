@@ -40,6 +40,6 @@ class KTBootstrap
     public static function initLayout()
     {
         addHtmlAttribute('body', 'id', 'kt_app_body');
-        addHtmlAttribute('body', 'data-kt-name', getName());
+        addHtmlAttribute('body', 'data-kt-name', config('app.name'));
     }
 }
