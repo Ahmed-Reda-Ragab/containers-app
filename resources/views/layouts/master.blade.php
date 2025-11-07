@@ -90,9 +90,9 @@
             ],
         ],
         [
-            'title' => __('Filled Containers'),
+            'title' => __('Container Fills'),
             'icon' => 'cube',
-            'route' => Route::has('contract-container-filled') ? route('contract-container-filled') : '#',
+            'route' => Route::has('contract-container-fills.index') ? route('contract-container-fills.index') : '#',
             'pattern' => ['contract-container-filled'],
         ],
         [
