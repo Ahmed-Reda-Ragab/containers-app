@@ -32,6 +32,12 @@
                         <td>{{ __(ucfirst($offer->status ?? 'draft')) }}</td>
                         <td>
                             <a class="btn btn-sm btn-outline-primary" href="{{ route('offers.show', $offer) }}">{{ __('View') }}</a>
+
+                            <form action="{{ route('offers.destroy', $offer) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-outline-danger">{{ __('Delete') }}</button>
+                            </form>
                         </td>
                     </tr>
                 @empty

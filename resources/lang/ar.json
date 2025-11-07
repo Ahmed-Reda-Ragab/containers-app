@@ -313,7 +313,7 @@
     "Create Receipt": "إنشاء فاتورة",
     "Record First Payment": "تسجيل الدفعة الأولى",
     "No payments recorded yet.": "لم يتم تسجيل أي دفعات بعد.",
-    "Monthly Total Dumping Cost": "إجمالي تكلفة التفريغ الشهري",
+    "Monthly Total Dumping Cost": "إجمالي الاتفاقية الشهري",
     "Total Amount": "إجمالي مجموع الفواتير",
     "Add Container Fill": "إضافة حاوية العقد",
     "Contract" : "العقد",
@@ -394,5 +394,9 @@
     "Employee National ID" : "رقم الجوال",
     "Employee Status" : "حالة الموظف",
     "Employee Notes" : "ملاحظات الموظف",
-    "Employee User ID" : "معرف المستخدم"
+    "Employee User ID" : "معرف المستخدم",
+    "Per Container" : "لكل حاوية",
+    "Remaining Containers" : "الحاويات المتبقية",
+    "Total Contract Containers" : "إجمالي عدد الحاويات في العقد"
+
 }

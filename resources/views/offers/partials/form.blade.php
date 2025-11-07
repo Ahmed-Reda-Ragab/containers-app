@@ -208,6 +208,41 @@
         </div>
     </div>
 
+    <!-- Calculated Totals -->
+    <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">{{ __('Calculated Totals') }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <label class="form-label">{{ __('Monthly Total Dumping Cost') }}</label>
+                                    <div class="h4 text-primary" id="monthly_total_dumping_cost_display">0.00 {{ __('SAR') }}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-none">
+                                <div class="text-center">
+                                    <label class="form-label">{{ __('Subtotal') }}</label>
+                                    <div class="h4 text-info" id="subtotal_display">0.00 {{ __('SAR') }}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-none">
+                                <div class="text-center">
+                                    <label class="form-label">{{ __('Tax Amount') }}</label>
+                                    <div class="h4 text-warning" id="tax_amount_display">0.00 {{ __('SAR') }}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <label class="form-label">{{ __('Total Contract Price') }}</label>
+                                    <div class="h4 text-success" id="total_contract_price_display">0.00 {{ __('SAR') }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
     <div class="d-flex justify-content-end">
         <button type="submit" class="btn btn-primary btn-lg">
             <i class="fas fa-save"></i> {{ $method === 'PUT' ? __('Update Offer') : __('Create Offer') }}
@@ -292,6 +327,29 @@
             const day = ('0' + d.getDate()).slice(-2);
             return `${d.getFullYear()}-${month}-${day}`;
         }
+
+        function calculateTotals() {
+            const container_price = parseFloat($('#container_price').val()) || 0;
+            const noContainers = parseInt($('#no_containers').val()) || 0;
+            const monthly_dumping_cont = parseFloat($('#monthly_dumping_cont').val()) || 0;
+            const additional_trip_cost = parseFloat($('#additional_trip_cost').val()) || 0;
+            const tax_value = parseFloat($('#tax_value').val()) || 0;
+            const contract_period = parseInt($('#contract_period').val()) || 1;
+
+            const monthly_total_dumping_cost = container_price * noContainers;
+            const total_contract_price = monthly_total_dumping_cost * contract_period;
+            const subtotal = monthly_total_dumping_cost;
+            const tax_amount = subtotal * (tax_value / 100);
+            const total_price = subtotal + tax_amount;
+
+            $('#monthly_total_dumping_cost_display').text(monthly_total_dumping_cost.toFixed(2) + ' {{ __("SAR") }}');
+            $('#subtotal_display').text(subtotal.toFixed(2) + ' {{ __("SAR") }}');
+            $('#tax_amount_display').text(tax_amount.toFixed(2) + ' {{ __("SAR") }}');
+            $('#total_price_display').text(total_price.toFixed(2) + ' {{ __("SAR") }}');
+            $('#total_contract_price_display').text(total_contract_price.toFixed(2) + ' {{ __("SAR") }}');
+        }
+        $('#container_price, #no_containers, #additional_trip_cost, #tax_value, #contract_period').on('input', calculateTotals);
+
     });
 </script>
 @endpush

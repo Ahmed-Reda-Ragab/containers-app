@@ -23,7 +23,7 @@ class ContractController extends Controller
     {
         $contracts = Contract::with(['customer', 'size', 'user', 'payments'])
             ->when($type, function ($q) use ($type) {
-                $q->where('customer->type', strtolower($type) === 'individual' ? 'individual' : 'business');
+                $q->where('type', strtolower($type) === 'individual' ? 'individual' : 'business');
             })
             ->orderBy('created_at', 'desc')
             ->paginate(15);

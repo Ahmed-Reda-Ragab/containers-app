@@ -12,7 +12,7 @@
                     </tr>
                     <tr>
                         <th>{{ __('Customer') }}:</th>
-                        <td>{{ $offer->customer['name'] ?? '' }}</td>
+                        <td>{{ $offer->customerData->name??'' }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Contact Person') }}:</th>
@@ -24,7 +24,7 @@
                     </tr>
                     <tr>
                         <th>{{ __('Mobile') }}:</th>
-                        <td>{{ $offer->customer['mobile'] ?? '' }}</td>
+                        <td>{{ $offer->customer['contact_phone'] ?? '' }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('City') }}:</th>
@@ -40,7 +40,7 @@
                 <table class="table table-borderless">
                     <tr>
                         <th width="40%">{{ __('Container Type') }}:</th>
-                        <td>{{ $offer->type->name ?? '' }}</td>
+                        <td>{{ $offer->size->name ?? '' }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Container Price') }}:</th>
@@ -51,8 +51,16 @@
                         <td>{{ $offer->no_containers }}</td>
                     </tr>
                     <tr>
-                        <th>{{ __('Period (Months)') }}:</th>
+                        <th>{{ __('Price per Container') }}:</th>
+                        <td>{{ $offer->container_price }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ __('Contract Period (Months)') }}:</th>
                         <td>{{ $offer->contract_period }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ __('Additional Trip Price') }}:</th>
+                        <td>{{ $offer->additional_trip_cost }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Start Date') }}:</th>
@@ -64,7 +72,7 @@
                     </tr>
                     <tr>
                         <th>{{ __('Status') }}:</th>
-                        <td>{{ ucfirst($offer->status ?? 'draft') }}</td>
+                        <td>{{ __(ucfirst($offer->status ?? 'draft')) }}</td>
                     </tr>
                 </table>
             </div>

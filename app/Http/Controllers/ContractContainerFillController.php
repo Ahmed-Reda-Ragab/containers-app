@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Enums\ContainerStatus;
 use App\Enums\ContractStatus;
 use App\Enums\UserType;
+use Yajra\DataTables\Facades\DataTables;
 
 class ContractContainerFillController extends Controller
 {
@@ -20,11 +21,11 @@ class ContractContainerFillController extends Controller
      */
     public function index()
     {
-        $fills = ContractContainerFill::with(['contract.customer', 'container', 'deliver', 'discharge', 'client'])
-            ->orderBy('created_at', 'desc')
-            ->paginate(15);
+        if(request()->ajax()){
+            return $this->datatable(request());
+        }
 
-        return view('contract-container-fills.index', compact('fills'));
+        return view('contract-container-fills.index');
     }
 
     public function filled()
@@ -87,6 +88,84 @@ class ContractContainerFillController extends Controller
                 ->with('error', __('Failed to record container delivery. Please try again.'));
         }
     }
+
+public function datatable(Request $request)
+{
+    $fills = ContractContainerFill::with([
+        'contract.customerData',
+        'container',
+        'deliver',
+        'deliverCar',
+        'discharge',
+        'dischargeCar'
+    ]);
+
+    $searchValue = $request->input('search.value');
+
+    if (!empty($searchValue)) {
+        $fills->where(function ($q) use ($searchValue) {
+            $q->whereHas('container', function ($sub) use ($searchValue) {
+                $sub->where('code', 'like', "%{$searchValue}%");
+            })
+            ->orWhereHas('contract.customerData', function ($sub) use ($searchValue) {
+                $sub->where('name', 'like', "%{$searchValue}%")
+                    ->orWhere('phone', 'like', "%{$searchValue}%");
+            })
+            ->orWhere('address', 'like', "%{$searchValue}%")
+            ->orWhere('city', 'like', "%{$searchValue}%");
+        });
+    }
+
+    return DataTables::of($fills)
+        ->addIndexColumn()
+        ->addColumn('no', fn($fill) => "#{$fill->no}")
+        ->addColumn('contract', fn($fill) =>
+            '<a href="' . route('contracts.show', $fill->contract) . '" class="text-decoration-none">
+                #' . $fill->contract->id . '
+            </a>'
+        )
+        ->addColumn('customer', fn($fill) => e($fill->contract->customerData->name ?? ''))
+        ->addColumn('container', fn($fill) => e($fill->container->code ?? ''))
+        ->addColumn('deliver', fn($fill) => e($fill->deliver->name ?? ''))
+        ->addColumn('deliver_car', fn($fill) => e($fill->deliverCar->number ?? ''))
+        ->addColumn('deliver_at', fn($fill) => optional($fill->deliver_at)->format('Y-m-d'))
+        ->addColumn('expected_discharge_date', fn($fill) => optional($fill->expected_discharge_date)->format('Y-m-d'))
+        ->addColumn('discharge_date', fn($fill) => optional($fill->discharge_date)->format('Y-m-d'))
+        ->addColumn('discharge', fn($fill) => e($fill->discharge?->name ?? ''))
+        ->addColumn('discharge_car', fn($fill) => e($fill->dischargeCar->number ?? ''))
+        ->addColumn('status', function($fill) {
+            if ($fill->is_discharged) {
+                return '<span class="badge bg-success">'.__('Discharged').'</span>';
+            } elseif ($fill->is_overdue) {
+                return '<span class="badge bg-danger">'.__('Overdue').'</span>';
+            }
+            return '<span class="badge bg-warning">'.__('Active').'</span>';
+        })
+        ->addColumn('location', fn($fill) => e("{$fill->city} - {$fill->address}"))
+        ->addColumn('actions', function($fill) {
+            $viewBtn = '<a href="' . route('contract-container-fills.show', $fill) . '" 
+                class="btn btn-sm btn-outline-primary" title="' . __('View') . '">
+                <i class="fas fa-eye"></i>
+            </a>';
+
+            $dischargeBtn = '';
+            if (!$fill->is_discharged) {
+                $dischargeBtn = '<button 
+                    type="button" 
+                    class="btn btn-success btn-sm"
+                    data-bs-toggle="modal" 
+                    data-bs-target="#dischargeModal"
+                    data-url="' . route('contract-container-fills.discharge', $fill) . '">
+                    <i class="fas fa-dolly"></i> ' . __('Discharge') . '
+                </button>';
+            }
+
+            return '<div class="btn-group" role="group">' . $viewBtn . $dischargeBtn . '</div>';
+        })
+        ->rawColumns(['contract', 'status', 'actions'])
+        ->make(true);
+}
+
 
     /**
      * Display the specified resource.

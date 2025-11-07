@@ -157,18 +157,10 @@
                                     <i class="fas fa-file-contract"></i> {{ __('View Contract') }}
                                 </a>
                                 @if(!$contractContainerFill->is_discharged)
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#dischargeModal">
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#dischargeModal" data-url="{{ route('contract-container-fills.discharge', $contractContainerFill) }}" data-no="{{ $contractContainerFill->no }}" data-user-role="{{ auth()->user()->role }}">
                                         <i class="fas fa-check"></i> {{ __('Discharge Container') }}
                                     </button>
                                 @endif
-                                <form action="{{ route('contract-container-fills.destroy', $contractContainerFill) }}" method="POST" 
-                                      onsubmit="return confirm('{{ __('Are you sure you want to delete this container fill?') }}')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger w-100">
-                                        <i class="fas fa-trash"></i> {{ __('Delete Container Fill') }}
-                                    </button>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -180,52 +172,9 @@
 
 <!-- Discharge Modal -->
 @if(!$contractContainerFill->is_discharged)
-    <div class="modal fade" id="dischargeModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="{{ route('contract-container-fills.discharge', $contractContainerFill) }}" method="POST">
-                    @csrf
-                    <div class="modal-header">
-                        <h5 class="modal-title">{{ __('Discharge Container') }} #{{ $contractContainerFill->no }}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="discharge_date" class="form-label">{{ __('Discharge Date') }} *</label>
-                            <input type="date" class="form-control" id="discharge_date" name="discharge_date" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="discharge_id" class="form-label">{{ __('Discharged By') }} *</label>
-                            <select class="form-select" id="discharge_id" name="discharge_id" required>
-                                <option value="">{{ __('Choose user...') }}</option>
-                                @foreach($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Cancel') }}</button>
-                        <button type="submit" class="btn btn-success">{{ __('Discharge Container') }}</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    @include('components.discharge-modal')
 @endif
 
-@push('scripts')
-<script>
-$(document).ready(function() {
-    // Set default discharge date to today
-    $('#discharge_date').val(new Date().toISOString().split('T')[0]);
-});
-</script>
-@endpush
-
-@push('styles')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-@endpush
 @endsection
 
 

@@ -144,20 +144,21 @@
         const previewSection = document.getElementById('previewSection');
         const generatedCodes = document.getElementById('generatedCodes');
         const codePrefix = document.getElementById('code_prefix');
-        const count = document.getElementById('count');
+        const fromCount = document.getElementById('from_count');
+        const toCount = document.getElementById('to_count');
 
         previewBtn.addEventListener('click', function() {
             const prefix = codePrefix.value.trim();
-            const containerCount = parseInt(count.value) || 0;
-
-            if (containerCount <= 0) {
+            const containerFrom = parseInt(fromCount.value) || 0;
+            const containerTo = parseInt(toCount.value) || 0;
+            if(containerFrom > containerTo){
                 // if (!prefix || containerCount <= 0) {
                 // alert('{{ __("Please enter a code prefix and count") }}');
-                // return;
+                return;
             }
 
             let codesHtml = '<div class="row">';
-            for (let i = 1; i <= containerCount; i++) {
+            for (let i = containerFrom; i <= containerTo; i++) {
                 const code = prefix + String(i); //.padStart(3, '-');
                 codesHtml += `<div class="col-md-3 mb-2"><span class="badge bg-primary">${code}</span></div>`;
             }
