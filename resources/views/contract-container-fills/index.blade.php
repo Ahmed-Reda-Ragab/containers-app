@@ -14,7 +14,7 @@
                     <i class="fas fa-plus"></i> {{ __('Record Container Fill') }}
                 </a>
 
-                <a href="{{ route('contracts.create.by-type' , ['type' => 'individual']) }}" class="btn btn-info">
+                <a href="{{ route('contracts.quick.individual') }}" class="btn btn-info">
                     <i class="fas fa-file-contract"></i> {{ __('New Individual Contract') }}
                 </a>
             </div>

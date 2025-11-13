@@ -250,7 +250,7 @@ class ReceiptController extends Controller
             });
 
             // Update contract totals
-            $contract->increment('total', $totalAmount);
+            // $contract->increment('total', $totalAmount);
 
             return redirect()->route('contracts.show', $contract)
             ->with('success', __('Receipt created successfully from selected container fills.'));

@@ -38,6 +38,8 @@ Route::middleware('auth')->group(function () {
     // Contracts routes with type segmentation
     Route::get('contracts/type/{type}', [ContractController::class, 'index'])->name('contracts.index.by-type');
     Route::get('contracts/create/type/{type}', [ContractController::class, 'create'])->name('contracts.create.by-type');
+    Route::get('contracts/quick/individual', [ContractController::class, 'quickIndividual'])->name('contracts.quick.individual');
+    Route::post('contracts/quick/individual', [ContractController::class, 'quickIndividualStore'])->name('contracts.quick.individual.store');
     Route::resource('contracts', ContractController::class);
     Route::get('contracts/{contract}/customer-data', [ContractController::class, 'getCustomerData'])->name('contracts.customer-data');
     Route::post('contracts/convert-from-offer', [ContractController::class, 'convertFromOffer'])->name('contracts.convert-from-offer');
@@ -46,6 +48,8 @@ Route::middleware('auth')->group(function () {
     // Payments routes
     Route::resource('payments', PaymentController::class);
     Route::get('contracts/{contract}/payments/create', [PaymentController::class, 'createForContract'])->name('payments.create-for-contract');
+    // Simple customers search (for quick individual contract)
+    Route::get('customers-search', [App\Http\Controllers\CustomerController::class, 'search'])->name('customers.search');
     
     // Contract Container Fills routes
     Route::resource('contract-container-fills', ContractContainerFillController::class);

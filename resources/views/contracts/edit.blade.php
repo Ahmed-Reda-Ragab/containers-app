@@ -121,10 +121,19 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="container_price" class="form-label">{{ __('Container Price') }} *</label>
+                                            <label for="container_price" class="form-label">{{ __('Container Price (excl. VAT)') }} *</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control" id="container_price" name="container_price"
                                                     step="0.01" min="0" value="{{ $contract->container_price }}" required>
+                                                <span class="input-group-text">{{ __('SAR') }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">{{ __('Container Price (incl. VAT)') }}</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="container_price_w_vat" value="{{ number_format(($contract->container_price) * (1 + ($contract->tax_value/100)), 2) }}" readonly>
                                                 <span class="input-group-text">{{ __('SAR') }}</span>
                                             </div>
                                         </div>
@@ -337,11 +346,16 @@
             const noContainers = parseInt($('#no_containers').val()) || 0;
             const additionalTripCost = parseFloat($('#additional_trip_cost').val()) || 0;
             const taxValue = parseFloat($('#tax_value').val()) || 0;
+            const basePrice = parseFloat($('#container_price').val()) || 0;
 
             const monthlyTotalDumpingCost = dumpingCost * noContainers;
             const subtotal = monthlyTotalDumpingCost + additionalTripCost;
             const taxAmount = subtotal * (taxValue / 100);
             const totalPrice = subtotal + taxAmount;
+
+            // price with VAT (per container)
+            const priceWithVat = basePrice * (1 + (taxValue / 100));
+            $('#container_price_w_vat').val(priceWithVat.toFixed(2));
 
             $('#monthly_total_dumping_cost_display').text(monthlyTotalDumpingCost.toFixed(2) + ' {{ __("SAR") }}');
             $('#subtotal_display').text(subtotal.toFixed(2) + ' {{ __("SAR") }}');
@@ -350,7 +364,7 @@
         }
 
         // Bind calculation to input changes
-        $('#dumping_cost, #no_containers, #additional_trip_cost, #tax_value').on('input', calculateTotals);
+        $('#dumping_cost, #no_containers, #additional_trip_cost, #tax_value, #container_price').on('input', calculateTotals);
 
         // Set end date when start date changes
         $('#start_date').change(function() {

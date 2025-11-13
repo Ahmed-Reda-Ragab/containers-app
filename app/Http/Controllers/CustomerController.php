@@ -14,6 +14,37 @@ class CustomerController extends Controller
     use DataTableTrait;
 
     /**
+     * Lightweight search endpoint for customers (name or phone)
+     */
+    public function search(Request $request)
+    {
+        $term = trim((string) $request->get('term', ''));
+        $query = Customer::query();
+        if ($term !== '') {
+            $query->where(function ($q) use ($term) {
+                $q->where('name', 'like', "%{$term}%")
+                  ->orWhere('phone', 'like', "%{$term}%")
+                //   ->orWhere('mobile', 'like', "%{$term}%")
+                  ;
+            });
+        }
+        $customers = $query->orderBy('name')->limit(20)->get(['id','name' , 'phone','city','address','type']);
+        return response()->json([
+            'results' => $customers->map(function ($c) {
+                return [
+                    'id' => $c->id,
+                    'text' => $c->name . ($c->mobile ? " ({$c->mobile})" : ''),
+                    'name' => $c->name,
+                    'phone' => $c->phone,
+                    'city' => $c->city,
+                    'address' => $c->address,
+                    'type' => $c->type,
+                ];
+            }),
+        ]);
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index(Request $request)

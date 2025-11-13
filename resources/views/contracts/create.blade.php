@@ -175,9 +175,18 @@ $isBusiness = isset($type) && $type == 'business';
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="container_price" class="form-label">{{ __('Container Price') }} *</label>
+                                            <label for="container_price" class="form-label">{{ __('Container Price (excl. VAT)') }} *</label>
                                             <div class="input-group">
                                                 <input type="number" class="form-control" id="container_price" name="container_price" step="0.01" min="0" required>
+                                                <span class="input-group-text">{{ __('SAR') }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">{{ __('Container Price (incl. VAT)') }}</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="container_price_w_vat" value="" readonly>
                                                 <span class="input-group-text">{{ __('SAR') }}</span>
                                             </div>
                                         </div>
@@ -424,6 +433,10 @@ $isBusiness = isset($type) && $type == 'business';
             const tax_amount = subtotal * (tax_value / 100);
             const total_price = subtotal + tax_amount;
 
+            // price with VAT (per container)
+            const price_w_vat = container_price * (1 + (tax_value / 100));
+            $('#container_price_w_vat').val(price_w_vat.toFixed(2));
+
             $('#monthly_total_dumping_cost_display').text(monthly_total_dumping_cost.toFixed(2) + ' {{ __("SAR") }}');
             $('#subtotal_display').text(subtotal.toFixed(2) + ' {{ __("SAR") }}');
             $('#tax_amount_display').text(tax_amount.toFixed(2) + ' {{ __("SAR") }}');
@@ -462,10 +475,9 @@ $isBusiness = isset($type) && $type == 'business';
         function prefillFromOffer(offerId) {
             if (!offerId) return;
             $('#convert_offer_id').val(offerId);
-            $.getJSON('{{ route('
-                offers.data ', ['
-                offer ' => '
-                OFFER_ID ']) }}'.replace('OFFER_ID', offerId),
+            const routesEl = document.getElementById('offersRoutes');
+            const offerDataTmpl = routesEl?.dataset.offersData || '';
+            $.getJSON(offerDataTmpl.replace('OFFER_ID', offerId),
                 function(data) {
                     if (data.customer) {
                         $('#customer_name').val(data.customer.name || '');
@@ -497,13 +509,14 @@ $isBusiness = isset($type) && $type == 'business';
         }
 
         ensureSelect2Loaded(function() {
+            const routesEl = document.getElementById('offersRoutes');
+            const offersSearchUrl = routesEl?.dataset.offersSearch || '';
+            const offersPlaceholder = routesEl?.dataset.offersPlaceholder || 'Search offers...';
             $('#offer_select').select2({
-                placeholder: '{{ __('
-                Search offers...') }}',
+                placeholder: offersPlaceholder,
                 allowClear: true,
                 ajax: {
-                    url: '{{ route('
-                    offers.search ') }}',
+                    url: offersSearchUrl,
                     dataType: 'json',
                     delay: 250,
                     data: function(params) {
@@ -560,6 +573,11 @@ $isBusiness = isset($type) && $type == 'business';
     });
 </script>
 @endpush
+
+<div id="offersRoutes"
+     data-offers-data="{{ route('offers.data', ['offer' => 'OFFER_ID']) }}"
+     data-offers-search="{{ route('offers.search') }}"
+     data-offers-placeholder="{{ __('Search offers...') }}"></div>
 
 @push('styles')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
