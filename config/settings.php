@@ -40,6 +40,9 @@ return [
         'favicon' => 'assets/media/logos/favicon.ico',
         'fonts' => [
             'https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700',
+            'https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap',
+            'https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap',
+            'https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;700&display=swap'
         ],
         'global' => [
             'css' => [

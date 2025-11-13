@@ -199,7 +199,12 @@
         <link rel="stylesheet" href="{{ asset($path) }}">
     @endforeach
     <!--end::Custom Stylesheets-->
-
+    <style>
+        body {
+        font-family: 'Almarai', 'El Messiri', 'Scheherazade New', sans-serif;
+        font-weight: 600;
+        }
+    </style>
     @stack('styles')
 </head>
 
