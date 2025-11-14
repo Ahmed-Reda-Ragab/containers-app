@@ -74,6 +74,26 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
+                                    <label for="role" class="form-label">{{ __('Role') }}</label>
+                                    <select class="form-select @error('role') is-invalid @enderror" 
+                                            id="role" name="role">
+                                        <option value="">{{ __('No role assigned') }}</option>
+                                        @foreach($roles as $role)
+                                            <option value="{{ $role->id }}" {{ old('role') == $role->id ? 'selected' : '' }}>
+                                                {{ $role->title ?? $role->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('role')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
                                     <label for="password" class="form-label">{{ __('Password') }} *</label>
                                     <input type="password" class="form-control @error('password') is-invalid @enderror" 
                                            id="password" name="password" >

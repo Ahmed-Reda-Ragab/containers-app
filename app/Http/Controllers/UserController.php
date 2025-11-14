@@ -6,6 +6,7 @@ use App\Enums\UserType;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -51,7 +52,8 @@ class UserController extends Controller
     public function create()
     {
         $userTypes = UserType::options();
-        return view('users.create', compact('userTypes'));
+        $roles = Role::all();
+        return view('users.create', compact('userTypes', 'roles'));
     }
 
     /**
@@ -60,9 +62,26 @@ class UserController extends Controller
     public function store(CreateUserRequest $request)
     {
         $data = $request->validated();
-        $data['password'] = Hash::make($data['password']);
+        
+        // Hash password if provided
+        if (!empty($data['password'])) {
+            $data['password'] = Hash::make($data['password']);
+        } else {
+            unset($data['password']);
+        }
+        
+        $roleId = $data['role'] ?? null;
+        unset($data['role']);
 
         $user = User::create($data);
+        
+        // Assign role if provided
+        if ($roleId) {
+            $role = Role::find($roleId);
+            if ($role) {
+                $user->assignRole($role);
+            }
+        }
 
         return redirect()->route('users.index')
             ->with('success', __('User created successfully.'));
@@ -82,7 +101,9 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $userTypes = UserType::options();
-        return view('users.edit', compact('user', 'userTypes'));
+        $roles = Role::all();
+        $user->load('roles');
+        return view('users.edit', compact('user', 'userTypes', 'roles'));
     }
 
     /**
@@ -101,8 +122,22 @@ class UserController extends Controller
         } else {
             $data['password'] = Hash::make($data['password']);
         }
+        
+        $roleId = $data['role'] ?? null;
+        unset($data['role']);
 
         $user->update($data);
+        
+        // Sync role if provided
+        if ($roleId) {
+            $role = Role::find($roleId);
+            if ($role) {
+                $user->syncRoles([$role]);
+            }
+        } else {
+            // If no role selected, remove all roles
+            $user->syncRoles([]);
+        }
 
         return redirect()->route('users.index')
             ->with('success', __('User updated successfully.'));

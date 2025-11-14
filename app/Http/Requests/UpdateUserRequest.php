@@ -29,6 +29,7 @@ class UpdateUserRequest extends FormRequest
             'phone' => ['required', 'string', 'max:20'],
             'user_type' => ['required', Rule::enum(UserType::class)],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+            'role' => ['nullable', 'exists:roles,id'],
         ];
     }
 
