@@ -397,6 +397,26 @@
     "Employee User ID" : "معرف المستخدم",
     "Per Container" : "لكل حاوية",
     "Remaining Containers" : "الحاويات المتبقية",
-    "Total Contract Containers" : "إجمالي عدد الحاويات في العقد"
-
+    "Total Contract Containers" : "إجمالي عدد الحاويات في العقد",
+    "Reports": "التقارير",
+    "Receipts Management": "إدارة الفواتير",
+    "From Date": "من تاريخ",
+    "To Date": "إلى تاريخ",
+    "Receipts": "الفواتير",
+    "Issued By": "صادر من",
+    "Due Date": "تاريخ الاستحقاق",
+    "Receipt": "فاتورة",
+    "Search Customer": "بحث عن عميل",
+    "Container Price (excl. VAT)": "سعر الحاوية (بدون ضريبة القيمة المضافة)",
+    "Container Price (incl. VAT)": "سعر الحاوية (مع ضريبة القيمة المضافة)",
+    "Deliver Container": "تسليم الحاوية",
+    "Available Container": "الحاويات المتاحة",
+    "Filtered by size automatically": "تم التصفية حسب الحجم تلقائيًا",
+    "Payment": "الدفع",
+    "optional": "(اختياري)",
+    "Mark as paid": "تحديد كمدفوع",
+    "Choose": "اختر",
+    "Create receipt now for this fill" : "انشاء فاتوره الان",
+    "Quick Individual Contract" :"تاجير حاوية الان",
+    "Tax Value":"الضريبة"
 }

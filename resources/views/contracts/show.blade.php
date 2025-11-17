@@ -368,7 +368,7 @@
                                             <th>{{ __('Amount') }}</th>
                                             <th>{{ __('Method') }}</th>
                                             <th>{{ __('Status') }}</th>
-                                            <th>{{ __('Recorded By') }}</th>
+                                            <th>{{ __('Created by') }}</th>
                                             <th>{{ __('Notes') }}</th>
                                             <th>{{ __('Actions') }}</th>
                                         </tr>
@@ -434,7 +434,7 @@
                                             <th>{{ __('Amount') }}</th>
                                             <th>{{ __('Method') }}</th>
                                             <th>{{ __('Status') }}</th>
-                                            <th>{{ __('Recorded By') }}</th>
+                                            <th>{{ __('Created by') }}</th>
                                             <th>{{ __('Notes') }}</th>
                                             <th>{{ __('Actions') }}</th>
                                         </tr>

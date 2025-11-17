@@ -168,7 +168,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-title">
-                            <h5 class="mb-0">{{ __('Payment (optional)') }}</h5>
+                            <h5 class="mb-0">{{ __('Payment') }} {{ __('optional') }}</h5>
                         </div>
                     </div>
                     <div class="card-body">
@@ -178,8 +178,15 @@
                                 <input type="number" step="0.01" min="0" name="payment[amount]" class="form-control" value="{{ old('payment.amount') }}">
                             </div>
                             <div class="col-md-3">
-                                <label class="form-label">{{ __('Method') }}</label>
-                                <input type="text" name="payment[method]" class="form-control" value="{{ old('payment.method') }}">
+                                <label for="method" class="form-label">{{ __('Payment Method') }}</label>
+                                <select class="form-select" id="method" name="payment[method]">
+                                    <option value="">{{ __('Choose') }}</option>
+                                    <option value="cash">{{ __('Cash') }}</option>
+                                    <option value="bank_transfer">{{ __('Bank Transfer') }}</option>
+                                    <option value="check">{{ __('Check') }}</option>
+                                    <option value="credit_card">{{ __('Credit Card') }}</option>
+                                    <option value="other">{{ __('Other') }}</option>
+                                </select>
                             </div>
                             <div class="col-md-3 d-flex align-items-end">
                                 <div class="form-check">
@@ -194,7 +201,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <div class="card-title">
-                            <h5 class="mb-0">{{ __('Receipt (optional)') }}</h5>
+                            <h5 class="mb-0">{{ __('Receipt') }}  {{__('optional')}} </h5>
                         </div>
                     </div>
                     <div class="card-body">
@@ -219,7 +226,7 @@
 
                 <div class="text-end">
                     <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-bolt"></i> {{ __('Create All') }}
+                        <i class="fas fa-bolt"></i> {{ __('Save') }}
                     </button>
                 </div>
             </form>

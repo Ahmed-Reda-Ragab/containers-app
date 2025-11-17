@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Hash;
 
 class PermissionsSeeder extends Seeder
 {
+
     /**
+     * php artisan db:seed --class=PermissionsSeeder
      * List of models to create permissions for
      */
     private array $models = [
@@ -46,38 +48,38 @@ class PermissionsSeeder extends Seeder
     private array $additionalPermissions = [
         // Home
         'home.dashboard',
-        
+
         // Container additional permissions
         'container.bulk-create',
         'container.bulk-store',
-        
+
         // Customer additional permissions
         'customer.data',
         'customer.search',
-        
+
         // Contract additional permissions
         'contract.print',
-        
+
         // Contract Container Fill additional permissions
         'contract-container-fill.filled',
         'contract-container-fill.discharge',
-        
+
         // Report additional permissions
         'report.print',
-        
+
         // Receipt additional permissions
         'receipt.collect',
         'receipt.print',
-        
+
         // Filled Container permissions
         'filled-container.list',
         'filled-container.mark-filled',
         'filled-container.discharge',
         'filled-container.assign',
-        
+
         // Offer additional permissions
         'offer.search',
-        
+
         // User additional permissions
         'user.search',
     ];
@@ -91,7 +93,7 @@ class PermissionsSeeder extends Seeder
         foreach ($this->models as $model) {
             foreach ($this->operations as $operation) {
                 $permissionName = "{$model}.{$operation}";
-                
+
                 Permission::firstOrCreate(
                     ['name' => $permissionName, 'guard_name' => 'web'],
                     ['name' => $permissionName, 'guard_name' => 'web']

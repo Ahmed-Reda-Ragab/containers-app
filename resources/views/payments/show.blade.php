@@ -49,7 +49,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>{{ __('Recorded By') }}:</th>
+                                            <th>{{ __('Created by') }}:</th>
                                             <td>{{ $payment->user->name }}</td>
                                         </tr>
                                         <tr>

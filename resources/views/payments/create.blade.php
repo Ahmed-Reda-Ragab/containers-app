@@ -79,7 +79,7 @@
                                         <div class="mb-3">
                                             <label for="method" class="form-label">{{ __('Payment Method') }}</label>
                                             <select class="form-select" id="method" name="method">
-                                                <option value="">{{ __('Choose method...') }}</option>
+                                                <option value="">{{ __('Choose') }}</option>
                                                 <option value="cash">{{ __('Cash') }}</option>
                                                 <option value="bank_transfer">{{ __('Bank Transfer') }}</option>
                                                 <option value="check">{{ __('Check') }}</option>

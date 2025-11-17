@@ -237,7 +237,7 @@ $isBusiness = isset($type) && $type == 'business';
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="tax_value" class="form-label">{{ __('Tax Value (%)') }} *</label>
+                                            <label for="tax_value" class="form-label">{{ __('Tax Value') }} (%) </label>
                                             <input type="number" class="form-control" id="tax_value" name="tax_value" readonly step="0.01" min="0" max="100" value="15" required>
                                             <p class="text-warning">{{ __('Prices include tax') }}</p>
                                         </div>

@@ -149,7 +149,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="tax_value" class="form-label">{{ __('Tax Value (%)') }} *</label>
+                                <label for="tax_value" class="form-label">{{ __('Tax Value') }} (%)</label>
                                 <input type="number" class="form-control" id="tax_value" name="tax_value" step="0.01" min="0" max="100" readonly value="{{ old('tax_value', $offer->tax_value ?? 15) }}" required>
                             </div>
                         </div>

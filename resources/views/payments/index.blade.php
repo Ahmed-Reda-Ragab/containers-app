@@ -28,9 +28,9 @@
                                     <th>{{ __('Contract') }}</th>
                                     <th>{{ __('Customer') }}</th>
                                     <th>{{ __('Amount') }}</th>
-                                    <th>{{ __('Method') }}</th>
+                                    <th>{{ __('Payment Method') }}</th>
                                     <th>{{ __('Status') }}</th>
-                                    <th>{{ __('Recorded By') }}</th>
+                                    <th>{{ __('Created by') }}</th>
                                     <th>{{ __('Actions') }}</th>
                                 </tr>
                             </thead>
@@ -45,7 +45,7 @@
                                         </td>
                                         <td>{{ $payment->contract->customer['name'] ?? '' }}</td>
                                         <td><strong>{{ number_format($payment->payed, 2) }} {{ __('SAR') }}</strong></td>
-                                        <td>{{ $payment->method ?? '' }}</td>
+                                        <td>{{ __($payment->method??'') }}</td>
                                         <td>
                                             <span class="badge bg-{{ $payment->is_payed ? 'success' : 'warning' }}">
                                                 {{ $payment->is_payed ? __('Paid') : __('Pending') }}
