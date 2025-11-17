@@ -32,6 +32,7 @@
                         <th>{{ __('Type') }}</th>
                         <th>{{ __('Containers') }}</th>
                         <th>{{ __('Period') }}</th>
+                        <th>{{ __('Status') }}</th>
                         <th>{{ __('Created At') }}</th>
                         <th>{{ __('Actions') }}</th>
                     </tr>
@@ -44,9 +45,31 @@
                         <td>{{ ucfirst($contract->customer['type'] ?? 'business') }}</td>
                         <td>{{ $contract->no_containers }}</td>
                         <td>{{ $contract->contract_period }} {{ __('months') }}</td>
+                        <td>
+                            <span class="badge bg-{{ $contract->lifecycle_badge }}">{{ ucfirst(str_replace('_', ' ', $contract->lifecycle_status)) }}</span>
+                        </td>
                         <td>{{ optional($contract->created_at)->format('F j, Y, g:i A') }}</td>
                         <td>
-                            <a class="btn btn-sm btn-outline-primary" href="{{ route('contracts.show', $contract) }}">{{ __('View') }}</a>
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-sm btn-outline-primary" href="{{ route('contracts.show', $contract) }}" title="{{ __('View') }}">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-secondary" href="{{ route('contracts.edit', $contract) }}" title="{{ __('Edit') }}">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a class="btn btn-sm btn-outline-info" href="{{ route('contracts.print', $contract) }}" target="_blank" title="{{ __('Print') }}">
+                                    <i class="fas fa-print"></i>
+                                </a>
+                                @if($contract->lifecycle_status !== 'inactive')
+                                    <form action="{{ route('contracts.deactivate', $contract) }}" method="POST" onsubmit="return confirm('{{ __('Deactivate this contract?') }}')" style="display:inline;">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="{{ __('Deactivate') }}">
+                                            <i class="fas fa-power-off"></i>
+                                        </button>
+                                    </form>
+                                @endif
+                            </div>
                         </td>
                     </tr>
                 @empty

@@ -95,6 +95,37 @@ class Offer extends Model
             default => 'secondary'
         };
     }
+
+    public function getIsNearExpiryAttribute(): bool
+    {
+        $referenceDate = $this->valid_until ?? $this->end_date;
+        if (!$referenceDate) {
+            return false;
+        }
+
+        return ($this->status === 'active')
+            && $referenceDate->isFuture()
+            && $referenceDate->diffInDays(now()) <= 10;
+    }
+
+    public function getLifecycleStatusAttribute(): string
+    {
+        $referenceDate = $this->valid_until ?? $this->end_date;
+        if (in_array($this->status, ['expired', 'canceled'], true) || ($referenceDate && $referenceDate->isPast())) {
+            return 'inactive';
+        }
+
+        return $this->is_near_expiry ? 'near_expiry' : 'active';
+    }
+
+    public function getLifecycleBadgeAttribute(): string
+    {
+        return match ($this->lifecycle_status) {
+            'inactive' => 'secondary',
+            'near_expiry' => 'warning',
+            default => 'success',
+        };
+    }
     public function calculateMonthlyContainerPrice()
     {
         return $this->container_price * $this->no_containers * $this->monthly_dumping_cont;

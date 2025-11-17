@@ -12,9 +12,15 @@ class ContainerService
     /**
      * Get all containers with pagination
      */
-    public function getAll(?int $perPage = null)
+    public function getAll(?int $perPage = null, array $filters = [])
     {
-        return $perPage ? Container::latest()->paginate($perPage) : Container::latest()->get();
+        $query = Container::latest();
+
+        if (!empty($filters)) {
+            $query->filter($filters);
+        }
+
+        return $perPage ? $query->paginate($perPage) : $query->get();
     }
 
     /**
@@ -111,9 +117,14 @@ class ContainerService
     public function getStatistics(): array
     {
         $total = Container::count();
-        $byStatus = Container::selectRaw('status, COUNT(*) as count')
+        $counts = Container::selectRaw('status, COUNT(*) as count')
             ->groupBy('status')
-            ->pluck('count', 'status')
+            ->pluck('count', 'status');
+
+        $byStatus = collect(ContainerStatus::cases())
+            ->mapWithKeys(fn (ContainerStatus $status) => [
+                $status->value => (int) ($counts[$status->value] ?? 0),
+            ])
             ->toArray();
 
         return [

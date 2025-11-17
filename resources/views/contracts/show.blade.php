@@ -5,9 +5,19 @@
     <div class="row">
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2>{{ __('Contract Details') }} {{ $contract->number ?? ('#'.$contract->id) }}</h2>
+                <div>
+                    <h2 class="mb-0">{{ __('Contract Details') }} {{ $contract->number ?? ('#'.$contract->id) }}</h2>
+                    <span class="badge bg-{{ $contract->lifecycle_badge }}">{{ ucfirst(str_replace('_', ' ', $contract->lifecycle_status)) }}</span>
+                </div>
 
                 <div class="btn-group" role="group">
+                    <a href="{{ route('contracts.edit', $contract) }}"
+                        class="btn btn-outline-secondary"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="{{ __('Edit Contract') }}">
+                        <i class="fas fa-edit"></i>
+                    </a>
                     <a href="{{ route('contracts.index') }}"
                         class="btn btn-secondary"
                         data-bs-toggle="tooltip"
@@ -53,6 +63,15 @@
                         <i class="fas fa-receipt"></i>
                         <span class="d-none d-md-inline"> {{ __('Create Receipt') }}</span>
                     </a>
+                    @if($contract->lifecycle_status !== 'inactive')
+                        <form action="{{ route('contracts.deactivate', $contract) }}" method="POST" onsubmit="return confirm('{{ __('Deactivate this contract?') }}')">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="btn btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ __('Deactivate') }}">
+                                <i class="fas fa-power-off"></i>
+                            </button>
+                        </form>
+                    @endif
                 </div>
 
 

@@ -109,8 +109,8 @@ class ContractController extends Controller
             $contractData['container_price_w_vat'] = round($containerPrice * (1 + ($taxPercent / 100)), 2);
 
             // Totals similar to store()
-            $monthlyTotalDumpingCost = $contractData['container_price'] * $contractData['no_containers'];
-            $subtotal = $monthlyTotalDumpingCost + $contractData['additional_trip_cost'];
+            $monthlyTotalDumpingCost = $contractData['container_price'] * $contractData['no_containers'] * $contractData['monthly_dumping_cont'];
+            $subtotal = $monthlyTotalDumpingCost;
             $taxAmount = $subtotal * ($contractData['tax_value'] / 100);
             $totalPrice = $subtotal + $taxAmount;
             $contractData['monthly_total_dumping_cost'] = $monthlyTotalDumpingCost;
@@ -263,8 +263,8 @@ class ContractController extends Controller
 
         // Calculate totals
         $validated['additional_trip_cost'] = isset($validated['additional_trip_cost']) && $validated['additional_trip_cost'] > 0 ? $validated['additional_trip_cost'] : $validated['container_price'];
-        $monthlyTotalDumpingCost = $validated['container_price'] * $validated['no_containers'];
-        $subtotal = $monthlyTotalDumpingCost + $validated['additional_trip_cost'];
+        $monthlyTotalDumpingCost = $validated['container_price'] * $validated['no_containers'] * $validated['monthly_dumping_cont'];
+        $subtotal = $monthlyTotalDumpingCost;
         $taxAmount = $subtotal * ($validated['tax_value'] / 100);
         $totalPrice = $subtotal + $taxAmount;
         
@@ -331,7 +331,6 @@ class ContractController extends Controller
             'container_price' => 'required|numeric|min:0',
             'no_containers' => 'required|integer|min:1',
             'monthly_dumping_cont' => 'required|numeric|min:0',
-            'dumping_cost' => 'required|numeric|min:0',
             'additional_trip_cost' => 'required|numeric|min:0',
             'contract_period' => 'required|integer|min:1',
             'tax_value' => 'required|numeric|min:0|max:100',
@@ -350,8 +349,8 @@ class ContractController extends Controller
         $validated['container_price_w_vat'] = round($validated['container_price'] * (1 + ($validated['tax_value'] / 100)), 2);
 
         // Calculate totals
-        $monthlyTotalDumpingCost = $validated['dumping_cost'] * $validated['no_containers'] * $validated['monthly_dumping_cont'];
-        $subtotal = $monthlyTotalDumpingCost;// + $validated['additional_trip_cost'];
+        $monthlyTotalDumpingCost = $validated['container_price'] * $validated['no_containers'] * $validated['monthly_dumping_cont'];
+        $subtotal = $monthlyTotalDumpingCost;
         $taxAmount = $subtotal * ($validated['tax_value'] / 100);
         $totalPrice = $subtotal + $taxAmount;
 
@@ -384,6 +383,20 @@ class ContractController extends Controller
         } catch (\Exception $e) {
             return back()->with('error', __('Failed to delete contract. Please try again.'));
         }
+    }
+
+    /**
+     * Mark contract as inactive/expired.
+     */
+    public function deactivate(Contract $contract)
+    {
+        if (in_array($contract->status, ['expired', 'canceled'], true)) {
+            return back()->with('info', __('Contract already inactive.'));
+        }
+
+        $contract->update(['status' => 'expired']);
+
+        return back()->with('success', __('Contract deactivated successfully.'));
     }
 
     /**

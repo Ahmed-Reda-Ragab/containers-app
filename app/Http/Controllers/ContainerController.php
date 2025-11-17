@@ -22,12 +22,17 @@ class ContainerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        $containers = $this->containerService->getAll();
+        $filters = array_filter(
+            $request->only((new Container())->getFillable()),
+            fn ($value) => $value !== null && $value !== ''
+        );
+
+        $containers = $this->containerService->getAll(null, $filters);
         $sizes = Type::all();
         $statistics = $this->containerService->getStatistics();
-        return view('containers.index', compact('containers', 'sizes', 'statistics'));
+        return view('containers.index', compact('containers', 'sizes', 'statistics', 'filters'));
     }
 
     /**

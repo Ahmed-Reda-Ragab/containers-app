@@ -347,11 +347,10 @@
             const container_price = parseFloat($('#container_price').val()) || 0;
             const noContainers = parseInt($('#no_containers').val()) || 0;
             const monthly_dumping_cont = parseFloat($('#monthly_dumping_cont').val()) || 0;
-            const additional_trip_cost = parseFloat($('#additional_trip_cost').val()) || 0;
             const tax_value = parseFloat($('#tax_value').val()) || 0;
             const contract_period = parseInt($('#contract_period').val()) || 1;
 
-            const monthly_total_dumping_cost = container_price * noContainers;
+            const monthly_total_dumping_cost = container_price * noContainers * monthly_dumping_cont;
             const total_contract_price = monthly_total_dumping_cost * contract_period;
             const subtotal = monthly_total_dumping_cost;
             const tax_amount = subtotal * (tax_value / 100);
@@ -363,7 +362,7 @@
             $('#total_price_display').text(total_price.toFixed(2) + ' {{ __("SAR") }}');
             $('#total_contract_price_display').text(total_contract_price.toFixed(2) + ' {{ __("SAR") }}');
         }
-        $('#container_price, #no_containers, #additional_trip_cost, #tax_value, #contract_period').on('input', calculateTotals);
+        $('#container_price, #no_containers, #tax_value, #contract_period, #monthly_dumping_cont').on('input', calculateTotals);
 
     });
 </script>

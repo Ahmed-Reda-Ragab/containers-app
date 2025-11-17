@@ -19,6 +19,12 @@
                 </div>
 
                 <div class="card-body">
+                    <div class="btn-group mb-3" id="customerTypeToggle" role="group">
+                        <button type="button" class="btn btn-outline-secondary active" data-value="">{{ __('customers.all_types') }}</button>
+                        <button type="button" class="btn btn-outline-secondary" data-value="individual">{{ __('customers.individual') }}</button>
+                        <button type="button" class="btn btn-outline-secondary" data-value="company">{{ __('customers.company') }}</button>
+                    </div>
+
                     @if(session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ session('success') }}
@@ -69,4 +75,24 @@
 
 <!-- Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('customerTypeToggle');
+        const select = document.getElementById('customersTable_filter_type');
+        if (!toggle || !select) {
+            return;
+        }
+
+        toggle.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function () {
+                toggle.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                select.value = this.dataset.value || '';
+                select.dispatchEvent(new Event('change'));
+            });
+        });
+    });
+</script>
+@endpush
 @endsection

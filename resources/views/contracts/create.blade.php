@@ -427,7 +427,7 @@ $isBusiness = isset($type) && $type == 'business';
             const contract_period = parseInt($('#contract_period').val()) || 1;
 
             console.log(container_price, noContainers, monthly_dumping_cont);
-            const monthly_total_dumping_cost = container_price * noContainers;
+            const monthly_total_dumping_cost = container_price * noContainers * monthly_dumping_cont;
             const total_contract_price = monthly_total_dumping_cost * contract_period;
             const subtotal = monthly_total_dumping_cost;
             const tax_amount = subtotal * (tax_value / 100);

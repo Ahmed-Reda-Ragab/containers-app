@@ -125,6 +125,35 @@ class Contract extends Model
             default => 'secondary'
         };
     }
+
+    public function getIsNearExpiryAttribute(): bool
+    {
+        if (!$this->end_date) {
+            return false;
+        }
+
+        return $this->status === 'active'
+            && $this->end_date->isFuture()
+            && $this->end_date->diffInDays(now()) <= 15;
+    }
+
+    public function getLifecycleStatusAttribute(): string
+    {
+        if (in_array($this->status, ['expired', 'canceled'], true) || ($this->end_date && $this->end_date->isPast())) {
+            return 'inactive';
+        }
+
+        return $this->is_near_expiry ? 'near_expiry' : 'active';
+    }
+
+    public function getLifecycleBadgeAttribute(): string
+    {
+        return match ($this->lifecycle_status) {
+            'inactive' => 'secondary',
+            'near_expiry' => 'warning',
+            default => 'success',
+        };
+    }
     public function calculateMonthlyContainerPrice()
     {
         return $this->container_price * $this->no_containers * $this->monthly_dumping_cont;

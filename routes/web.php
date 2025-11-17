@@ -14,6 +14,7 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\IndividualContainerRentalController;
 
 Route::auth();
 
@@ -73,6 +74,7 @@ Route::middleware('auth')->group(function () {
     Route::get('contracts/{contract}/customer-data', [ContractController::class, 'getCustomerData'])->name('contracts.customer-data')->middleware('permission:contract.show');
     Route::post('contracts/convert-from-offer', [ContractController::class, 'convertFromOffer'])->name('contracts.convert-from-offer')->middleware('permission:contract.create');
     Route::get('contracts/{contract}/print', [ContractController::class, 'print'])->name('contracts.print')->middleware('permission:contract.print');
+    Route::patch('contracts/{contract}/deactivate', [ContractController::class, 'deactivate'])->name('contracts.deactivate')->middleware('permission:contract.edit');
     
     // Payments routes
     Route::resource('payments', PaymentController::class)->middleware([
@@ -145,6 +147,8 @@ Route::middleware('auth')->group(function () {
         'update' => 'permission:offer.edit',
         'destroy' => 'permission:offer.delete',
     ]);
+    Route::get('offers/{offer}/print', [App\Http\Controllers\OfferCrudController::class, 'print'])->name('offers.print')->middleware('permission:offer.show');
+    Route::patch('offers/{offer}/deactivate', [App\Http\Controllers\OfferCrudController::class, 'deactivate'])->name('offers.deactivate')->middleware('permission:offer.edit');
     Route::get('offers-search', [OfferController::class, 'search'])->name('offers.search')->middleware('permission:offer.search');
     Route::get('offers/{offer}/data', [OfferController::class, 'data'])->name('offers.data')->middleware('permission:offer.show');
 

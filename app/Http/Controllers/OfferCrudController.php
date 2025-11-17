@@ -79,7 +79,7 @@ class OfferCrudController extends Controller
             'size_id' => 'required|exists:sizes,id',
             'container_price' => 'required|numeric|min:0',
             'no_containers' => 'required|integer|min:1',
-            'monthly_dumping_cont' => 'required|numeric|min:0',
+            'monthly_dumping_cont' => 'required|numeric|min:1',
             'additional_trip_cost' => 'required|numeric|min:0',
             'contract_period' => 'required|integer|min:1',
             'tax_value' => 'required|numeric|min:0|max:100',
@@ -94,8 +94,8 @@ class OfferCrudController extends Controller
             'valid_until' => 'nullable|date|after:today',
         ]);
 
-        $validated['monthly_total_dumping_cost'] = $validated['container_price'] * $validated['no_containers'];
-        $subtotal = $validated['monthly_total_dumping_cost'] + $validated['additional_trip_cost'];
+        $validated['monthly_total_dumping_cost'] = $validated['container_price'] * $validated['no_containers'] * $validated['monthly_dumping_cont'];
+        $subtotal = $validated['monthly_total_dumping_cost'];
         $validated['total_price'] = $subtotal + ($subtotal * ($validated['tax_value'] / 100));
 
         $offer->update($validated);
@@ -106,6 +106,26 @@ class OfferCrudController extends Controller
     {
         $offer->delete();
         return redirect()->route('offers.index')->with('success', __('Offer deleted.'));
+    }
+
+    public function print(Offer $offer)
+    {
+        $offer->load(['customerData', 'size']);
+        return view('offers.print', compact('offer'));
+    }
+
+    public function deactivate(Offer $offer)
+    {
+        if (in_array($offer->status, ['expired', 'canceled'], true)) {
+            return back()->with('info', __('Offer already inactive.'));
+        }
+
+        $offer->update([
+            'status' => 'expired',
+            'valid_until' => now(),
+        ]);
+
+        return back()->with('success', __('Offer deactivated successfully.'));
     }
 }
 

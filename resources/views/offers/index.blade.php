@@ -29,15 +29,37 @@
                         <td>{{ __(ucfirst($offer->customer['type'] ?? 'business')) }}</td>
                         <td>{{ $offer->no_containers }}</td>
                         <td>{{ $offer->contract_period }} {{ __('months') }}</td>
-                        <td>{{ __(ucfirst($offer->status ?? 'draft')) }}</td>
                         <td>
-                            <a class="btn btn-sm btn-outline-primary" href="{{ route('offers.show', $offer) }}">{{ __('View') }}</a>
-
-                            <form action="{{ route('offers.destroy', $offer) }}" method="POST" class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-outline-danger">{{ __('Delete') }}</button>
-                            </form>
+                            <span class="badge bg-{{ $offer->lifecycle_badge }}">{{ __(ucfirst(str_replace('_', ' ', $offer->lifecycle_status ?? 'active'))) }}</span>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <a class="btn btn-outline-primary" href="{{ route('offers.show', $offer) }}" title="{{ __('View') }}">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a class="btn btn-outline-secondary" href="{{ route('offers.edit', $offer) }}" title="{{ __('Edit') }}">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a class="btn btn-outline-info" href="{{ route('offers.print', $offer) }}" target="_blank" title="{{ __('Print') }}">
+                                    <i class="fas fa-print"></i>
+                                </a>
+                                <form action="{{ route('offers.destroy', $offer) }}" method="POST" class="d-inline" onsubmit="return confirm('{{ __('Delete this offer?') }}')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline-danger" title="{{ __('Delete') }}">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                                @if($offer->lifecycle_status !== 'inactive')
+                                    <form action="{{ route('offers.deactivate', $offer) }}" method="POST" class="d-inline" onsubmit="return confirm('{{ __('Deactivate this quotation?') }}')">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="btn btn-outline-warning" title="{{ __('Deactivate') }}">
+                                            <i class="fas fa-power-off"></i>
+                                        </button>
+                                    </form>
+                                @endif
+                            </div>
                         </td>
                     </tr>
                 @empty

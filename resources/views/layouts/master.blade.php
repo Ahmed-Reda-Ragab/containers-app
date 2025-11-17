@@ -15,17 +15,18 @@
             'urlPattern' => ['/', 'home'],
         ],
         [
+            'title' => __('Container Fills'),
+            'icon' => 'cube',
+            'route' => Route::has('contract-container-fills.index') ? route('contract-container-fills.index') : '#',
+            'pattern' => ['contract-container-filled'],
+        ],
+        [
             'title' => __('Containers'),
             'icon' => 'truck',
             'route' => Route::has('containers.index') ? route('containers.index') : '#',
             'pattern' => ['containers.*'],
         ],
-        [
-            'title' => __('Customers'),
-            'icon' => 'profile-circle',
-            'route' => Route::has('customers.index') ? route('customers.index') : '#',
-            'pattern' => ['customers.*'],
-        ],
+        
         [
             'title' => __('Contracts'),
             'icon' => 'address-book',
@@ -49,6 +50,12 @@
                     'query' => ['type' => 'individual'],
                 ],
             ],
+        ],
+        [
+            'title' => __('Customers'),
+            'icon' => 'profile-circle',
+            'route' => Route::has('customers.index') ? route('customers.index') : '#',
+            'pattern' => ['customers.*'],
         ],
         [
             'title' => __('Payments'),
@@ -89,12 +96,7 @@
                 ],
             ],
         ],
-        [
-            'title' => __('Container Fills'),
-            'icon' => 'cube',
-            'route' => Route::has('contract-container-fills.index') ? route('contract-container-fills.index') : '#',
-            'pattern' => ['contract-container-filled'],
-        ],
+       
         [
             'title' => __('Receipts'),
             'icon' => 'receipt',

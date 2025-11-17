@@ -19,24 +19,22 @@ class ContractContainerFillController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        if(request()->ajax()){
-            return $this->datatable(request());
+        if($request->ajax()){
+            return $this->datatable($request);
         }
 
         return view('contract-container-fills.index');
     }
 
-    public function filled()
+    public function filled(Request $request)
     {
-        $fills = ContractContainerFill::with(['contract.customer', 'container', 'deliver', 'discharge', 'client'])
-            // ->where('status', ContainerStatus::IN_USE->value)
-            ->whereNull('discharge_date')
-            ->orderBy('created_at', 'desc')
-            ->paginate(15);
+        if($request->ajax()){
+            return $this->datatable($request);
+        }
         $filled = true;
-        return view('contract-container-fills.index', compact('fills' , 'filled'));
+        return view('contract-container-fills.index', compact('filled'));
     }
 
     /**
@@ -99,6 +97,15 @@ public function datatable(Request $request)
         'discharge',
         'dischargeCar'
     ]);
+
+    $fillableFilters = array_filter(
+        $request->only((new ContractContainerFill())->getFillable()),
+        fn ($value) => $value !== null && $value !== ''
+    );
+
+    if (!empty($fillableFilters)) {
+        $fills->filter($fillableFilters);
+    }
 
     $searchValue = $request->input('search.value');
 

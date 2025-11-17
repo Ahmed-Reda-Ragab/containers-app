@@ -21,21 +21,30 @@
                         </div>
                     </div>
                 </div>
-                @foreach($statistics['by_status'] as $status => $count)
-                    <div class="col-md-3">
-                        <div class="card bg-{{ $status === 'available' ? 'success' : ($status === 'in_use' ? 'warning' : 'danger') }} text-white">
+                @php
+                    $statusCards = [
+                        'available' => ['label' => __('Available'), 'bg' => 'success', 'icon' => 'check-circle'],
+                        'in_use' => ['label' => __('In Use'), 'bg' => 'warning', 'icon' => 'truck'],
+                        'filled' => ['label' => __('Filled'), 'bg' => 'info', 'icon' => 'box'],
+                        'maintenance' => ['label' => __('Maintenance'), 'bg' => 'secondary', 'icon' => 'tools'],
+                        'out_of_service' => ['label' => __('Out of Service'), 'bg' => 'danger', 'icon' => 'ban'],
+                    ];
+                @endphp
+                @foreach($statusCards as $status => $meta)
+                    <div class="col-md-3 mb-3">
+                        <a href="{{ route('containers.index', ['status' => $status]) }}" class="card text-white bg-{{ $meta['bg'] }} text-decoration-none">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <h4 class="mb-0">{{ $count }}</h4>
-                                        <p class="mb-0">{{ ucfirst(str_replace('_', ' ', $status)) }}</p>
+                                        <h4 class="mb-0">{{ $statistics['by_status'][$status] ?? 0 }}</h4>
+                                        <p class="mb-0">{{ $meta['label'] }}</p>
                                     </div>
                                     <div class="align-self-center">
-                                        <i class="fas fa-{{ $status === 'available' ? 'check-circle' : ($status === 'in_use' ? 'clock' : 'exclamation-triangle') }} fa-2x"></i>
+                                        <i class="fas fa-{{ $meta['icon'] }} fa-2x"></i>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             </div>

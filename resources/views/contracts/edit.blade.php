@@ -342,14 +342,13 @@
 
         // Calculate totals when values change
         function calculateTotals() {
-            const dumpingCost = parseFloat($('#dumping_cost').val()) || 0;
             const noContainers = parseInt($('#no_containers').val()) || 0;
-            const additionalTripCost = parseFloat($('#additional_trip_cost').val()) || 0;
+            const monthlyDumping = parseFloat($('#monthly_dumping_cont').val()) || 0;
             const taxValue = parseFloat($('#tax_value').val()) || 0;
             const basePrice = parseFloat($('#container_price').val()) || 0;
 
-            const monthlyTotalDumpingCost = dumpingCost * noContainers;
-            const subtotal = monthlyTotalDumpingCost + additionalTripCost;
+            const monthlyTotalDumpingCost = basePrice * noContainers * monthlyDumping;
+            const subtotal = monthlyTotalDumpingCost;
             const taxAmount = subtotal * (taxValue / 100);
             const totalPrice = subtotal + taxAmount;
 
@@ -364,7 +363,7 @@
         }
 
         // Bind calculation to input changes
-        $('#dumping_cost, #no_containers, #additional_trip_cost, #tax_value, #container_price').on('input', calculateTotals);
+        $('#no_containers, #monthly_dumping_cont, #tax_value, #container_price').on('input', calculateTotals);
 
         // Set end date when start date changes
         $('#start_date').change(function() {
